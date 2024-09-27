@@ -2396,6 +2396,14 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./SOW/Src/Traffic_light.o
  .data          0x0000000000000000        0x0 ./SOW/Src/Traffic_light.o
  .bss           0x0000000000000000        0x0 ./SOW/Src/Traffic_light.o
+ .text.traffic_green_red
+                0x0000000000000000       0x28 ./SOW/Src/Traffic_light.o
+ .text.traffic_yellow_red
+                0x0000000000000000       0x28 ./SOW/Src/Traffic_light.o
+ .text.traffic_red_green
+                0x0000000000000000       0x28 ./SOW/Src/Traffic_light.o
+ .text.traffic_red_yellow
+                0x0000000000000000       0x28 ./SOW/Src/Traffic_light.o
  .text.traffic_mannual_green_red
                 0x0000000000000000       0x40 ./SOW/Src/Traffic_light.o
  .text.traffic_mannual_yellow_red
@@ -3368,7 +3376,7 @@ LOAD c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide
                 0x0000000008000000                g_pfnVectors
                 0x000000000800010c                . = ALIGN (0x4)
 
-.text           0x000000000800010c     0x214c
+.text           0x000000000800010c     0x2050
                 0x000000000800010c                . = ALIGN (0x4)
  *(.text)
  .text          0x000000000800010c       0x40 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
@@ -3593,131 +3601,119 @@ LOAD c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide
                 0x0000000008001d44       0xaa ./SOW/Src/Traffic_light.o
                 0x0000000008001d44                traffic_display
  *fill*         0x0000000008001dee        0x2 
- .text.traffic_green_red
-                0x0000000008001df0       0x28 ./SOW/Src/Traffic_light.o
-                0x0000000008001df0                traffic_green_red
- .text.traffic_yellow_red
-                0x0000000008001e18       0x28 ./SOW/Src/Traffic_light.o
-                0x0000000008001e18                traffic_yellow_red
- .text.traffic_red_green
-                0x0000000008001e40       0x28 ./SOW/Src/Traffic_light.o
-                0x0000000008001e40                traffic_red_green
- .text.traffic_red_yellow
-                0x0000000008001e68       0x28 ./SOW/Src/Traffic_light.o
-                0x0000000008001e68                traffic_red_yellow
  .text.automatic_run
-                0x0000000008001e90       0xc8 ./SOW/Src/automatic.o
-                0x0000000008001e90                automatic_run
+                0x0000000008001df0       0x6c ./SOW/Src/automatic.o
+                0x0000000008001df0                automatic_run
  .text.ex5_init
-                0x0000000008001f58        0xc ./SOW/Src/ex5.o
-                0x0000000008001f58                ex5_init
- .text.ex5_run  0x0000000008001f64        0xc ./SOW/Src/ex5.o
-                0x0000000008001f64                ex5_run
+                0x0000000008001e5c        0xc ./SOW/Src/ex5.o
+                0x0000000008001e5c                ex5_init
+ .text.ex5_run  0x0000000008001e68        0xc ./SOW/Src/ex5.o
+                0x0000000008001e68                ex5_run
  .text.button_reading
-                0x0000000008001f70      0x12c ./SOW/Src/input_reading.o
-                0x0000000008001f70                button_reading
+                0x0000000008001e74      0x12c ./SOW/Src/input_reading.o
+                0x0000000008001e74                button_reading
  .text.is_button_pressed
-                0x000000000800209c       0x3c ./SOW/Src/input_reading.o
-                0x000000000800209c                is_button_pressed
+                0x0000000008001fa0       0x3c ./SOW/Src/input_reading.o
+                0x0000000008001fa0                is_button_pressed
  .text.manual_run
-                0x00000000080020d8       0x4c ./SOW/Src/manual.o
-                0x00000000080020d8                manual_run
+                0x0000000008001fdc       0x4c ./SOW/Src/manual.o
+                0x0000000008001fdc                manual_run
  .text.setTimer1
-                0x0000000008002124       0x3c ./SOW/Src/software_timer.o
-                0x0000000008002124                setTimer1
+                0x0000000008002028       0x3c ./SOW/Src/software_timer.o
+                0x0000000008002028                setTimer1
  .text.SetTimerForTimerSet
-                0x0000000008002160       0x28 ./SOW/Src/software_timer.o
-                0x0000000008002160                SetTimerForTimerSet
+                0x0000000008002064       0x28 ./SOW/Src/software_timer.o
+                0x0000000008002064                SetTimerForTimerSet
  .text.timerRun
-                0x0000000008002188       0x60 ./SOW/Src/software_timer.o
-                0x0000000008002188                timerRun
+                0x000000000800208c       0x60 ./SOW/Src/software_timer.o
+                0x000000000800208c                timerRun
  .text.__libc_init_array
-                0x00000000080021e8       0x48 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-init.o)
-                0x00000000080021e8                __libc_init_array
- .text.memset   0x0000000008002230       0x10 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memset.o)
-                0x0000000008002230                memset
+                0x00000000080020ec       0x48 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-init.o)
+                0x00000000080020ec                __libc_init_array
+ .text.memset   0x0000000008002134       0x10 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memset.o)
+                0x0000000008002134                memset
  *(.glue_7)
- .glue_7        0x0000000008002240        0x0 linker stubs
+ .glue_7        0x0000000008002144        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000008002240        0x0 linker stubs
+ .glue_7t       0x0000000008002144        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0000000008002240        0x0 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
+ .eh_frame      0x0000000008002144        0x0 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
  *(.init)
- .init          0x0000000008002240        0x4 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crti.o
-                0x0000000008002240                _init
- .init          0x0000000008002244        0x8 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtn.o
+ .init          0x0000000008002144        0x4 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crti.o
+                0x0000000008002144                _init
+ .init          0x0000000008002148        0x8 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtn.o
  *(.fini)
- .fini          0x000000000800224c        0x4 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crti.o
-                0x000000000800224c                _fini
- .fini          0x0000000008002250        0x8 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtn.o
-                0x0000000008002258                . = ALIGN (0x4)
-                0x0000000008002258                _etext = .
+ .fini          0x0000000008002150        0x4 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crti.o
+                0x0000000008002150                _fini
+ .fini          0x0000000008002154        0x8 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtn.o
+                0x000000000800215c                . = ALIGN (0x4)
+                0x000000000800215c                _etext = .
 
-.vfp11_veneer   0x0000000008002258        0x0
- .vfp11_veneer  0x0000000008002258        0x0 linker stubs
+.vfp11_veneer   0x000000000800215c        0x0
+ .vfp11_veneer  0x000000000800215c        0x0 linker stubs
 
-.v4_bx          0x0000000008002258        0x0
- .v4_bx         0x0000000008002258        0x0 linker stubs
+.v4_bx          0x000000000800215c        0x0
+ .v4_bx         0x000000000800215c        0x0 linker stubs
 
-.iplt           0x0000000008002258        0x0
- .iplt          0x0000000008002258        0x0 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
+.iplt           0x000000000800215c        0x0
+ .iplt          0x000000000800215c        0x0 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
 
-.rodata         0x0000000008002258       0x24
-                0x0000000008002258                . = ALIGN (0x4)
+.rodata         0x000000000800215c       0x24
+                0x000000000800215c                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
  .rodata.AHBPrescTable
-                0x0000000008002258       0x10 ./Core/Src/system_stm32f1xx.o
-                0x0000000008002258                AHBPrescTable
+                0x000000000800215c       0x10 ./Core/Src/system_stm32f1xx.o
+                0x000000000800215c                AHBPrescTable
  .rodata.aPLLMULFactorTable.6032
-                0x0000000008002268       0x10 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+                0x000000000800216c       0x10 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
  .rodata.aPredivFactorTable.6033
-                0x0000000008002278        0x2 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
-                0x000000000800227c                . = ALIGN (0x4)
- *fill*         0x000000000800227a        0x2 
+                0x000000000800217c        0x2 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+                0x0000000008002180                . = ALIGN (0x4)
+ *fill*         0x000000000800217e        0x2 
 
-.rel.dyn        0x000000000800227c        0x0
- .rel.iplt      0x000000000800227c        0x0 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
+.rel.dyn        0x0000000008002180        0x0
+ .rel.iplt      0x0000000008002180        0x0 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
 
-.ARM.extab      0x000000000800227c        0x0
-                0x000000000800227c                . = ALIGN (0x4)
+.ARM.extab      0x0000000008002180        0x0
+                0x0000000008002180                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000000000800227c                . = ALIGN (0x4)
+                0x0000000008002180                . = ALIGN (0x4)
 
-.ARM            0x000000000800227c        0x0
-                0x000000000800227c                . = ALIGN (0x4)
-                0x000000000800227c                __exidx_start = .
+.ARM            0x0000000008002180        0x0
+                0x0000000008002180                . = ALIGN (0x4)
+                0x0000000008002180                __exidx_start = .
  *(.ARM.exidx*)
-                0x000000000800227c                __exidx_end = .
-                0x000000000800227c                . = ALIGN (0x4)
+                0x0000000008002180                __exidx_end = .
+                0x0000000008002180                . = ALIGN (0x4)
 
-.preinit_array  0x000000000800227c        0x0
-                0x000000000800227c                . = ALIGN (0x4)
-                0x000000000800227c                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0000000008002180        0x0
+                0x0000000008002180                . = ALIGN (0x4)
+                0x0000000008002180                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x000000000800227c                PROVIDE (__preinit_array_end = .)
-                0x000000000800227c                . = ALIGN (0x4)
+                0x0000000008002180                PROVIDE (__preinit_array_end = .)
+                0x0000000008002180                . = ALIGN (0x4)
 
-.init_array     0x000000000800227c        0x4
-                0x000000000800227c                . = ALIGN (0x4)
-                0x000000000800227c                PROVIDE (__init_array_start = .)
+.init_array     0x0000000008002180        0x4
+                0x0000000008002180                . = ALIGN (0x4)
+                0x0000000008002180                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x000000000800227c        0x4 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
-                0x0000000008002280                PROVIDE (__init_array_end = .)
-                0x0000000008002280                . = ALIGN (0x4)
+ .init_array    0x0000000008002180        0x4 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
+                0x0000000008002184                PROVIDE (__init_array_end = .)
+                0x0000000008002184                . = ALIGN (0x4)
 
-.fini_array     0x0000000008002280        0x4
-                0x0000000008002280                . = ALIGN (0x4)
+.fini_array     0x0000000008002184        0x4
+                0x0000000008002184                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000000008002280        0x4 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
+ .fini_array    0x0000000008002184        0x4 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0000000008002284                . = ALIGN (0x4)
-                0x0000000008002284                _sidata = LOADADDR (.data)
+                0x0000000008002188                . = ALIGN (0x4)
+                0x0000000008002188                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000       0x2c load address 0x0000000008002284
+.data           0x0000000020000000       0x2c load address 0x0000000008002188
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -3751,11 +3747,11 @@ LOAD c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide
                 0x000000002000002c                . = ALIGN (0x4)
                 0x000000002000002c                _edata = .
 
-.igot.plt       0x000000002000002c        0x0 load address 0x00000000080022b0
+.igot.plt       0x000000002000002c        0x0 load address 0x00000000080021b4
  .igot.plt      0x000000002000002c        0x0 c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
                 0x000000002000002c                . = ALIGN (0x4)
 
-.bss            0x000000002000002c       0xd0 load address 0x00000000080022b0
+.bss            0x000000002000002c       0xd0 load address 0x00000000080021b4
                 0x000000002000002c                _sbss = .
                 0x000000002000002c                __bss_start__ = _sbss
  *(.bss)
@@ -3792,7 +3788,7 @@ LOAD c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide
                 0x00000000200000fc                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x00000000200000fc      0x604 load address 0x00000000080022b0
+                0x00000000200000fc      0x604 load address 0x00000000080021b4
                 0x0000000020000100                . = ALIGN (0x8)
  *fill*         0x00000000200000fc        0x4 
                 [!provide]                        PROVIDE (end = .)
@@ -4025,7 +4021,7 @@ LOAD c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide
  .debug_macro   0x00000000000170b6      0x21c ./SOW/Src/manual.o
  .debug_macro   0x00000000000172d2      0x1b0 ./SOW/Src/software_timer.o
 
-.debug_line     0x0000000000000000     0xd007
+.debug_line     0x0000000000000000     0xcfde
  .debug_line    0x0000000000000000      0x72c ./Core/Src/ex4.o
  .debug_line    0x000000000000072c      0x854 ./Core/Src/main.o
  .debug_line    0x0000000000000f80      0x6c5 ./Core/Src/stm32f1xx_hal_msp.o
@@ -4039,12 +4035,12 @@ LOAD c:/users/thuyh/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide
  .debug_line    0x000000000000507c     0x3385 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
  .debug_line    0x0000000000008401     0x184a ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
  .debug_line    0x0000000000009c4b      0x8a2 ./SOW/Src/Traffic_light.o
- .debug_line    0x000000000000a4ed      0x774 ./SOW/Src/automatic.o
- .debug_line    0x000000000000ac61      0x721 ./SOW/Src/ex5.o
- .debug_line    0x000000000000b382      0x6f2 ./SOW/Src/global.o
- .debug_line    0x000000000000ba74      0x750 ./SOW/Src/input_reading.o
- .debug_line    0x000000000000c1c4      0x742 ./SOW/Src/manual.o
- .debug_line    0x000000000000c906      0x701 ./SOW/Src/software_timer.o
+ .debug_line    0x000000000000a4ed      0x74b ./SOW/Src/automatic.o
+ .debug_line    0x000000000000ac38      0x721 ./SOW/Src/ex5.o
+ .debug_line    0x000000000000b359      0x6f2 ./SOW/Src/global.o
+ .debug_line    0x000000000000ba4b      0x750 ./SOW/Src/input_reading.o
+ .debug_line    0x000000000000c19b      0x742 ./SOW/Src/manual.o
+ .debug_line    0x000000000000c8dd      0x701 ./SOW/Src/software_timer.o
 
 .debug_str      0x0000000000000000    0x8273d
  .debug_str     0x0000000000000000    0x7fa3a ./Core/Src/ex4.o

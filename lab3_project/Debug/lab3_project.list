@@ -5,25 +5,25 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .isr_vector   0000010c  08000000  08000000  00010000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  1 .text         0000214c  0800010c  0800010c  0001010c  2**2
+  1 .text         00002050  0800010c  0800010c  0001010c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000024  08002258  08002258  00012258  2**2
+  2 .rodata       00000024  0800215c  0800215c  0001215c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  0800227c  0800227c  0002002c  2**0
+  3 .ARM.extab    00000000  08002180  08002180  0002002c  2**0
                   CONTENTS
-  4 .ARM          00000000  0800227c  0800227c  0002002c  2**0
+  4 .ARM          00000000  08002180  08002180  0002002c  2**0
                   CONTENTS
-  5 .preinit_array 00000000  0800227c  0800227c  0002002c  2**0
+  5 .preinit_array 00000000  08002180  08002180  0002002c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  0800227c  0800227c  0001227c  2**2
+  6 .init_array   00000004  08002180  08002180  00012180  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  08002280  08002280  00012280  2**2
+  7 .fini_array   00000004  08002184  08002184  00012184  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         0000002c  20000000  08002284  00020000  2**2
+  8 .data         0000002c  20000000  08002188  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000000d0  2000002c  080022b0  0002002c  2**2
+  9 .bss          000000d0  2000002c  080021b4  0002002c  2**2
                   ALLOC
- 10 ._user_heap_stack 00000604  200000fc  080022b0  000200fc  2**0
+ 10 ._user_heap_stack 00000604  200000fc  080021b4  000200fc  2**0
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  0002002c  2**0
                   CONTENTS, READONLY
@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00017482  00000000  00000000  0002ca68  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000d007  00000000  00000000  00043eea  2**0
+ 17 .debug_line   0000cfde  00000000  00000000  00043eea  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008273d  00000000  00000000  00050ef1  2**0
+ 18 .debug_str    0008273d  00000000  00000000  00050ec8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000d362e  2**0
+ 19 .comment      00000053  00000000  00000000  000d3605  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002938  00000000  00000000  000d3684  2**2
+ 20 .debug_frame  00002938  00000000  00000000  000d3658  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -62,7 +62,7 @@ Disassembly of section .text:
  8000122:	bd10      	pop	{r4, pc}
  8000124:	2000002c 	.word	0x2000002c
  8000128:	00000000 	.word	0x00000000
- 800012c:	08002240 	.word	0x08002240
+ 800012c:	08002144 	.word	0x08002144
 
 08000130 <frame_dummy>:
  8000130:	b508      	push	{r3, lr}
@@ -74,7 +74,7 @@ Disassembly of section .text:
  800013e:	bd08      	pop	{r3, pc}
  8000140:	00000000 	.word	0x00000000
  8000144:	20000030 	.word	0x20000030
- 8000148:	08002240 	.word	0x08002240
+ 8000148:	08002144 	.word	0x08002144
 
 0800014c <ex4_init>:
  *
@@ -89,7 +89,7 @@ void ex4_init(){
  8000150:	220a      	movs	r2, #10
  8000152:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  8000156:	2000      	movs	r0, #0
- 8000158:	f002 f802 	bl	8002160 <SetTimerForTimerSet>
+ 8000158:	f001 ff84 	bl	8002064 <SetTimerForTimerSet>
 }
  800015c:	bf00      	nop
  800015e:	bd80      	pop	{r7, pc}
@@ -111,7 +111,7 @@ void ex4_run(){
  8000174:	220a      	movs	r2, #10
  8000176:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  800017a:	2000      	movs	r0, #0
- 800017c:	f001 fff0 	bl	8002160 <SetTimerForTimerSet>
+ 800017c:	f001 ff72 	bl	8002064 <SetTimerForTimerSet>
 	}
 }
  8000180:	bf00      	nop
@@ -159,7 +159,7 @@ int main(void)
   ex4_init();
  80001a8:	f7ff ffd0 	bl	800014c <ex4_init>
   ex5_init();
- 80001ac:	f001 fed4 	bl	8001f58 <ex5_init>
+ 80001ac:	f001 fe56 	bl	8001e5c <ex5_init>
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -168,9 +168,9 @@ int main(void)
 	  ex4_run();
  80001b0:	f7ff ffd6 	bl	8000160 <ex4_run>
 	  ex5_run();
- 80001b4:	f001 fed6 	bl	8001f64 <ex5_run>
+ 80001b4:	f001 fe58 	bl	8001e68 <ex5_run>
 	  automatic_run();
- 80001b8:	f001 fe6a 	bl	8001e90 <automatic_run>
+ 80001b8:	f001 fe1a 	bl	8001df0 <automatic_run>
 	  traffic_double_display(GPIOA, RED_1_Pin, YELLOW_1_Pin, GREEN_1_Pin, GPIOA, RED_2_Pin, YELLOW_2_Pin, GREEN_2_Pin, status);
  80001bc:	4b0a      	ldr	r3, [pc, #40]	; (80001e8 <main+0x5c>)
  80001be:	681b      	ldr	r3, [r3, #0]
@@ -210,7 +210,7 @@ void SystemClock_Config(void)
  80001fa:	2228      	movs	r2, #40	; 0x28
  80001fc:	2100      	movs	r1, #0
  80001fe:	4618      	mov	r0, r3
- 8000200:	f002 f816 	bl	8002230 <memset>
+ 8000200:	f001 ff98 	bl	8002134 <memset>
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
  8000204:	1d3b      	adds	r3, r7, #4
  8000206:	2200      	movs	r2, #0
@@ -546,11 +546,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  80003e8:	af00      	add	r7, sp, #0
  80003ea:	6078      	str	r0, [r7, #4]
 	timerRun();
- 80003ec:	f001 fecc 	bl	8002188 <timerRun>
+ 80003ec:	f001 fe4e 	bl	800208c <timerRun>
 	button_reading(GPIOx, GPIO_Pin);
  80003f0:	4903      	ldr	r1, [pc, #12]	; (8000400 <HAL_TIM_PeriodElapsedCallback+0x1c>)
  80003f2:	4804      	ldr	r0, [pc, #16]	; (8000404 <HAL_TIM_PeriodElapsedCallback+0x20>)
- 80003f4:	f001 fdbc 	bl	8001f70 <button_reading>
+ 80003f4:	f001 fd3e 	bl	8001e74 <button_reading>
 }
  80003f8:	bf00      	nop
  80003fa:	3708      	adds	r7, #8
@@ -976,7 +976,7 @@ LoopFillZerobss:
 
 /* Call static constructors */
     bl __libc_init_array
- 800055a:	f001 fe45 	bl	80021e8 <__libc_init_array>
+ 800055a:	f001 fdc7 	bl	80020ec <__libc_init_array>
 /* Call the application's entry point.*/
   bl main
  800055e:	f7ff fe15 	bl	800018c <main>
@@ -987,7 +987,7 @@ LoopFillZerobss:
   ldr r1, =_edata
  8000568:	2000002c 	.word	0x2000002c
   ldr r2, =_sidata
- 800056c:	08002284 	.word	0x08002284
+ 800056c:	08002188 	.word	0x08002188
   ldr r2, =_sbss
  8000570:	2000002c 	.word	0x2000002c
   ldr r4, =_ebss
@@ -3380,7 +3380,7 @@ if (((RCC_ClkInitStruct->ClockType) & RCC_CLOCKTYPE_PCLK1) == RCC_CLOCKTYPE_PCLK
  800129e:	bf00      	nop
  80012a0:	40022000 	.word	0x40022000
  80012a4:	40021000 	.word	0x40021000
- 80012a8:	08002258 	.word	0x08002258
+ 80012a8:	0800215c 	.word	0x0800215c
  80012ac:	20000014 	.word	0x20000014
  80012b0:	20000018 	.word	0x20000018
 
@@ -3515,8 +3515,8 @@ uint32_t HAL_RCC_GetSysClockFreq(void)
  8001346:	bf00      	nop
  8001348:	40021000 	.word	0x40021000
  800134c:	007a1200 	.word	0x007a1200
- 8001350:	08002268 	.word	0x08002268
- 8001354:	08002278 	.word	0x08002278
+ 8001350:	0800216c 	.word	0x0800216c
+ 8001354:	0800217c 	.word	0x0800217c
  8001358:	003d0900 	.word	0x003d0900
 
 0800135c <RCC_Delay>:
@@ -5448,741 +5448,571 @@ void traffic_display(GPIO_TypeDef * GPIOx, uint16_t LED_RED, uint16_t LED_YELLOW
  8001dec:	bd80      	pop	{r7, pc}
 	...
 
-08001df0 <traffic_green_red>:
-
-void traffic_green_red(){
- 8001df0:	b580      	push	{r7, lr}
- 8001df2:	af00      	add	r7, sp, #0
-	if(timer1_flag[0]==1){
- 8001df4:	4b06      	ldr	r3, [pc, #24]	; (8001e10 <traffic_green_red+0x20>)
- 8001df6:	681b      	ldr	r3, [r3, #0]
- 8001df8:	2b01      	cmp	r3, #1
- 8001dfa:	d107      	bne.n	8001e0c <traffic_green_red+0x1c>
-		status = YELLOW_RED;
- 8001dfc:	4b05      	ldr	r3, [pc, #20]	; (8001e14 <traffic_green_red+0x24>)
- 8001dfe:	2203      	movs	r2, #3
- 8001e00:	601a      	str	r2, [r3, #0]
-		setTimer1(0, 2000);
- 8001e02:	f44f 61fa 	mov.w	r1, #2000	; 0x7d0
- 8001e06:	2000      	movs	r0, #0
- 8001e08:	f000 f98c 	bl	8002124 <setTimer1>
-		status = MAN_GREEN_RED;
-		button1_flag = 0;
-		setTimer1(1,10000);
-		}
-	*/
-}
- 8001e0c:	bf00      	nop
- 8001e0e:	bd80      	pop	{r7, pc}
- 8001e10:	200000ac 	.word	0x200000ac
- 8001e14:	20000020 	.word	0x20000020
-
-08001e18 <traffic_yellow_red>:
-
-void traffic_yellow_red(){
- 8001e18:	b580      	push	{r7, lr}
- 8001e1a:	af00      	add	r7, sp, #0
-	if(timer1_flag[0]==1){
- 8001e1c:	4b06      	ldr	r3, [pc, #24]	; (8001e38 <traffic_yellow_red+0x20>)
- 8001e1e:	681b      	ldr	r3, [r3, #0]
- 8001e20:	2b01      	cmp	r3, #1
- 8001e22:	d107      	bne.n	8001e34 <traffic_yellow_red+0x1c>
-		status = RED_GREEN;
- 8001e24:	4b05      	ldr	r3, [pc, #20]	; (8001e3c <traffic_yellow_red+0x24>)
- 8001e26:	2204      	movs	r2, #4
- 8001e28:	601a      	str	r2, [r3, #0]
-		setTimer1(0, 3000);
- 8001e2a:	f640 31b8 	movw	r1, #3000	; 0xbb8
- 8001e2e:	2000      	movs	r0, #0
- 8001e30:	f000 f978 	bl	8002124 <setTimer1>
-		status = MAN_YELLOW_RED;
-		button1_flag = 0;
-		setTimer1(1, 10000);
-	}
-	*/
-}
- 8001e34:	bf00      	nop
- 8001e36:	bd80      	pop	{r7, pc}
- 8001e38:	200000ac 	.word	0x200000ac
- 8001e3c:	20000020 	.word	0x20000020
-
-08001e40 <traffic_red_green>:
-
-void traffic_red_green(){
- 8001e40:	b580      	push	{r7, lr}
- 8001e42:	af00      	add	r7, sp, #0
-	if(timer1_flag[0]==1){
- 8001e44:	4b06      	ldr	r3, [pc, #24]	; (8001e60 <traffic_red_green+0x20>)
- 8001e46:	681b      	ldr	r3, [r3, #0]
- 8001e48:	2b01      	cmp	r3, #1
- 8001e4a:	d107      	bne.n	8001e5c <traffic_red_green+0x1c>
-		status = RED_YELLOW;
- 8001e4c:	4b05      	ldr	r3, [pc, #20]	; (8001e64 <traffic_red_green+0x24>)
- 8001e4e:	2205      	movs	r2, #5
- 8001e50:	601a      	str	r2, [r3, #0]
-		setTimer1(0, 2000);
- 8001e52:	f44f 61fa 	mov.w	r1, #2000	; 0x7d0
- 8001e56:	2000      	movs	r0, #0
- 8001e58:	f000 f964 	bl	8002124 <setTimer1>
-		status = MAN_RED_GREEN;
-		button1_flag = 0;
-		setTimer1(1, 10000);
-	}
-	*/
-}
- 8001e5c:	bf00      	nop
- 8001e5e:	bd80      	pop	{r7, pc}
- 8001e60:	200000ac 	.word	0x200000ac
- 8001e64:	20000020 	.word	0x20000020
-
-08001e68 <traffic_red_yellow>:
-
-void traffic_red_yellow(){
- 8001e68:	b580      	push	{r7, lr}
- 8001e6a:	af00      	add	r7, sp, #0
-	if(timer1_flag[0]==1){
- 8001e6c:	4b06      	ldr	r3, [pc, #24]	; (8001e88 <traffic_red_yellow+0x20>)
- 8001e6e:	681b      	ldr	r3, [r3, #0]
- 8001e70:	2b01      	cmp	r3, #1
- 8001e72:	d107      	bne.n	8001e84 <traffic_red_yellow+0x1c>
-		status = GREEN_RED;
- 8001e74:	4b05      	ldr	r3, [pc, #20]	; (8001e8c <traffic_red_yellow+0x24>)
- 8001e76:	2202      	movs	r2, #2
- 8001e78:	601a      	str	r2, [r3, #0]
-		setTimer1(0, 3000);
- 8001e7a:	f640 31b8 	movw	r1, #3000	; 0xbb8
- 8001e7e:	2000      	movs	r0, #0
- 8001e80:	f000 f950 	bl	8002124 <setTimer1>
-		status = MAN_RED_YELLOW;
-		button1_flag = 0;
-		setTimer1(1, 10000);
-	}
-	*/
-}
- 8001e84:	bf00      	nop
- 8001e86:	bd80      	pop	{r7, pc}
- 8001e88:	200000ac 	.word	0x200000ac
- 8001e8c:	20000020 	.word	0x20000020
-
-08001e90 <automatic_run>:
+08001df0 <automatic_run>:
  */
 #include "automatic.h"
 void automatic_init(){
 
 }
 void automatic_run(){
- 8001e90:	b580      	push	{r7, lr}
- 8001e92:	af00      	add	r7, sp, #0
+ 8001df0:	b580      	push	{r7, lr}
+ 8001df2:	af00      	add	r7, sp, #0
 
 	if(is_button_pressed(0)){
- 8001e94:	2000      	movs	r0, #0
- 8001e96:	f000 f901 	bl	800209c <is_button_pressed>
- 8001e9a:	4603      	mov	r3, r0
- 8001e9c:	2b00      	cmp	r3, #0
- 8001e9e:	d025      	beq.n	8001eec <automatic_run+0x5c>
+ 8001df4:	2000      	movs	r0, #0
+ 8001df6:	f000 f8d3 	bl	8001fa0 <is_button_pressed>
+ 8001dfa:	4603      	mov	r3, r0
+ 8001dfc:	2b00      	cmp	r3, #0
+ 8001dfe:	d025      	beq.n	8001e4c <automatic_run+0x5c>
 		switch(status){
- 8001ea0:	4b2b      	ldr	r3, [pc, #172]	; (8001f50 <automatic_run+0xc0>)
- 8001ea2:	681b      	ldr	r3, [r3, #0]
- 8001ea4:	3b01      	subs	r3, #1
- 8001ea6:	2b04      	cmp	r3, #4
- 8001ea8:	d822      	bhi.n	8001ef0 <automatic_run+0x60>
- 8001eaa:	a201      	add	r2, pc, #4	; (adr r2, 8001eb0 <automatic_run+0x20>)
- 8001eac:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
- 8001eb0:	08001ec5 	.word	0x08001ec5
- 8001eb4:	08001ecd 	.word	0x08001ecd
- 8001eb8:	08001ed5 	.word	0x08001ed5
- 8001ebc:	08001edd 	.word	0x08001edd
- 8001ec0:	08001ee5 	.word	0x08001ee5
+ 8001e00:	4b15      	ldr	r3, [pc, #84]	; (8001e58 <automatic_run+0x68>)
+ 8001e02:	681b      	ldr	r3, [r3, #0]
+ 8001e04:	3b01      	subs	r3, #1
+ 8001e06:	2b04      	cmp	r3, #4
+ 8001e08:	d822      	bhi.n	8001e50 <automatic_run+0x60>
+ 8001e0a:	a201      	add	r2, pc, #4	; (adr r2, 8001e10 <automatic_run+0x20>)
+ 8001e0c:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
+ 8001e10:	08001e25 	.word	0x08001e25
+ 8001e14:	08001e2d 	.word	0x08001e2d
+ 8001e18:	08001e35 	.word	0x08001e35
+ 8001e1c:	08001e3d 	.word	0x08001e3d
+ 8001e20:	08001e45 	.word	0x08001e45
 			case INIT:
 				status = SET_TIME_RED;
- 8001ec4:	4b22      	ldr	r3, [pc, #136]	; (8001f50 <automatic_run+0xc0>)
- 8001ec6:	2206      	movs	r2, #6
- 8001ec8:	601a      	str	r2, [r3, #0]
+ 8001e24:	4b0c      	ldr	r3, [pc, #48]	; (8001e58 <automatic_run+0x68>)
+ 8001e26:	2206      	movs	r2, #6
+ 8001e28:	601a      	str	r2, [r3, #0]
 				break;
- 8001eca:	e012      	b.n	8001ef2 <automatic_run+0x62>
+ 8001e2a:	e012      	b.n	8001e52 <automatic_run+0x62>
 			case GREEN_RED:
 				status = SET_TIME_RED;
- 8001ecc:	4b20      	ldr	r3, [pc, #128]	; (8001f50 <automatic_run+0xc0>)
- 8001ece:	2206      	movs	r2, #6
- 8001ed0:	601a      	str	r2, [r3, #0]
+ 8001e2c:	4b0a      	ldr	r3, [pc, #40]	; (8001e58 <automatic_run+0x68>)
+ 8001e2e:	2206      	movs	r2, #6
+ 8001e30:	601a      	str	r2, [r3, #0]
 				break;
- 8001ed2:	e00e      	b.n	8001ef2 <automatic_run+0x62>
+ 8001e32:	e00e      	b.n	8001e52 <automatic_run+0x62>
 			case YELLOW_RED:
 				status = SET_TIME_RED;
- 8001ed4:	4b1e      	ldr	r3, [pc, #120]	; (8001f50 <automatic_run+0xc0>)
- 8001ed6:	2206      	movs	r2, #6
- 8001ed8:	601a      	str	r2, [r3, #0]
+ 8001e34:	4b08      	ldr	r3, [pc, #32]	; (8001e58 <automatic_run+0x68>)
+ 8001e36:	2206      	movs	r2, #6
+ 8001e38:	601a      	str	r2, [r3, #0]
 				break;
- 8001eda:	e00a      	b.n	8001ef2 <automatic_run+0x62>
+ 8001e3a:	e00a      	b.n	8001e52 <automatic_run+0x62>
 			case RED_GREEN:
 				status = SET_TIME_RED;
- 8001edc:	4b1c      	ldr	r3, [pc, #112]	; (8001f50 <automatic_run+0xc0>)
- 8001ede:	2206      	movs	r2, #6
- 8001ee0:	601a      	str	r2, [r3, #0]
+ 8001e3c:	4b06      	ldr	r3, [pc, #24]	; (8001e58 <automatic_run+0x68>)
+ 8001e3e:	2206      	movs	r2, #6
+ 8001e40:	601a      	str	r2, [r3, #0]
 				break;
- 8001ee2:	e006      	b.n	8001ef2 <automatic_run+0x62>
+ 8001e42:	e006      	b.n	8001e52 <automatic_run+0x62>
 			case RED_YELLOW:
 				status = SET_TIME_RED;
- 8001ee4:	4b1a      	ldr	r3, [pc, #104]	; (8001f50 <automatic_run+0xc0>)
- 8001ee6:	2206      	movs	r2, #6
- 8001ee8:	601a      	str	r2, [r3, #0]
+ 8001e44:	4b04      	ldr	r3, [pc, #16]	; (8001e58 <automatic_run+0x68>)
+ 8001e46:	2206      	movs	r2, #6
+ 8001e48:	601a      	str	r2, [r3, #0]
 				break;
- 8001eea:	e002      	b.n	8001ef2 <automatic_run+0x62>
+ 8001e4a:	e002      	b.n	8001e52 <automatic_run+0x62>
 			default:
 				break;
 		}
 	}
- 8001eec:	bf00      	nop
- 8001eee:	e000      	b.n	8001ef2 <automatic_run+0x62>
+ 8001e4c:	bf00      	nop
+ 8001e4e:	e000      	b.n	8001e52 <automatic_run+0x62>
 				break;
- 8001ef0:	bf00      	nop
-
-	switch(status)
- 8001ef2:	4b17      	ldr	r3, [pc, #92]	; (8001f50 <automatic_run+0xc0>)
- 8001ef4:	681b      	ldr	r3, [r3, #0]
- 8001ef6:	3b01      	subs	r3, #1
- 8001ef8:	2b04      	cmp	r3, #4
- 8001efa:	d825      	bhi.n	8001f48 <automatic_run+0xb8>
- 8001efc:	a201      	add	r2, pc, #4	; (adr r2, 8001f04 <automatic_run+0x74>)
- 8001efe:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
- 8001f02:	bf00      	nop
- 8001f04:	08001f19 	.word	0x08001f19
- 8001f08:	08001f31 	.word	0x08001f31
- 8001f0c:	08001f37 	.word	0x08001f37
- 8001f10:	08001f3d 	.word	0x08001f3d
- 8001f14:	08001f43 	.word	0x08001f43
-	{
-	case (INIT):
-			if(1){
-				status = GREEN_RED;
- 8001f18:	4b0d      	ldr	r3, [pc, #52]	; (8001f50 <automatic_run+0xc0>)
- 8001f1a:	2202      	movs	r2, #2
- 8001f1c:	601a      	str	r2, [r3, #0]
-				setTimer1(0, 3000);
- 8001f1e:	f640 31b8 	movw	r1, #3000	; 0xbb8
- 8001f22:	2000      	movs	r0, #0
- 8001f24:	f000 f8fe 	bl	8002124 <setTimer1>
-				timer1_flag[1] = 1;
- 8001f28:	4b0a      	ldr	r3, [pc, #40]	; (8001f54 <automatic_run+0xc4>)
- 8001f2a:	2201      	movs	r2, #1
- 8001f2c:	605a      	str	r2, [r3, #4]
-			}
+ 8001e50:	bf00      	nop
 			break;
- 8001f2e:	e00c      	b.n	8001f4a <automatic_run+0xba>
-	case (GREEN_RED):
-			// TODO
-				traffic_green_red();
- 8001f30:	f7ff ff5e 	bl	8001df0 <traffic_green_red>
-			break;
- 8001f34:	e009      	b.n	8001f4a <automatic_run+0xba>
-	case (YELLOW_RED):
-				traffic_yellow_red();
- 8001f36:	f7ff ff6f 	bl	8001e18 <traffic_yellow_red>
-			break;
- 8001f3a:	e006      	b.n	8001f4a <automatic_run+0xba>
-	case (RED_GREEN):
-				traffic_red_green();
- 8001f3c:	f7ff ff80 	bl	8001e40 <traffic_red_green>
-			break;
- 8001f40:	e003      	b.n	8001f4a <automatic_run+0xba>
-	case (RED_YELLOW):
-				traffic_red_yellow();
- 8001f42:	f7ff ff91 	bl	8001e68 <traffic_red_yellow>
-			break;
- 8001f46:	e000      	b.n	8001f4a <automatic_run+0xba>
 	default:
 		break;
- 8001f48:	bf00      	nop
 	}
+	*/
 }
- 8001f4a:	bf00      	nop
- 8001f4c:	bd80      	pop	{r7, pc}
- 8001f4e:	bf00      	nop
- 8001f50:	20000020 	.word	0x20000020
- 8001f54:	200000ac 	.word	0x200000ac
+ 8001e52:	bf00      	nop
+ 8001e54:	bd80      	pop	{r7, pc}
+ 8001e56:	bf00      	nop
+ 8001e58:	20000020 	.word	0x20000020
 
-08001f58 <ex5_init>:
+08001e5c <ex5_init>:
  *
  *  Created on: Sep 27, 2024
  *      Author: thuyh
  */
 #include "ex5.h"
 void ex5_init(){
- 8001f58:	b480      	push	{r7}
- 8001f5a:	af00      	add	r7, sp, #0
+ 8001e5c:	b480      	push	{r7}
+ 8001e5e:	af00      	add	r7, sp, #0
 
 }
- 8001f5c:	bf00      	nop
- 8001f5e:	46bd      	mov	sp, r7
- 8001f60:	bc80      	pop	{r7}
- 8001f62:	4770      	bx	lr
+ 8001e60:	bf00      	nop
+ 8001e62:	46bd      	mov	sp, r7
+ 8001e64:	bc80      	pop	{r7}
+ 8001e66:	4770      	bx	lr
 
-08001f64 <ex5_run>:
+08001e68 <ex5_run>:
 void ex5_run(){
- 8001f64:	b580      	push	{r7, lr}
- 8001f66:	af00      	add	r7, sp, #0
+ 8001e68:	b580      	push	{r7, lr}
+ 8001e6a:	af00      	add	r7, sp, #0
 	manual_run();
- 8001f68:	f000 f8b6 	bl	80020d8 <manual_run>
+ 8001e6c:	f000 f8b6 	bl	8001fdc <manual_run>
 }
- 8001f6c:	bf00      	nop
- 8001f6e:	bd80      	pop	{r7, pc}
+ 8001e70:	bf00      	nop
+ 8001e72:	bd80      	pop	{r7, pc}
 
-08001f70 <button_reading>:
+08001e74 <button_reading>:
 static GPIO_PinState debounceButtonBuffer3[N0_OF_BUTTONS];
 static GPIO_PinState debounceButtonBuffer4[N0_OF_BUTTONS];
 static uint8_t flagForButtonPress[N0_OF_BUTTONS]; // flag for button pressed (AN) hon 1 giay
 static uint8_t flagForButton_longPress[N0_OF_BUTTONS];
 int time_out_input = 500;
 void button_reading ( GPIO_TypeDef* GPIOx[] , uint16_t GPIO_Pin[] ) {
- 8001f70:	b580      	push	{r7, lr}
- 8001f72:	b084      	sub	sp, #16
- 8001f74:	af00      	add	r7, sp, #0
- 8001f76:	6078      	str	r0, [r7, #4]
- 8001f78:	6039      	str	r1, [r7, #0]
+ 8001e74:	b580      	push	{r7, lr}
+ 8001e76:	b084      	sub	sp, #16
+ 8001e78:	af00      	add	r7, sp, #0
+ 8001e7a:	6078      	str	r0, [r7, #4]
+ 8001e7c:	6039      	str	r1, [r7, #0]
 	for (int i = 0 ; i< N0_OF_BUTTONS ; i ++ ){
- 8001f7a:	2300      	movs	r3, #0
- 8001f7c:	60fb      	str	r3, [r7, #12]
- 8001f7e:	e077      	b.n	8002070 <button_reading+0x100>
+ 8001e7e:	2300      	movs	r3, #0
+ 8001e80:	60fb      	str	r3, [r7, #12]
+ 8001e82:	e077      	b.n	8001f74 <button_reading+0x100>
 		debounceButtonBuffer3[i] = debounceButtonBuffer2[i];
- 8001f80:	4a3f      	ldr	r2, [pc, #252]	; (8002080 <button_reading+0x110>)
- 8001f82:	68fb      	ldr	r3, [r7, #12]
- 8001f84:	4413      	add	r3, r2
- 8001f86:	7819      	ldrb	r1, [r3, #0]
- 8001f88:	4a3e      	ldr	r2, [pc, #248]	; (8002084 <button_reading+0x114>)
- 8001f8a:	68fb      	ldr	r3, [r7, #12]
- 8001f8c:	4413      	add	r3, r2
- 8001f8e:	460a      	mov	r2, r1
- 8001f90:	701a      	strb	r2, [r3, #0]
+ 8001e84:	4a3f      	ldr	r2, [pc, #252]	; (8001f84 <button_reading+0x110>)
+ 8001e86:	68fb      	ldr	r3, [r7, #12]
+ 8001e88:	4413      	add	r3, r2
+ 8001e8a:	7819      	ldrb	r1, [r3, #0]
+ 8001e8c:	4a3e      	ldr	r2, [pc, #248]	; (8001f88 <button_reading+0x114>)
+ 8001e8e:	68fb      	ldr	r3, [r7, #12]
+ 8001e90:	4413      	add	r3, r2
+ 8001e92:	460a      	mov	r2, r1
+ 8001e94:	701a      	strb	r2, [r3, #0]
 		debounceButtonBuffer2[i] = debounceButtonBuffer1[i];
- 8001f92:	4a3d      	ldr	r2, [pc, #244]	; (8002088 <button_reading+0x118>)
- 8001f94:	68fb      	ldr	r3, [r7, #12]
- 8001f96:	4413      	add	r3, r2
- 8001f98:	7819      	ldrb	r1, [r3, #0]
- 8001f9a:	4a39      	ldr	r2, [pc, #228]	; (8002080 <button_reading+0x110>)
- 8001f9c:	68fb      	ldr	r3, [r7, #12]
- 8001f9e:	4413      	add	r3, r2
- 8001fa0:	460a      	mov	r2, r1
- 8001fa2:	701a      	strb	r2, [r3, #0]
+ 8001e96:	4a3d      	ldr	r2, [pc, #244]	; (8001f8c <button_reading+0x118>)
+ 8001e98:	68fb      	ldr	r3, [r7, #12]
+ 8001e9a:	4413      	add	r3, r2
+ 8001e9c:	7819      	ldrb	r1, [r3, #0]
+ 8001e9e:	4a39      	ldr	r2, [pc, #228]	; (8001f84 <button_reading+0x110>)
+ 8001ea0:	68fb      	ldr	r3, [r7, #12]
+ 8001ea2:	4413      	add	r3, r2
+ 8001ea4:	460a      	mov	r2, r1
+ 8001ea6:	701a      	strb	r2, [r3, #0]
 		debounceButtonBuffer1[i] = HAL_GPIO_ReadPin(GPIOx[i], GPIO_Pin[i]);
- 8001fa4:	68fb      	ldr	r3, [r7, #12]
- 8001fa6:	009b      	lsls	r3, r3, #2
- 8001fa8:	687a      	ldr	r2, [r7, #4]
- 8001faa:	4413      	add	r3, r2
- 8001fac:	6818      	ldr	r0, [r3, #0]
- 8001fae:	68fb      	ldr	r3, [r7, #12]
- 8001fb0:	005b      	lsls	r3, r3, #1
- 8001fb2:	683a      	ldr	r2, [r7, #0]
- 8001fb4:	4413      	add	r3, r2
- 8001fb6:	881b      	ldrh	r3, [r3, #0]
- 8001fb8:	4619      	mov	r1, r3
- 8001fba:	f7fe fdc9 	bl	8000b50 <HAL_GPIO_ReadPin>
- 8001fbe:	4603      	mov	r3, r0
- 8001fc0:	4619      	mov	r1, r3
- 8001fc2:	4a31      	ldr	r2, [pc, #196]	; (8002088 <button_reading+0x118>)
- 8001fc4:	68fb      	ldr	r3, [r7, #12]
- 8001fc6:	4413      	add	r3, r2
- 8001fc8:	460a      	mov	r2, r1
- 8001fca:	701a      	strb	r2, [r3, #0]
+ 8001ea8:	68fb      	ldr	r3, [r7, #12]
+ 8001eaa:	009b      	lsls	r3, r3, #2
+ 8001eac:	687a      	ldr	r2, [r7, #4]
+ 8001eae:	4413      	add	r3, r2
+ 8001eb0:	6818      	ldr	r0, [r3, #0]
+ 8001eb2:	68fb      	ldr	r3, [r7, #12]
+ 8001eb4:	005b      	lsls	r3, r3, #1
+ 8001eb6:	683a      	ldr	r2, [r7, #0]
+ 8001eb8:	4413      	add	r3, r2
+ 8001eba:	881b      	ldrh	r3, [r3, #0]
+ 8001ebc:	4619      	mov	r1, r3
+ 8001ebe:	f7fe fe47 	bl	8000b50 <HAL_GPIO_ReadPin>
+ 8001ec2:	4603      	mov	r3, r0
+ 8001ec4:	4619      	mov	r1, r3
+ 8001ec6:	4a31      	ldr	r2, [pc, #196]	; (8001f8c <button_reading+0x118>)
+ 8001ec8:	68fb      	ldr	r3, [r7, #12]
+ 8001eca:	4413      	add	r3, r2
+ 8001ecc:	460a      	mov	r2, r1
+ 8001ece:	701a      	strb	r2, [r3, #0]
 		if(debounceButtonBuffer3[i] == debounceButtonBuffer2[i] && debounceButtonBuffer2[i] == debounceButtonBuffer1[i]){
- 8001fcc:	4a2d      	ldr	r2, [pc, #180]	; (8002084 <button_reading+0x114>)
- 8001fce:	68fb      	ldr	r3, [r7, #12]
- 8001fd0:	4413      	add	r3, r2
- 8001fd2:	781a      	ldrb	r2, [r3, #0]
- 8001fd4:	492a      	ldr	r1, [pc, #168]	; (8002080 <button_reading+0x110>)
- 8001fd6:	68fb      	ldr	r3, [r7, #12]
- 8001fd8:	440b      	add	r3, r1
- 8001fda:	781b      	ldrb	r3, [r3, #0]
- 8001fdc:	429a      	cmp	r2, r3
- 8001fde:	d144      	bne.n	800206a <button_reading+0xfa>
- 8001fe0:	4a27      	ldr	r2, [pc, #156]	; (8002080 <button_reading+0x110>)
- 8001fe2:	68fb      	ldr	r3, [r7, #12]
- 8001fe4:	4413      	add	r3, r2
- 8001fe6:	781a      	ldrb	r2, [r3, #0]
- 8001fe8:	4927      	ldr	r1, [pc, #156]	; (8002088 <button_reading+0x118>)
- 8001fea:	68fb      	ldr	r3, [r7, #12]
- 8001fec:	440b      	add	r3, r1
- 8001fee:	781b      	ldrb	r3, [r3, #0]
- 8001ff0:	429a      	cmp	r2, r3
- 8001ff2:	d13a      	bne.n	800206a <button_reading+0xfa>
+ 8001ed0:	4a2d      	ldr	r2, [pc, #180]	; (8001f88 <button_reading+0x114>)
+ 8001ed2:	68fb      	ldr	r3, [r7, #12]
+ 8001ed4:	4413      	add	r3, r2
+ 8001ed6:	781a      	ldrb	r2, [r3, #0]
+ 8001ed8:	492a      	ldr	r1, [pc, #168]	; (8001f84 <button_reading+0x110>)
+ 8001eda:	68fb      	ldr	r3, [r7, #12]
+ 8001edc:	440b      	add	r3, r1
+ 8001ede:	781b      	ldrb	r3, [r3, #0]
+ 8001ee0:	429a      	cmp	r2, r3
+ 8001ee2:	d144      	bne.n	8001f6e <button_reading+0xfa>
+ 8001ee4:	4a27      	ldr	r2, [pc, #156]	; (8001f84 <button_reading+0x110>)
+ 8001ee6:	68fb      	ldr	r3, [r7, #12]
+ 8001ee8:	4413      	add	r3, r2
+ 8001eea:	781a      	ldrb	r2, [r3, #0]
+ 8001eec:	4927      	ldr	r1, [pc, #156]	; (8001f8c <button_reading+0x118>)
+ 8001eee:	68fb      	ldr	r3, [r7, #12]
+ 8001ef0:	440b      	add	r3, r1
+ 8001ef2:	781b      	ldrb	r3, [r3, #0]
+ 8001ef4:	429a      	cmp	r2, r3
+ 8001ef6:	d13a      	bne.n	8001f6e <button_reading+0xfa>
 			// Het Rung
 			if(debounceButtonBuffer4[i]!=debounceButtonBuffer1[i]){
- 8001ff4:	4a25      	ldr	r2, [pc, #148]	; (800208c <button_reading+0x11c>)
- 8001ff6:	68fb      	ldr	r3, [r7, #12]
- 8001ff8:	4413      	add	r3, r2
- 8001ffa:	781a      	ldrb	r2, [r3, #0]
- 8001ffc:	4922      	ldr	r1, [pc, #136]	; (8002088 <button_reading+0x118>)
- 8001ffe:	68fb      	ldr	r3, [r7, #12]
- 8002000:	440b      	add	r3, r1
- 8002002:	781b      	ldrb	r3, [r3, #0]
- 8002004:	429a      	cmp	r2, r3
- 8002006:	d018      	beq.n	800203a <button_reading+0xca>
+ 8001ef8:	4a25      	ldr	r2, [pc, #148]	; (8001f90 <button_reading+0x11c>)
+ 8001efa:	68fb      	ldr	r3, [r7, #12]
+ 8001efc:	4413      	add	r3, r2
+ 8001efe:	781a      	ldrb	r2, [r3, #0]
+ 8001f00:	4922      	ldr	r1, [pc, #136]	; (8001f8c <button_reading+0x118>)
+ 8001f02:	68fb      	ldr	r3, [r7, #12]
+ 8001f04:	440b      	add	r3, r1
+ 8001f06:	781b      	ldrb	r3, [r3, #0]
+ 8001f08:	429a      	cmp	r2, r3
+ 8001f0a:	d018      	beq.n	8001f3e <button_reading+0xca>
 				// Dong bo lai tin hieu
 				debounceButtonBuffer4[i]=debounceButtonBuffer1[i];
- 8002008:	4a1f      	ldr	r2, [pc, #124]	; (8002088 <button_reading+0x118>)
- 800200a:	68fb      	ldr	r3, [r7, #12]
- 800200c:	4413      	add	r3, r2
- 800200e:	7819      	ldrb	r1, [r3, #0]
- 8002010:	4a1e      	ldr	r2, [pc, #120]	; (800208c <button_reading+0x11c>)
- 8002012:	68fb      	ldr	r3, [r7, #12]
- 8002014:	4413      	add	r3, r2
- 8002016:	460a      	mov	r2, r1
- 8002018:	701a      	strb	r2, [r3, #0]
+ 8001f0c:	4a1f      	ldr	r2, [pc, #124]	; (8001f8c <button_reading+0x118>)
+ 8001f0e:	68fb      	ldr	r3, [r7, #12]
+ 8001f10:	4413      	add	r3, r2
+ 8001f12:	7819      	ldrb	r1, [r3, #0]
+ 8001f14:	4a1e      	ldr	r2, [pc, #120]	; (8001f90 <button_reading+0x11c>)
+ 8001f16:	68fb      	ldr	r3, [r7, #12]
+ 8001f18:	4413      	add	r3, r2
+ 8001f1a:	460a      	mov	r2, r1
+ 8001f1c:	701a      	strb	r2, [r3, #0]
 				if(debounceButtonBuffer4[i] == BUTTON_IS_PRESSED){
- 800201a:	4a1c      	ldr	r2, [pc, #112]	; (800208c <button_reading+0x11c>)
- 800201c:	68fb      	ldr	r3, [r7, #12]
- 800201e:	4413      	add	r3, r2
- 8002020:	781b      	ldrb	r3, [r3, #0]
- 8002022:	2b00      	cmp	r3, #0
- 8002024:	d121      	bne.n	800206a <button_reading+0xfa>
+ 8001f1e:	4a1c      	ldr	r2, [pc, #112]	; (8001f90 <button_reading+0x11c>)
+ 8001f20:	68fb      	ldr	r3, [r7, #12]
+ 8001f22:	4413      	add	r3, r2
+ 8001f24:	781b      	ldrb	r3, [r3, #0]
+ 8001f26:	2b00      	cmp	r3, #0
+ 8001f28:	d121      	bne.n	8001f6e <button_reading+0xfa>
 					// Vua chuyen sang trang thai nhan
 					time_out_input = 500;
- 8002026:	4b1a      	ldr	r3, [pc, #104]	; (8002090 <button_reading+0x120>)
- 8002028:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
- 800202c:	601a      	str	r2, [r3, #0]
+ 8001f2a:	4b1a      	ldr	r3, [pc, #104]	; (8001f94 <button_reading+0x120>)
+ 8001f2c:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
+ 8001f30:	601a      	str	r2, [r3, #0]
 					flagForButtonPress[i] = 1;
- 800202e:	4a19      	ldr	r2, [pc, #100]	; (8002094 <button_reading+0x124>)
- 8002030:	68fb      	ldr	r3, [r7, #12]
- 8002032:	4413      	add	r3, r2
- 8002034:	2201      	movs	r2, #1
- 8002036:	701a      	strb	r2, [r3, #0]
- 8002038:	e017      	b.n	800206a <button_reading+0xfa>
+ 8001f32:	4a19      	ldr	r2, [pc, #100]	; (8001f98 <button_reading+0x124>)
+ 8001f34:	68fb      	ldr	r3, [r7, #12]
+ 8001f36:	4413      	add	r3, r2
+ 8001f38:	2201      	movs	r2, #1
+ 8001f3a:	701a      	strb	r2, [r3, #0]
+ 8001f3c:	e017      	b.n	8001f6e <button_reading+0xfa>
 				}
 			}
 			else{
 				// Dang trong qua trinh nhan de hoac nha
 				time_out_input -- ;
- 800203a:	4b15      	ldr	r3, [pc, #84]	; (8002090 <button_reading+0x120>)
- 800203c:	681b      	ldr	r3, [r3, #0]
- 800203e:	3b01      	subs	r3, #1
- 8002040:	4a13      	ldr	r2, [pc, #76]	; (8002090 <button_reading+0x120>)
- 8002042:	6013      	str	r3, [r2, #0]
+ 8001f3e:	4b15      	ldr	r3, [pc, #84]	; (8001f94 <button_reading+0x120>)
+ 8001f40:	681b      	ldr	r3, [r3, #0]
+ 8001f42:	3b01      	subs	r3, #1
+ 8001f44:	4a13      	ldr	r2, [pc, #76]	; (8001f94 <button_reading+0x120>)
+ 8001f46:	6013      	str	r3, [r2, #0]
 				if(time_out_input == 0 ){
- 8002044:	4b12      	ldr	r3, [pc, #72]	; (8002090 <button_reading+0x120>)
- 8002046:	681b      	ldr	r3, [r3, #0]
- 8002048:	2b00      	cmp	r3, #0
- 800204a:	d10e      	bne.n	800206a <button_reading+0xfa>
+ 8001f48:	4b12      	ldr	r3, [pc, #72]	; (8001f94 <button_reading+0x120>)
+ 8001f4a:	681b      	ldr	r3, [r3, #0]
+ 8001f4c:	2b00      	cmp	r3, #0
+ 8001f4e:	d10e      	bne.n	8001f6e <button_reading+0xfa>
 					// Nhan du 5s hoac tha 5s
 					time_out_input = 500;
- 800204c:	4b10      	ldr	r3, [pc, #64]	; (8002090 <button_reading+0x120>)
- 800204e:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
- 8002052:	601a      	str	r2, [r3, #0]
+ 8001f50:	4b10      	ldr	r3, [pc, #64]	; (8001f94 <button_reading+0x120>)
+ 8001f52:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
+ 8001f56:	601a      	str	r2, [r3, #0]
 					if(debounceButtonBuffer4[i] == BUTTON_IS_PRESSED){
- 8002054:	4a0d      	ldr	r2, [pc, #52]	; (800208c <button_reading+0x11c>)
- 8002056:	68fb      	ldr	r3, [r7, #12]
- 8002058:	4413      	add	r3, r2
- 800205a:	781b      	ldrb	r3, [r3, #0]
- 800205c:	2b00      	cmp	r3, #0
- 800205e:	d104      	bne.n	800206a <button_reading+0xfa>
+ 8001f58:	4a0d      	ldr	r2, [pc, #52]	; (8001f90 <button_reading+0x11c>)
+ 8001f5a:	68fb      	ldr	r3, [r7, #12]
+ 8001f5c:	4413      	add	r3, r2
+ 8001f5e:	781b      	ldrb	r3, [r3, #0]
+ 8001f60:	2b00      	cmp	r3, #0
+ 8001f62:	d104      	bne.n	8001f6e <button_reading+0xfa>
 						// Truong hop la nhan de
 						flagForButton_longPress[i] = 1;
- 8002060:	4a0d      	ldr	r2, [pc, #52]	; (8002098 <button_reading+0x128>)
- 8002062:	68fb      	ldr	r3, [r7, #12]
- 8002064:	4413      	add	r3, r2
- 8002066:	2201      	movs	r2, #1
- 8002068:	701a      	strb	r2, [r3, #0]
+ 8001f64:	4a0d      	ldr	r2, [pc, #52]	; (8001f9c <button_reading+0x128>)
+ 8001f66:	68fb      	ldr	r3, [r7, #12]
+ 8001f68:	4413      	add	r3, r2
+ 8001f6a:	2201      	movs	r2, #1
+ 8001f6c:	701a      	strb	r2, [r3, #0]
 	for (int i = 0 ; i< N0_OF_BUTTONS ; i ++ ){
- 800206a:	68fb      	ldr	r3, [r7, #12]
- 800206c:	3301      	adds	r3, #1
- 800206e:	60fb      	str	r3, [r7, #12]
- 8002070:	68fb      	ldr	r3, [r7, #12]
- 8002072:	2b00      	cmp	r3, #0
- 8002074:	dd84      	ble.n	8001f80 <button_reading+0x10>
+ 8001f6e:	68fb      	ldr	r3, [r7, #12]
+ 8001f70:	3301      	adds	r3, #1
+ 8001f72:	60fb      	str	r3, [r7, #12]
+ 8001f74:	68fb      	ldr	r3, [r7, #12]
+ 8001f76:	2b00      	cmp	r3, #0
+ 8001f78:	dd84      	ble.n	8001e84 <button_reading+0x10>
 					}
 				}
 			}
 		}
 	}
 }
- 8002076:	bf00      	nop
- 8002078:	bf00      	nop
- 800207a:	3710      	adds	r7, #16
- 800207c:	46bd      	mov	sp, r7
- 800207e:	bd80      	pop	{r7, pc}
- 8002080:	2000004c 	.word	0x2000004c
- 8002084:	20000050 	.word	0x20000050
- 8002088:	20000048 	.word	0x20000048
- 800208c:	20000054 	.word	0x20000054
- 8002090:	20000024 	.word	0x20000024
- 8002094:	20000058 	.word	0x20000058
- 8002098:	2000005c 	.word	0x2000005c
+ 8001f7a:	bf00      	nop
+ 8001f7c:	bf00      	nop
+ 8001f7e:	3710      	adds	r7, #16
+ 8001f80:	46bd      	mov	sp, r7
+ 8001f82:	bd80      	pop	{r7, pc}
+ 8001f84:	2000004c 	.word	0x2000004c
+ 8001f88:	20000050 	.word	0x20000050
+ 8001f8c:	20000048 	.word	0x20000048
+ 8001f90:	20000054 	.word	0x20000054
+ 8001f94:	20000024 	.word	0x20000024
+ 8001f98:	20000058 	.word	0x20000058
+ 8001f9c:	2000005c 	.word	0x2000005c
 
-0800209c <is_button_pressed>:
+08001fa0 <is_button_pressed>:
 unsigned int is_button_pressed ( unsigned int index ){
- 800209c:	b480      	push	{r7}
- 800209e:	b083      	sub	sp, #12
- 80020a0:	af00      	add	r7, sp, #0
- 80020a2:	6078      	str	r0, [r7, #4]
+ 8001fa0:	b480      	push	{r7}
+ 8001fa2:	b083      	sub	sp, #12
+ 8001fa4:	af00      	add	r7, sp, #0
+ 8001fa6:	6078      	str	r0, [r7, #4]
 	// Tra ve trang thai nut nhan co dang bat hay khong
 	if(index>= N0_OF_BUTTONS){
- 80020a4:	687b      	ldr	r3, [r7, #4]
- 80020a6:	2b00      	cmp	r3, #0
- 80020a8:	d001      	beq.n	80020ae <is_button_pressed+0x12>
+ 8001fa8:	687b      	ldr	r3, [r7, #4]
+ 8001faa:	2b00      	cmp	r3, #0
+ 8001fac:	d001      	beq.n	8001fb2 <is_button_pressed+0x12>
 		return 0;
- 80020aa:	2300      	movs	r3, #0
- 80020ac:	e00d      	b.n	80020ca <is_button_pressed+0x2e>
+ 8001fae:	2300      	movs	r3, #0
+ 8001fb0:	e00d      	b.n	8001fce <is_button_pressed+0x2e>
 	}
 	if(flagForButtonPress[index] == 1){
- 80020ae:	4a09      	ldr	r2, [pc, #36]	; (80020d4 <is_button_pressed+0x38>)
- 80020b0:	687b      	ldr	r3, [r7, #4]
- 80020b2:	4413      	add	r3, r2
- 80020b4:	781b      	ldrb	r3, [r3, #0]
- 80020b6:	2b01      	cmp	r3, #1
- 80020b8:	d106      	bne.n	80020c8 <is_button_pressed+0x2c>
+ 8001fb2:	4a09      	ldr	r2, [pc, #36]	; (8001fd8 <is_button_pressed+0x38>)
+ 8001fb4:	687b      	ldr	r3, [r7, #4]
+ 8001fb6:	4413      	add	r3, r2
+ 8001fb8:	781b      	ldrb	r3, [r3, #0]
+ 8001fba:	2b01      	cmp	r3, #1
+ 8001fbc:	d106      	bne.n	8001fcc <is_button_pressed+0x2c>
 		flagForButtonPress[index] = 0;
- 80020ba:	4a06      	ldr	r2, [pc, #24]	; (80020d4 <is_button_pressed+0x38>)
- 80020bc:	687b      	ldr	r3, [r7, #4]
- 80020be:	4413      	add	r3, r2
- 80020c0:	2200      	movs	r2, #0
- 80020c2:	701a      	strb	r2, [r3, #0]
+ 8001fbe:	4a06      	ldr	r2, [pc, #24]	; (8001fd8 <is_button_pressed+0x38>)
+ 8001fc0:	687b      	ldr	r3, [r7, #4]
+ 8001fc2:	4413      	add	r3, r2
+ 8001fc4:	2200      	movs	r2, #0
+ 8001fc6:	701a      	strb	r2, [r3, #0]
 		return 1;
- 80020c4:	2301      	movs	r3, #1
- 80020c6:	e000      	b.n	80020ca <is_button_pressed+0x2e>
+ 8001fc8:	2301      	movs	r3, #1
+ 8001fca:	e000      	b.n	8001fce <is_button_pressed+0x2e>
 	}
 	return 0;
- 80020c8:	2300      	movs	r3, #0
+ 8001fcc:	2300      	movs	r3, #0
 }
- 80020ca:	4618      	mov	r0, r3
- 80020cc:	370c      	adds	r7, #12
- 80020ce:	46bd      	mov	sp, r7
- 80020d0:	bc80      	pop	{r7}
- 80020d2:	4770      	bx	lr
- 80020d4:	20000058 	.word	0x20000058
+ 8001fce:	4618      	mov	r0, r3
+ 8001fd0:	370c      	adds	r7, #12
+ 8001fd2:	46bd      	mov	sp, r7
+ 8001fd4:	bc80      	pop	{r7}
+ 8001fd6:	4770      	bx	lr
+ 8001fd8:	20000058 	.word	0x20000058
 
-080020d8 <manual_run>:
+08001fdc <manual_run>:
  */
 #include "manual.h"
 void manual_init(){
 
 }
 void manual_run(){
- 80020d8:	b580      	push	{r7, lr}
- 80020da:	af00      	add	r7, sp, #0
+ 8001fdc:	b580      	push	{r7, lr}
+ 8001fde:	af00      	add	r7, sp, #0
 
 	if(is_button_pressed(0)){
- 80020dc:	2000      	movs	r0, #0
- 80020de:	f7ff ffdd 	bl	800209c <is_button_pressed>
- 80020e2:	4603      	mov	r3, r0
- 80020e4:	2b00      	cmp	r3, #0
- 80020e6:	d016      	beq.n	8002116 <manual_run+0x3e>
+ 8001fe0:	2000      	movs	r0, #0
+ 8001fe2:	f7ff ffdd 	bl	8001fa0 <is_button_pressed>
+ 8001fe6:	4603      	mov	r3, r0
+ 8001fe8:	2b00      	cmp	r3, #0
+ 8001fea:	d016      	beq.n	800201a <manual_run+0x3e>
 		switch(status){
- 80020e8:	4b0d      	ldr	r3, [pc, #52]	; (8002120 <manual_run+0x48>)
- 80020ea:	681b      	ldr	r3, [r3, #0]
- 80020ec:	2b08      	cmp	r3, #8
- 80020ee:	d00e      	beq.n	800210e <manual_run+0x36>
- 80020f0:	2b08      	cmp	r3, #8
- 80020f2:	dc12      	bgt.n	800211a <manual_run+0x42>
- 80020f4:	2b06      	cmp	r3, #6
- 80020f6:	d002      	beq.n	80020fe <manual_run+0x26>
- 80020f8:	2b07      	cmp	r3, #7
- 80020fa:	d004      	beq.n	8002106 <manual_run+0x2e>
+ 8001fec:	4b0d      	ldr	r3, [pc, #52]	; (8002024 <manual_run+0x48>)
+ 8001fee:	681b      	ldr	r3, [r3, #0]
+ 8001ff0:	2b08      	cmp	r3, #8
+ 8001ff2:	d00e      	beq.n	8002012 <manual_run+0x36>
+ 8001ff4:	2b08      	cmp	r3, #8
+ 8001ff6:	dc12      	bgt.n	800201e <manual_run+0x42>
+ 8001ff8:	2b06      	cmp	r3, #6
+ 8001ffa:	d002      	beq.n	8002002 <manual_run+0x26>
+ 8001ffc:	2b07      	cmp	r3, #7
+ 8001ffe:	d004      	beq.n	800200a <manual_run+0x2e>
 			break;
 		case SET_TIME_GREEN:
 			status = INIT;
 			break;
 		default:
 			break;
- 80020fc:	e00d      	b.n	800211a <manual_run+0x42>
+ 8002000:	e00d      	b.n	800201e <manual_run+0x42>
 			status = SET_TIME_YELLOW;
- 80020fe:	4b08      	ldr	r3, [pc, #32]	; (8002120 <manual_run+0x48>)
- 8002100:	2207      	movs	r2, #7
- 8002102:	601a      	str	r2, [r3, #0]
+ 8002002:	4b08      	ldr	r3, [pc, #32]	; (8002024 <manual_run+0x48>)
+ 8002004:	2207      	movs	r2, #7
+ 8002006:	601a      	str	r2, [r3, #0]
 			break;
- 8002104:	e00a      	b.n	800211c <manual_run+0x44>
+ 8002008:	e00a      	b.n	8002020 <manual_run+0x44>
 			status = SET_TIME_GREEN;
- 8002106:	4b06      	ldr	r3, [pc, #24]	; (8002120 <manual_run+0x48>)
- 8002108:	2208      	movs	r2, #8
- 800210a:	601a      	str	r2, [r3, #0]
+ 800200a:	4b06      	ldr	r3, [pc, #24]	; (8002024 <manual_run+0x48>)
+ 800200c:	2208      	movs	r2, #8
+ 800200e:	601a      	str	r2, [r3, #0]
 			break;
- 800210c:	e006      	b.n	800211c <manual_run+0x44>
+ 8002010:	e006      	b.n	8002020 <manual_run+0x44>
 			status = INIT;
- 800210e:	4b04      	ldr	r3, [pc, #16]	; (8002120 <manual_run+0x48>)
- 8002110:	2201      	movs	r2, #1
- 8002112:	601a      	str	r2, [r3, #0]
+ 8002012:	4b04      	ldr	r3, [pc, #16]	; (8002024 <manual_run+0x48>)
+ 8002014:	2201      	movs	r2, #1
+ 8002016:	601a      	str	r2, [r3, #0]
 			break;
- 8002114:	e002      	b.n	800211c <manual_run+0x44>
+ 8002018:	e002      	b.n	8002020 <manual_run+0x44>
 		}
 	}
- 8002116:	bf00      	nop
- 8002118:	e000      	b.n	800211c <manual_run+0x44>
+ 800201a:	bf00      	nop
+ 800201c:	e000      	b.n	8002020 <manual_run+0x44>
 			break;
- 800211a:	bf00      	nop
+ 800201e:	bf00      	nop
 		traffic_mannual_red_yellow();
 	default :
 		break;
 	}
 */
 }
- 800211c:	bf00      	nop
- 800211e:	bd80      	pop	{r7, pc}
- 8002120:	20000020 	.word	0x20000020
+ 8002020:	bf00      	nop
+ 8002022:	bd80      	pop	{r7, pc}
+ 8002024:	20000020 	.word	0x20000020
 
-08002124 <setTimer1>:
+08002028 <setTimer1>:
 #include "software_timer.h"
 	int time_cycle = 10;
 	int timer1_counter[10];
 	int timer1_flag[10];
 
 	void setTimer1(int index,int duration){
- 8002124:	b480      	push	{r7}
- 8002126:	b083      	sub	sp, #12
- 8002128:	af00      	add	r7, sp, #0
- 800212a:	6078      	str	r0, [r7, #4]
- 800212c:	6039      	str	r1, [r7, #0]
+ 8002028:	b480      	push	{r7}
+ 800202a:	b083      	sub	sp, #12
+ 800202c:	af00      	add	r7, sp, #0
+ 800202e:	6078      	str	r0, [r7, #4]
+ 8002030:	6039      	str	r1, [r7, #0]
 		timer1_counter[index]=duration / time_cycle;
- 800212e:	4b09      	ldr	r3, [pc, #36]	; (8002154 <setTimer1+0x30>)
- 8002130:	681b      	ldr	r3, [r3, #0]
- 8002132:	683a      	ldr	r2, [r7, #0]
- 8002134:	fb92 f2f3 	sdiv	r2, r2, r3
- 8002138:	4907      	ldr	r1, [pc, #28]	; (8002158 <setTimer1+0x34>)
- 800213a:	687b      	ldr	r3, [r7, #4]
- 800213c:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
+ 8002032:	4b09      	ldr	r3, [pc, #36]	; (8002058 <setTimer1+0x30>)
+ 8002034:	681b      	ldr	r3, [r3, #0]
+ 8002036:	683a      	ldr	r2, [r7, #0]
+ 8002038:	fb92 f2f3 	sdiv	r2, r2, r3
+ 800203c:	4907      	ldr	r1, [pc, #28]	; (800205c <setTimer1+0x34>)
+ 800203e:	687b      	ldr	r3, [r7, #4]
+ 8002040:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
 		timer1_flag[index] = 0;
- 8002140:	4a06      	ldr	r2, [pc, #24]	; (800215c <setTimer1+0x38>)
- 8002142:	687b      	ldr	r3, [r7, #4]
- 8002144:	2100      	movs	r1, #0
- 8002146:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8002044:	4a06      	ldr	r2, [pc, #24]	; (8002060 <setTimer1+0x38>)
+ 8002046:	687b      	ldr	r3, [r7, #4]
+ 8002048:	2100      	movs	r1, #0
+ 800204a:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 	}
- 800214a:	bf00      	nop
- 800214c:	370c      	adds	r7, #12
- 800214e:	46bd      	mov	sp, r7
- 8002150:	bc80      	pop	{r7}
- 8002152:	4770      	bx	lr
- 8002154:	20000028 	.word	0x20000028
- 8002158:	200000d4 	.word	0x200000d4
- 800215c:	200000ac 	.word	0x200000ac
+ 800204e:	bf00      	nop
+ 8002050:	370c      	adds	r7, #12
+ 8002052:	46bd      	mov	sp, r7
+ 8002054:	bc80      	pop	{r7}
+ 8002056:	4770      	bx	lr
+ 8002058:	20000028 	.word	0x20000028
+ 800205c:	200000d4 	.word	0x200000d4
+ 8002060:	200000ac 	.word	0x200000ac
 
-08002160 <SetTimerForTimerSet>:
+08002064 <SetTimerForTimerSet>:
 	void SetTimerForTimerSet(int index,int duration,int timer_set){
- 8002160:	b580      	push	{r7, lr}
- 8002162:	b084      	sub	sp, #16
- 8002164:	af00      	add	r7, sp, #0
- 8002166:	60f8      	str	r0, [r7, #12]
- 8002168:	60b9      	str	r1, [r7, #8]
- 800216a:	607a      	str	r2, [r7, #4]
+ 8002064:	b580      	push	{r7, lr}
+ 8002066:	b084      	sub	sp, #16
+ 8002068:	af00      	add	r7, sp, #0
+ 800206a:	60f8      	str	r0, [r7, #12]
+ 800206c:	60b9      	str	r1, [r7, #8]
+ 800206e:	607a      	str	r2, [r7, #4]
 		time_cycle = timer_set;
- 800216c:	4a05      	ldr	r2, [pc, #20]	; (8002184 <SetTimerForTimerSet+0x24>)
- 800216e:	687b      	ldr	r3, [r7, #4]
- 8002170:	6013      	str	r3, [r2, #0]
+ 8002070:	4a05      	ldr	r2, [pc, #20]	; (8002088 <SetTimerForTimerSet+0x24>)
+ 8002072:	687b      	ldr	r3, [r7, #4]
+ 8002074:	6013      	str	r3, [r2, #0]
 		setTimer1(index, duration);
- 8002172:	68b9      	ldr	r1, [r7, #8]
- 8002174:	68f8      	ldr	r0, [r7, #12]
- 8002176:	f7ff ffd5 	bl	8002124 <setTimer1>
+ 8002076:	68b9      	ldr	r1, [r7, #8]
+ 8002078:	68f8      	ldr	r0, [r7, #12]
+ 800207a:	f7ff ffd5 	bl	8002028 <setTimer1>
 	}
- 800217a:	bf00      	nop
- 800217c:	3710      	adds	r7, #16
- 800217e:	46bd      	mov	sp, r7
- 8002180:	bd80      	pop	{r7, pc}
- 8002182:	bf00      	nop
- 8002184:	20000028 	.word	0x20000028
+ 800207e:	bf00      	nop
+ 8002080:	3710      	adds	r7, #16
+ 8002082:	46bd      	mov	sp, r7
+ 8002084:	bd80      	pop	{r7, pc}
+ 8002086:	bf00      	nop
+ 8002088:	20000028 	.word	0x20000028
 
-08002188 <timerRun>:
+0800208c <timerRun>:
 	void timerRun(){
- 8002188:	b480      	push	{r7}
- 800218a:	b083      	sub	sp, #12
- 800218c:	af00      	add	r7, sp, #0
+ 800208c:	b480      	push	{r7}
+ 800208e:	b083      	sub	sp, #12
+ 8002090:	af00      	add	r7, sp, #0
 		for (int i = 0 ; i <10 ; i++){
- 800218e:	2300      	movs	r3, #0
- 8002190:	607b      	str	r3, [r7, #4]
- 8002192:	e01c      	b.n	80021ce <timerRun+0x46>
+ 8002092:	2300      	movs	r3, #0
+ 8002094:	607b      	str	r3, [r7, #4]
+ 8002096:	e01c      	b.n	80020d2 <timerRun+0x46>
 			if(timer1_counter[i] >  0 ){
- 8002194:	4a12      	ldr	r2, [pc, #72]	; (80021e0 <timerRun+0x58>)
- 8002196:	687b      	ldr	r3, [r7, #4]
- 8002198:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
- 800219c:	2b00      	cmp	r3, #0
- 800219e:	dd08      	ble.n	80021b2 <timerRun+0x2a>
+ 8002098:	4a12      	ldr	r2, [pc, #72]	; (80020e4 <timerRun+0x58>)
+ 800209a:	687b      	ldr	r3, [r7, #4]
+ 800209c:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
+ 80020a0:	2b00      	cmp	r3, #0
+ 80020a2:	dd08      	ble.n	80020b6 <timerRun+0x2a>
 					timer1_counter[i]--;
- 80021a0:	4a0f      	ldr	r2, [pc, #60]	; (80021e0 <timerRun+0x58>)
- 80021a2:	687b      	ldr	r3, [r7, #4]
- 80021a4:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
- 80021a8:	1e5a      	subs	r2, r3, #1
- 80021aa:	490d      	ldr	r1, [pc, #52]	; (80021e0 <timerRun+0x58>)
- 80021ac:	687b      	ldr	r3, [r7, #4]
- 80021ae:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
+ 80020a4:	4a0f      	ldr	r2, [pc, #60]	; (80020e4 <timerRun+0x58>)
+ 80020a6:	687b      	ldr	r3, [r7, #4]
+ 80020a8:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
+ 80020ac:	1e5a      	subs	r2, r3, #1
+ 80020ae:	490d      	ldr	r1, [pc, #52]	; (80020e4 <timerRun+0x58>)
+ 80020b0:	687b      	ldr	r3, [r7, #4]
+ 80020b2:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
 			 }
 			if(timer1_counter[i]<=0){
- 80021b2:	4a0b      	ldr	r2, [pc, #44]	; (80021e0 <timerRun+0x58>)
- 80021b4:	687b      	ldr	r3, [r7, #4]
- 80021b6:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
- 80021ba:	2b00      	cmp	r3, #0
- 80021bc:	dc04      	bgt.n	80021c8 <timerRun+0x40>
+ 80020b6:	4a0b      	ldr	r2, [pc, #44]	; (80020e4 <timerRun+0x58>)
+ 80020b8:	687b      	ldr	r3, [r7, #4]
+ 80020ba:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
+ 80020be:	2b00      	cmp	r3, #0
+ 80020c0:	dc04      	bgt.n	80020cc <timerRun+0x40>
 					timer1_flag[i]=1;
- 80021be:	4a09      	ldr	r2, [pc, #36]	; (80021e4 <timerRun+0x5c>)
- 80021c0:	687b      	ldr	r3, [r7, #4]
- 80021c2:	2101      	movs	r1, #1
- 80021c4:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 80020c2:	4a09      	ldr	r2, [pc, #36]	; (80020e8 <timerRun+0x5c>)
+ 80020c4:	687b      	ldr	r3, [r7, #4]
+ 80020c6:	2101      	movs	r1, #1
+ 80020c8:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 		for (int i = 0 ; i <10 ; i++){
- 80021c8:	687b      	ldr	r3, [r7, #4]
- 80021ca:	3301      	adds	r3, #1
- 80021cc:	607b      	str	r3, [r7, #4]
- 80021ce:	687b      	ldr	r3, [r7, #4]
- 80021d0:	2b09      	cmp	r3, #9
- 80021d2:	dddf      	ble.n	8002194 <timerRun+0xc>
+ 80020cc:	687b      	ldr	r3, [r7, #4]
+ 80020ce:	3301      	adds	r3, #1
+ 80020d0:	607b      	str	r3, [r7, #4]
+ 80020d2:	687b      	ldr	r3, [r7, #4]
+ 80020d4:	2b09      	cmp	r3, #9
+ 80020d6:	dddf      	ble.n	8002098 <timerRun+0xc>
 			}
 		}
 
 
 	}
- 80021d4:	bf00      	nop
- 80021d6:	bf00      	nop
- 80021d8:	370c      	adds	r7, #12
- 80021da:	46bd      	mov	sp, r7
- 80021dc:	bc80      	pop	{r7}
- 80021de:	4770      	bx	lr
- 80021e0:	200000d4 	.word	0x200000d4
- 80021e4:	200000ac 	.word	0x200000ac
+ 80020d8:	bf00      	nop
+ 80020da:	bf00      	nop
+ 80020dc:	370c      	adds	r7, #12
+ 80020de:	46bd      	mov	sp, r7
+ 80020e0:	bc80      	pop	{r7}
+ 80020e2:	4770      	bx	lr
+ 80020e4:	200000d4 	.word	0x200000d4
+ 80020e8:	200000ac 	.word	0x200000ac
 
-080021e8 <__libc_init_array>:
- 80021e8:	b570      	push	{r4, r5, r6, lr}
- 80021ea:	2600      	movs	r6, #0
- 80021ec:	4d0c      	ldr	r5, [pc, #48]	; (8002220 <__libc_init_array+0x38>)
- 80021ee:	4c0d      	ldr	r4, [pc, #52]	; (8002224 <__libc_init_array+0x3c>)
- 80021f0:	1b64      	subs	r4, r4, r5
- 80021f2:	10a4      	asrs	r4, r4, #2
- 80021f4:	42a6      	cmp	r6, r4
- 80021f6:	d109      	bne.n	800220c <__libc_init_array+0x24>
- 80021f8:	f000 f822 	bl	8002240 <_init>
- 80021fc:	2600      	movs	r6, #0
- 80021fe:	4d0a      	ldr	r5, [pc, #40]	; (8002228 <__libc_init_array+0x40>)
- 8002200:	4c0a      	ldr	r4, [pc, #40]	; (800222c <__libc_init_array+0x44>)
- 8002202:	1b64      	subs	r4, r4, r5
- 8002204:	10a4      	asrs	r4, r4, #2
- 8002206:	42a6      	cmp	r6, r4
- 8002208:	d105      	bne.n	8002216 <__libc_init_array+0x2e>
- 800220a:	bd70      	pop	{r4, r5, r6, pc}
- 800220c:	f855 3b04 	ldr.w	r3, [r5], #4
- 8002210:	4798      	blx	r3
- 8002212:	3601      	adds	r6, #1
- 8002214:	e7ee      	b.n	80021f4 <__libc_init_array+0xc>
- 8002216:	f855 3b04 	ldr.w	r3, [r5], #4
- 800221a:	4798      	blx	r3
- 800221c:	3601      	adds	r6, #1
- 800221e:	e7f2      	b.n	8002206 <__libc_init_array+0x1e>
- 8002220:	0800227c 	.word	0x0800227c
- 8002224:	0800227c 	.word	0x0800227c
- 8002228:	0800227c 	.word	0x0800227c
- 800222c:	08002280 	.word	0x08002280
+080020ec <__libc_init_array>:
+ 80020ec:	b570      	push	{r4, r5, r6, lr}
+ 80020ee:	2600      	movs	r6, #0
+ 80020f0:	4d0c      	ldr	r5, [pc, #48]	; (8002124 <__libc_init_array+0x38>)
+ 80020f2:	4c0d      	ldr	r4, [pc, #52]	; (8002128 <__libc_init_array+0x3c>)
+ 80020f4:	1b64      	subs	r4, r4, r5
+ 80020f6:	10a4      	asrs	r4, r4, #2
+ 80020f8:	42a6      	cmp	r6, r4
+ 80020fa:	d109      	bne.n	8002110 <__libc_init_array+0x24>
+ 80020fc:	f000 f822 	bl	8002144 <_init>
+ 8002100:	2600      	movs	r6, #0
+ 8002102:	4d0a      	ldr	r5, [pc, #40]	; (800212c <__libc_init_array+0x40>)
+ 8002104:	4c0a      	ldr	r4, [pc, #40]	; (8002130 <__libc_init_array+0x44>)
+ 8002106:	1b64      	subs	r4, r4, r5
+ 8002108:	10a4      	asrs	r4, r4, #2
+ 800210a:	42a6      	cmp	r6, r4
+ 800210c:	d105      	bne.n	800211a <__libc_init_array+0x2e>
+ 800210e:	bd70      	pop	{r4, r5, r6, pc}
+ 8002110:	f855 3b04 	ldr.w	r3, [r5], #4
+ 8002114:	4798      	blx	r3
+ 8002116:	3601      	adds	r6, #1
+ 8002118:	e7ee      	b.n	80020f8 <__libc_init_array+0xc>
+ 800211a:	f855 3b04 	ldr.w	r3, [r5], #4
+ 800211e:	4798      	blx	r3
+ 8002120:	3601      	adds	r6, #1
+ 8002122:	e7f2      	b.n	800210a <__libc_init_array+0x1e>
+ 8002124:	08002180 	.word	0x08002180
+ 8002128:	08002180 	.word	0x08002180
+ 800212c:	08002180 	.word	0x08002180
+ 8002130:	08002184 	.word	0x08002184
 
-08002230 <memset>:
- 8002230:	4603      	mov	r3, r0
- 8002232:	4402      	add	r2, r0
- 8002234:	4293      	cmp	r3, r2
- 8002236:	d100      	bne.n	800223a <memset+0xa>
- 8002238:	4770      	bx	lr
- 800223a:	f803 1b01 	strb.w	r1, [r3], #1
- 800223e:	e7f9      	b.n	8002234 <memset+0x4>
+08002134 <memset>:
+ 8002134:	4603      	mov	r3, r0
+ 8002136:	4402      	add	r2, r0
+ 8002138:	4293      	cmp	r3, r2
+ 800213a:	d100      	bne.n	800213e <memset+0xa>
+ 800213c:	4770      	bx	lr
+ 800213e:	f803 1b01 	strb.w	r1, [r3], #1
+ 8002142:	e7f9      	b.n	8002138 <memset+0x4>
 
-08002240 <_init>:
- 8002240:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 8002242:	bf00      	nop
- 8002244:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8002246:	bc08      	pop	{r3}
- 8002248:	469e      	mov	lr, r3
- 800224a:	4770      	bx	lr
+08002144 <_init>:
+ 8002144:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8002146:	bf00      	nop
+ 8002148:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 800214a:	bc08      	pop	{r3}
+ 800214c:	469e      	mov	lr, r3
+ 800214e:	4770      	bx	lr
 
-0800224c <_fini>:
- 800224c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 800224e:	bf00      	nop
- 8002250:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8002252:	bc08      	pop	{r3}
- 8002254:	469e      	mov	lr, r3
- 8002256:	4770      	bx	lr
+08002150 <_fini>:
+ 8002150:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8002152:	bf00      	nop
+ 8002154:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8002156:	bc08      	pop	{r3}
+ 8002158:	469e      	mov	lr, r3
+ 800215a:	4770      	bx	lr
