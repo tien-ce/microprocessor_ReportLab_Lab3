@@ -1,0 +1,14 @@
+/*
+ * ex5.h
+ *
+ *  Created on: Sep 27, 2024
+ *      Author: thuyh
+ */
+#include "global.h"
+#ifndef INS_EX5_H_
+#define INS_EX5_H_
+void ex5_init();
+void ex5_run();
+
+
+#endif /* INS_EX5_H_ */

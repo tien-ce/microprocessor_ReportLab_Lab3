@@ -5,45 +5,45 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .isr_vector   0000010c  08000000  08000000  00010000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  1 .text         00001c24  0800010c  0800010c  0001010c  2**2
+  1 .text         00001c68  0800010c  0800010c  0001010c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000024  08001d30  08001d30  00011d30  2**2
+  2 .rodata       00000024  08001d74  08001d74  00011d74  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  08001d54  08001d54  00020018  2**0
+  3 .ARM.extab    00000000  08001d98  08001d98  0002001c  2**0
                   CONTENTS
-  4 .ARM          00000000  08001d54  08001d54  00020018  2**0
+  4 .ARM          00000000  08001d98  08001d98  0002001c  2**0
                   CONTENTS
-  5 .preinit_array 00000000  08001d54  08001d54  00020018  2**0
+  5 .preinit_array 00000000  08001d98  08001d98  0002001c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  08001d54  08001d54  00011d54  2**2
+  6 .init_array   00000004  08001d98  08001d98  00011d98  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  08001d58  08001d58  00011d58  2**2
+  7 .fini_array   00000004  08001d9c  08001d9c  00011d9c  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         00000018  20000000  08001d5c  00020000  2**2
+  8 .data         0000001c  20000000  08001da0  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000000cc  20000018  08001d74  00020018  2**2
+  9 .bss          000000d0  2000001c  08001dbc  0002001c  2**2
                   ALLOC
- 10 ._user_heap_stack 00000604  200000e4  08001d74  000200e4  2**0
+ 10 ._user_heap_stack 00000604  200000ec  08001dbc  000200ec  2**0
                   ALLOC
- 11 .ARM.attributes 00000029  00000000  00000000  00020018  2**0
+ 11 .ARM.attributes 00000029  00000000  00000000  0002001c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00008d70  00000000  00000000  00020041  2**0
+ 12 .debug_info   00008d84  00000000  00000000  00020045  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00001866  00000000  00000000  00028db1  2**0
+ 13 .debug_abbrev 00001879  00000000  00000000  00028dc9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 000009b8  00000000  00000000  0002a618  2**3
+ 14 .debug_aranges 000009b8  00000000  00000000  0002a648  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000008e0  00000000  00000000  0002afd0  2**3
+ 15 .debug_ranges 000008e0  00000000  00000000  0002b000  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  000169a0  00000000  00000000  0002b8b0  2**0
+ 16 .debug_macro  000169ca  00000000  00000000  0002b8e0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000aa43  00000000  00000000  00042250  2**0
+ 17 .debug_line   0000aa7d  00000000  00000000  000422aa  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000824d8  00000000  00000000  0004cc93  2**0
+ 18 .debug_str    00082536  00000000  00000000  0004cd27  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cf16b  2**0
+ 19 .comment      00000053  00000000  00000000  000cf25d  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002714  00000000  00000000  000cf1c0  2**2
+ 20 .debug_frame  00002714  00000000  00000000  000cf2b0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -60,9 +60,9 @@ Disassembly of section .text:
  800011e:	2301      	movs	r3, #1
  8000120:	7023      	strb	r3, [r4, #0]
  8000122:	bd10      	pop	{r4, pc}
- 8000124:	20000018 	.word	0x20000018
+ 8000124:	2000001c 	.word	0x2000001c
  8000128:	00000000 	.word	0x00000000
- 800012c:	08001d18 	.word	0x08001d18
+ 800012c:	08001d5c 	.word	0x08001d5c
 
 08000130 <frame_dummy>:
  8000130:	b508      	push	{r3, lr}
@@ -73,8 +73,8 @@ Disassembly of section .text:
  800013a:	f3af 8000 	nop.w
  800013e:	bd08      	pop	{r3, pc}
  8000140:	00000000 	.word	0x00000000
- 8000144:	2000001c 	.word	0x2000001c
- 8000148:	08001d18 	.word	0x08001d18
+ 8000144:	20000020 	.word	0x20000020
+ 8000148:	08001d5c 	.word	0x08001d5c
 
 0800014c <ex5_init>:
  *
@@ -89,7 +89,7 @@ void ex5_init(){
  8000150:	220a      	movs	r2, #10
  8000152:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  8000156:	2000      	movs	r0, #0
- 8000158:	f001 fd6e 	bl	8001c38 <SetTimerForTimerSet>
+ 8000158:	f001 fd90 	bl	8001c7c <SetTimerForTimerSet>
 }
  800015c:	bf00      	nop
  800015e:	bd80      	pop	{r7, pc}
@@ -111,12 +111,12 @@ void ex5_run(){
  8000174:	220a      	movs	r2, #10
  8000176:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  800017a:	2000      	movs	r0, #0
- 800017c:	f001 fd5c 	bl	8001c38 <SetTimerForTimerSet>
+ 800017c:	f001 fd7e 	bl	8001c7c <SetTimerForTimerSet>
 	}
 }
  8000180:	bf00      	nop
  8000182:	bd80      	pop	{r7, pc}
- 8000184:	20000094 	.word	0x20000094
+ 8000184:	2000009c 	.word	0x2000009c
  8000188:	40010800 	.word	0x40010800
 
 0800018c <main>:
@@ -165,7 +165,7 @@ int main(void)
 	  ex5_run();
  80001aa:	f7ff ffd9 	bl	8000160 <ex5_run>
  80001ae:	e7fc      	b.n	80001aa <main+0x1e>
- 80001b0:	20000048 	.word	0x20000048
+ 80001b0:	20000050 	.word	0x20000050
 
 080001b4 <SystemClock_Config>:
 /**
@@ -182,7 +182,7 @@ void SystemClock_Config(void)
  80001be:	2228      	movs	r2, #40	; 0x28
  80001c0:	2100      	movs	r1, #0
  80001c2:	4618      	mov	r0, r3
- 80001c4:	f001 fda0 	bl	8001d08 <memset>
+ 80001c4:	f001 fdc2 	bl	8001d4c <memset>
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
  80001c8:	1d3b      	adds	r3, r7, #4
  80001ca:	2200      	movs	r2, #0
@@ -363,7 +363,7 @@ static void MX_TIM2_Init(void)
  80002ba:	3718      	adds	r7, #24
  80002bc:	46bd      	mov	sp, r7
  80002be:	bd80      	pop	{r7, pc}
- 80002c0:	20000048 	.word	0x20000048
+ 80002c0:	20000050 	.word	0x20000050
 
 080002c4 <MX_GPIO_Init>:
   * @brief GPIO Initialization Function
@@ -518,7 +518,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  80003ac:	af00      	add	r7, sp, #0
  80003ae:	6078      	str	r0, [r7, #4]
 	timerRun();
- 80003b0:	f001 fc56 	bl	8001c60 <timerRun>
+ 80003b0:	f001 fc78 	bl	8001ca4 <timerRun>
 	button_reading(GPIOx, GPIO_Pin);
  80003b4:	4903      	ldr	r1, [pc, #12]	; (80003c4 <HAL_TIM_PeriodElapsedCallback+0x1c>)
  80003b6:	4804      	ldr	r0, [pc, #16]	; (80003c8 <HAL_TIM_PeriodElapsedCallback+0x20>)
@@ -857,7 +857,7 @@ void TIM2_IRQHandler(void)
  80004de:	bf00      	nop
  80004e0:	bd80      	pop	{r7, pc}
  80004e2:	bf00      	nop
- 80004e4:	20000048 	.word	0x20000048
+ 80004e4:	20000050 	.word	0x20000050
 
 080004e8 <SystemInit>:
   * @note   This function should be used only after reset.
@@ -948,7 +948,7 @@ LoopFillZerobss:
 
 /* Call static constructors */
     bl __libc_init_array
- 800051e:	f001 fbcf 	bl	8001cc0 <__libc_init_array>
+ 800051e:	f001 fbf1 	bl	8001d04 <__libc_init_array>
 /* Call the application's entry point.*/
   bl main
  8000522:	f7ff fe33 	bl	800018c <main>
@@ -957,13 +957,13 @@ LoopFillZerobss:
   ldr r0, =_sdata
  8000528:	20000000 	.word	0x20000000
   ldr r1, =_edata
- 800052c:	20000018 	.word	0x20000018
+ 800052c:	2000001c 	.word	0x2000001c
   ldr r2, =_sidata
- 8000530:	08001d5c 	.word	0x08001d5c
+ 8000530:	08001da0 	.word	0x08001da0
   ldr r2, =_sbss
- 8000534:	20000018 	.word	0x20000018
+ 8000534:	2000001c 	.word	0x2000001c
   ldr r4, =_ebss
- 8000538:	200000e4 	.word	0x200000e4
+ 8000538:	200000ec 	.word	0x200000ec
 
 0800053c <ADC1_2_IRQHandler>:
  * @retval : None
@@ -1111,7 +1111,7 @@ __weak void HAL_IncTick(void)
  80005e4:	bc80      	pop	{r7}
  80005e6:	4770      	bx	lr
  80005e8:	20000010 	.word	0x20000010
- 80005ec:	20000090 	.word	0x20000090
+ 80005ec:	20000098 	.word	0x20000098
 
 080005f0 <HAL_GetTick>:
   * @note  This function is declared as __weak to be overwritten in case of other
@@ -1130,7 +1130,7 @@ __weak uint32_t HAL_GetTick(void)
  80005fa:	46bd      	mov	sp, r7
  80005fc:	bc80      	pop	{r7}
  80005fe:	4770      	bx	lr
- 8000600:	20000090 	.word	0x20000090
+ 8000600:	20000098 	.word	0x20000098
 
 08000604 <__NVIC_SetPriorityGrouping>:
            In case of a conflict between priority grouping and available
@@ -3352,7 +3352,7 @@ if (((RCC_ClkInitStruct->ClockType) & RCC_CLOCKTYPE_PCLK1) == RCC_CLOCKTYPE_PCLK
  8001262:	bf00      	nop
  8001264:	40022000 	.word	0x40022000
  8001268:	40021000 	.word	0x40021000
- 800126c:	08001d30 	.word	0x08001d30
+ 800126c:	08001d74 	.word	0x08001d74
  8001270:	20000008 	.word	0x20000008
  8001274:	2000000c 	.word	0x2000000c
 
@@ -3487,8 +3487,8 @@ uint32_t HAL_RCC_GetSysClockFreq(void)
  800130a:	bf00      	nop
  800130c:	40021000 	.word	0x40021000
  8001310:	007a1200 	.word	0x007a1200
- 8001314:	08001d40 	.word	0x08001d40
- 8001318:	08001d50 	.word	0x08001d50
+ 8001314:	08001d84 	.word	0x08001d84
+ 8001318:	08001d94 	.word	0x08001d94
  800131c:	003d0900 	.word	0x003d0900
 
 08001320 <RCC_Delay>:
@@ -5050,11 +5050,11 @@ __weak void HAL_TIMEx_BreakCallback(TIM_HandleTypeDef *htim)
  8001b12:	4770      	bx	lr
 
 08001b14 <button_reading>:
-static GPIO_PinState buttonBuffer[N0_OF_BUTTONS];	// finall state after chong nay
-static GPIO_PinState debounceButtonBuffer1[N0_OF_BUTTONS]; // Bo dem chong nay
-static GPIO_PinState debounceButtonBuffer2[N0_OF_BUTTONS];
-static uint8_t flagForButtonPress1s[N0_OF_BUTTONS]; // flag for button pressed (AN) hon 1 giay
-static uint16_t counterForButtonPress1s[N0_OF_BUTTONS]; // Counter tang gia tri sau khi nut duoc nhan hon 1 giay
+static GPIO_PinState debounceButtonBuffer3[N0_OF_BUTTONS];
+static GPIO_PinState debounceButtonBuffer4[N0_OF_BUTTONS];
+static uint8_t flagForButtonPress[N0_OF_BUTTONS]; // flag for button pressed (AN) hon 1 giay
+static uint8_t flagForButton_longPress[N0_OF_BUTTONS];
+int time_out_input = 500;
 void button_reading ( GPIO_TypeDef* GPIOx[] , uint16_t GPIO_Pin[] ) {
  8001b14:	b580      	push	{r7, lr}
  8001b16:	b084      	sub	sp, #16
@@ -5064,296 +5064,337 @@ void button_reading ( GPIO_TypeDef* GPIOx[] , uint16_t GPIO_Pin[] ) {
 	for (int i = 0 ; i< N0_OF_BUTTONS ; i ++ ){
  8001b1e:	2300      	movs	r3, #0
  8001b20:	60fb      	str	r3, [r7, #12]
- 8001b22:	e059      	b.n	8001bd8 <button_reading+0xc4>
-		debounceButtonBuffer2[i] = debounceButtonBuffer1[i];
- 8001b24:	4a30      	ldr	r2, [pc, #192]	; (8001be8 <button_reading+0xd4>)
+ 8001b22:	e077      	b.n	8001c14 <button_reading+0x100>
+		debounceButtonBuffer3[i] = debounceButtonBuffer2[i];
+ 8001b24:	4a3f      	ldr	r2, [pc, #252]	; (8001c24 <button_reading+0x110>)
  8001b26:	68fb      	ldr	r3, [r7, #12]
  8001b28:	4413      	add	r3, r2
  8001b2a:	7819      	ldrb	r1, [r3, #0]
- 8001b2c:	4a2f      	ldr	r2, [pc, #188]	; (8001bec <button_reading+0xd8>)
+ 8001b2c:	4a3e      	ldr	r2, [pc, #248]	; (8001c28 <button_reading+0x114>)
  8001b2e:	68fb      	ldr	r3, [r7, #12]
  8001b30:	4413      	add	r3, r2
  8001b32:	460a      	mov	r2, r1
  8001b34:	701a      	strb	r2, [r3, #0]
-		debounceButtonBuffer1[i] = HAL_GPIO_ReadPin(GPIOx[i], GPIO_Pin[i]);
- 8001b36:	68fb      	ldr	r3, [r7, #12]
- 8001b38:	009b      	lsls	r3, r3, #2
- 8001b3a:	687a      	ldr	r2, [r7, #4]
- 8001b3c:	4413      	add	r3, r2
- 8001b3e:	6818      	ldr	r0, [r3, #0]
+		debounceButtonBuffer2[i] = debounceButtonBuffer1[i];
+ 8001b36:	4a3d      	ldr	r2, [pc, #244]	; (8001c2c <button_reading+0x118>)
+ 8001b38:	68fb      	ldr	r3, [r7, #12]
+ 8001b3a:	4413      	add	r3, r2
+ 8001b3c:	7819      	ldrb	r1, [r3, #0]
+ 8001b3e:	4a39      	ldr	r2, [pc, #228]	; (8001c24 <button_reading+0x110>)
  8001b40:	68fb      	ldr	r3, [r7, #12]
- 8001b42:	005b      	lsls	r3, r3, #1
- 8001b44:	683a      	ldr	r2, [r7, #0]
- 8001b46:	4413      	add	r3, r2
- 8001b48:	881b      	ldrh	r3, [r3, #0]
- 8001b4a:	4619      	mov	r1, r3
- 8001b4c:	f7fe ffe2 	bl	8000b14 <HAL_GPIO_ReadPin>
- 8001b50:	4603      	mov	r3, r0
- 8001b52:	4619      	mov	r1, r3
- 8001b54:	4a24      	ldr	r2, [pc, #144]	; (8001be8 <button_reading+0xd4>)
- 8001b56:	68fb      	ldr	r3, [r7, #12]
+ 8001b42:	4413      	add	r3, r2
+ 8001b44:	460a      	mov	r2, r1
+ 8001b46:	701a      	strb	r2, [r3, #0]
+		debounceButtonBuffer1[i] = HAL_GPIO_ReadPin(GPIOx[i], GPIO_Pin[i]);
+ 8001b48:	68fb      	ldr	r3, [r7, #12]
+ 8001b4a:	009b      	lsls	r3, r3, #2
+ 8001b4c:	687a      	ldr	r2, [r7, #4]
+ 8001b4e:	4413      	add	r3, r2
+ 8001b50:	6818      	ldr	r0, [r3, #0]
+ 8001b52:	68fb      	ldr	r3, [r7, #12]
+ 8001b54:	005b      	lsls	r3, r3, #1
+ 8001b56:	683a      	ldr	r2, [r7, #0]
  8001b58:	4413      	add	r3, r2
- 8001b5a:	460a      	mov	r2, r1
- 8001b5c:	701a      	strb	r2, [r3, #0]
-		if(debounceButtonBuffer1[i] == debounceButtonBuffer2[i]){
- 8001b5e:	4a22      	ldr	r2, [pc, #136]	; (8001be8 <button_reading+0xd4>)
- 8001b60:	68fb      	ldr	r3, [r7, #12]
- 8001b62:	4413      	add	r3, r2
- 8001b64:	781a      	ldrb	r2, [r3, #0]
- 8001b66:	4921      	ldr	r1, [pc, #132]	; (8001bec <button_reading+0xd8>)
+ 8001b5a:	881b      	ldrh	r3, [r3, #0]
+ 8001b5c:	4619      	mov	r1, r3
+ 8001b5e:	f7fe ffd9 	bl	8000b14 <HAL_GPIO_ReadPin>
+ 8001b62:	4603      	mov	r3, r0
+ 8001b64:	4619      	mov	r1, r3
+ 8001b66:	4a31      	ldr	r2, [pc, #196]	; (8001c2c <button_reading+0x118>)
  8001b68:	68fb      	ldr	r3, [r7, #12]
- 8001b6a:	440b      	add	r3, r1
- 8001b6c:	781b      	ldrb	r3, [r3, #0]
- 8001b6e:	429a      	cmp	r2, r3
- 8001b70:	d108      	bne.n	8001b84 <button_reading+0x70>
-			buttonBuffer[i] = debounceButtonBuffer1[i];
- 8001b72:	4a1d      	ldr	r2, [pc, #116]	; (8001be8 <button_reading+0xd4>)
- 8001b74:	68fb      	ldr	r3, [r7, #12]
- 8001b76:	4413      	add	r3, r2
- 8001b78:	7819      	ldrb	r1, [r3, #0]
- 8001b7a:	4a1d      	ldr	r2, [pc, #116]	; (8001bf0 <button_reading+0xdc>)
- 8001b7c:	68fb      	ldr	r3, [r7, #12]
- 8001b7e:	4413      	add	r3, r2
- 8001b80:	460a      	mov	r2, r1
- 8001b82:	701a      	strb	r2, [r3, #0]
-		}
-		if(buttonBuffer[i] == BUTTON_IS_PRESSED){
- 8001b84:	4a1a      	ldr	r2, [pc, #104]	; (8001bf0 <button_reading+0xdc>)
+ 8001b6a:	4413      	add	r3, r2
+ 8001b6c:	460a      	mov	r2, r1
+ 8001b6e:	701a      	strb	r2, [r3, #0]
+		if(debounceButtonBuffer3[i] == debounceButtonBuffer2[i] && debounceButtonBuffer2[i] == debounceButtonBuffer1[i]){
+ 8001b70:	4a2d      	ldr	r2, [pc, #180]	; (8001c28 <button_reading+0x114>)
+ 8001b72:	68fb      	ldr	r3, [r7, #12]
+ 8001b74:	4413      	add	r3, r2
+ 8001b76:	781a      	ldrb	r2, [r3, #0]
+ 8001b78:	492a      	ldr	r1, [pc, #168]	; (8001c24 <button_reading+0x110>)
+ 8001b7a:	68fb      	ldr	r3, [r7, #12]
+ 8001b7c:	440b      	add	r3, r1
+ 8001b7e:	781b      	ldrb	r3, [r3, #0]
+ 8001b80:	429a      	cmp	r2, r3
+ 8001b82:	d144      	bne.n	8001c0e <button_reading+0xfa>
+ 8001b84:	4a27      	ldr	r2, [pc, #156]	; (8001c24 <button_reading+0x110>)
  8001b86:	68fb      	ldr	r3, [r7, #12]
  8001b88:	4413      	add	r3, r2
- 8001b8a:	781b      	ldrb	r3, [r3, #0]
- 8001b8c:	2b00      	cmp	r3, #0
- 8001b8e:	d116      	bne.n	8001bbe <button_reading+0xaa>
-			// Xu ly tin hieu nhan
-			if(counterForButtonPress1s[i] < DURATION_FOR_AUTO_INCREASING){
- 8001b90:	4a18      	ldr	r2, [pc, #96]	; (8001bf4 <button_reading+0xe0>)
- 8001b92:	68fb      	ldr	r3, [r7, #12]
- 8001b94:	f832 3013 	ldrh.w	r3, [r2, r3, lsl #1]
- 8001b98:	2b63      	cmp	r3, #99	; 0x63
- 8001b9a:	d80a      	bhi.n	8001bb2 <button_reading+0x9e>
-				counterForButtonPress1s[i] ++ ;
- 8001b9c:	4a15      	ldr	r2, [pc, #84]	; (8001bf4 <button_reading+0xe0>)
- 8001b9e:	68fb      	ldr	r3, [r7, #12]
- 8001ba0:	f832 3013 	ldrh.w	r3, [r2, r3, lsl #1]
- 8001ba4:	3301      	adds	r3, #1
- 8001ba6:	b299      	uxth	r1, r3
- 8001ba8:	4a12      	ldr	r2, [pc, #72]	; (8001bf4 <button_reading+0xe0>)
- 8001baa:	68fb      	ldr	r3, [r7, #12]
- 8001bac:	f822 1013 	strh.w	r1, [r2, r3, lsl #1]
- 8001bb0:	e00f      	b.n	8001bd2 <button_reading+0xbe>
+ 8001b8a:	781a      	ldrb	r2, [r3, #0]
+ 8001b8c:	4927      	ldr	r1, [pc, #156]	; (8001c2c <button_reading+0x118>)
+ 8001b8e:	68fb      	ldr	r3, [r7, #12]
+ 8001b90:	440b      	add	r3, r1
+ 8001b92:	781b      	ldrb	r3, [r3, #0]
+ 8001b94:	429a      	cmp	r2, r3
+ 8001b96:	d13a      	bne.n	8001c0e <button_reading+0xfa>
+			// Het Rung
+			if(debounceButtonBuffer4[i]!=debounceButtonBuffer1[i]){
+ 8001b98:	4a25      	ldr	r2, [pc, #148]	; (8001c30 <button_reading+0x11c>)
+ 8001b9a:	68fb      	ldr	r3, [r7, #12]
+ 8001b9c:	4413      	add	r3, r2
+ 8001b9e:	781a      	ldrb	r2, [r3, #0]
+ 8001ba0:	4922      	ldr	r1, [pc, #136]	; (8001c2c <button_reading+0x118>)
+ 8001ba2:	68fb      	ldr	r3, [r7, #12]
+ 8001ba4:	440b      	add	r3, r1
+ 8001ba6:	781b      	ldrb	r3, [r3, #0]
+ 8001ba8:	429a      	cmp	r2, r3
+ 8001baa:	d018      	beq.n	8001bde <button_reading+0xca>
+				// Dong bo lai tin hieu
+				debounceButtonBuffer4[i]=debounceButtonBuffer1[i];
+ 8001bac:	4a1f      	ldr	r2, [pc, #124]	; (8001c2c <button_reading+0x118>)
+ 8001bae:	68fb      	ldr	r3, [r7, #12]
+ 8001bb0:	4413      	add	r3, r2
+ 8001bb2:	7819      	ldrb	r1, [r3, #0]
+ 8001bb4:	4a1e      	ldr	r2, [pc, #120]	; (8001c30 <button_reading+0x11c>)
+ 8001bb6:	68fb      	ldr	r3, [r7, #12]
+ 8001bb8:	4413      	add	r3, r2
+ 8001bba:	460a      	mov	r2, r1
+ 8001bbc:	701a      	strb	r2, [r3, #0]
+				if(debounceButtonBuffer4[i] == BUTTON_IS_PRESSED){
+ 8001bbe:	4a1c      	ldr	r2, [pc, #112]	; (8001c30 <button_reading+0x11c>)
+ 8001bc0:	68fb      	ldr	r3, [r7, #12]
+ 8001bc2:	4413      	add	r3, r2
+ 8001bc4:	781b      	ldrb	r3, [r3, #0]
+ 8001bc6:	2b00      	cmp	r3, #0
+ 8001bc8:	d121      	bne.n	8001c0e <button_reading+0xfa>
+					// Vua chuyen sang trang thai nhan
+					time_out_input = 500;
+ 8001bca:	4b1a      	ldr	r3, [pc, #104]	; (8001c34 <button_reading+0x120>)
+ 8001bcc:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
+ 8001bd0:	601a      	str	r2, [r3, #0]
+					flagForButtonPress[i] = 1;
+ 8001bd2:	4a19      	ldr	r2, [pc, #100]	; (8001c38 <button_reading+0x124>)
+ 8001bd4:	68fb      	ldr	r3, [r7, #12]
+ 8001bd6:	4413      	add	r3, r2
+ 8001bd8:	2201      	movs	r2, #1
+ 8001bda:	701a      	strb	r2, [r3, #0]
+ 8001bdc:	e017      	b.n	8001c0e <button_reading+0xfa>
+				}
 			}
 			else{
-				flagForButtonPress1s[i] = 1;
- 8001bb2:	4a11      	ldr	r2, [pc, #68]	; (8001bf8 <button_reading+0xe4>)
- 8001bb4:	68fb      	ldr	r3, [r7, #12]
- 8001bb6:	4413      	add	r3, r2
- 8001bb8:	2201      	movs	r2, #1
- 8001bba:	701a      	strb	r2, [r3, #0]
- 8001bbc:	e009      	b.n	8001bd2 <button_reading+0xbe>
-				// todo
-			}
-
-		}
-		else{
-			counterForButtonPress1s[i] = 0;
- 8001bbe:	4a0d      	ldr	r2, [pc, #52]	; (8001bf4 <button_reading+0xe0>)
- 8001bc0:	68fb      	ldr	r3, [r7, #12]
- 8001bc2:	2100      	movs	r1, #0
- 8001bc4:	f822 1013 	strh.w	r1, [r2, r3, lsl #1]
-			flagForButtonPress1s[i] = 0;
- 8001bc8:	4a0b      	ldr	r2, [pc, #44]	; (8001bf8 <button_reading+0xe4>)
- 8001bca:	68fb      	ldr	r3, [r7, #12]
- 8001bcc:	4413      	add	r3, r2
- 8001bce:	2200      	movs	r2, #0
- 8001bd0:	701a      	strb	r2, [r3, #0]
+				// Dang trong qua trinh nhan de hoac nha
+				time_out_input -- ;
+ 8001bde:	4b15      	ldr	r3, [pc, #84]	; (8001c34 <button_reading+0x120>)
+ 8001be0:	681b      	ldr	r3, [r3, #0]
+ 8001be2:	3b01      	subs	r3, #1
+ 8001be4:	4a13      	ldr	r2, [pc, #76]	; (8001c34 <button_reading+0x120>)
+ 8001be6:	6013      	str	r3, [r2, #0]
+				if(time_out_input == 0 ){
+ 8001be8:	4b12      	ldr	r3, [pc, #72]	; (8001c34 <button_reading+0x120>)
+ 8001bea:	681b      	ldr	r3, [r3, #0]
+ 8001bec:	2b00      	cmp	r3, #0
+ 8001bee:	d10e      	bne.n	8001c0e <button_reading+0xfa>
+					// Nhan du 5s hoac tha 5s
+					time_out_input = 500;
+ 8001bf0:	4b10      	ldr	r3, [pc, #64]	; (8001c34 <button_reading+0x120>)
+ 8001bf2:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
+ 8001bf6:	601a      	str	r2, [r3, #0]
+					if(debounceButtonBuffer4[i] == BUTTON_IS_PRESSED){
+ 8001bf8:	4a0d      	ldr	r2, [pc, #52]	; (8001c30 <button_reading+0x11c>)
+ 8001bfa:	68fb      	ldr	r3, [r7, #12]
+ 8001bfc:	4413      	add	r3, r2
+ 8001bfe:	781b      	ldrb	r3, [r3, #0]
+ 8001c00:	2b00      	cmp	r3, #0
+ 8001c02:	d104      	bne.n	8001c0e <button_reading+0xfa>
+						// Truong hop la nhan de
+						flagForButton_longPress[i] = 1;
+ 8001c04:	4a0d      	ldr	r2, [pc, #52]	; (8001c3c <button_reading+0x128>)
+ 8001c06:	68fb      	ldr	r3, [r7, #12]
+ 8001c08:	4413      	add	r3, r2
+ 8001c0a:	2201      	movs	r2, #1
+ 8001c0c:	701a      	strb	r2, [r3, #0]
 	for (int i = 0 ; i< N0_OF_BUTTONS ; i ++ ){
- 8001bd2:	68fb      	ldr	r3, [r7, #12]
- 8001bd4:	3301      	adds	r3, #1
- 8001bd6:	60fb      	str	r3, [r7, #12]
- 8001bd8:	68fb      	ldr	r3, [r7, #12]
- 8001bda:	2b00      	cmp	r3, #0
- 8001bdc:	dda2      	ble.n	8001b24 <button_reading+0x10>
+ 8001c0e:	68fb      	ldr	r3, [r7, #12]
+ 8001c10:	3301      	adds	r3, #1
+ 8001c12:	60fb      	str	r3, [r7, #12]
+ 8001c14:	68fb      	ldr	r3, [r7, #12]
+ 8001c16:	2b00      	cmp	r3, #0
+ 8001c18:	dd84      	ble.n	8001b24 <button_reading+0x10>
+					}
+				}
+			}
 		}
 	}
 }
- 8001bde:	bf00      	nop
- 8001be0:	bf00      	nop
- 8001be2:	3710      	adds	r7, #16
- 8001be4:	46bd      	mov	sp, r7
- 8001be6:	bd80      	pop	{r7, pc}
- 8001be8:	20000038 	.word	0x20000038
- 8001bec:	2000003c 	.word	0x2000003c
- 8001bf0:	20000034 	.word	0x20000034
- 8001bf4:	20000044 	.word	0x20000044
- 8001bf8:	20000040 	.word	0x20000040
+ 8001c1a:	bf00      	nop
+ 8001c1c:	bf00      	nop
+ 8001c1e:	3710      	adds	r7, #16
+ 8001c20:	46bd      	mov	sp, r7
+ 8001c22:	bd80      	pop	{r7, pc}
+ 8001c24:	2000003c 	.word	0x2000003c
+ 8001c28:	20000040 	.word	0x20000040
+ 8001c2c:	20000038 	.word	0x20000038
+ 8001c30:	20000044 	.word	0x20000044
+ 8001c34:	20000014 	.word	0x20000014
+ 8001c38:	20000048 	.word	0x20000048
+ 8001c3c:	2000004c 	.word	0x2000004c
 
-08001bfc <setTimer1>:
+08001c40 <setTimer1>:
 #include "software_timer.h"
 	int time_cycle = 10;
 	int timer1_counter[10];
 	int timer1_flag[10];
 
 	void setTimer1(int index,int duration){
- 8001bfc:	b480      	push	{r7}
- 8001bfe:	b083      	sub	sp, #12
- 8001c00:	af00      	add	r7, sp, #0
- 8001c02:	6078      	str	r0, [r7, #4]
- 8001c04:	6039      	str	r1, [r7, #0]
+ 8001c40:	b480      	push	{r7}
+ 8001c42:	b083      	sub	sp, #12
+ 8001c44:	af00      	add	r7, sp, #0
+ 8001c46:	6078      	str	r0, [r7, #4]
+ 8001c48:	6039      	str	r1, [r7, #0]
 		timer1_counter[index]=duration / time_cycle;
- 8001c06:	4b09      	ldr	r3, [pc, #36]	; (8001c2c <setTimer1+0x30>)
- 8001c08:	681b      	ldr	r3, [r3, #0]
- 8001c0a:	683a      	ldr	r2, [r7, #0]
- 8001c0c:	fb92 f2f3 	sdiv	r2, r2, r3
- 8001c10:	4907      	ldr	r1, [pc, #28]	; (8001c30 <setTimer1+0x34>)
- 8001c12:	687b      	ldr	r3, [r7, #4]
- 8001c14:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
+ 8001c4a:	4b09      	ldr	r3, [pc, #36]	; (8001c70 <setTimer1+0x30>)
+ 8001c4c:	681b      	ldr	r3, [r3, #0]
+ 8001c4e:	683a      	ldr	r2, [r7, #0]
+ 8001c50:	fb92 f2f3 	sdiv	r2, r2, r3
+ 8001c54:	4907      	ldr	r1, [pc, #28]	; (8001c74 <setTimer1+0x34>)
+ 8001c56:	687b      	ldr	r3, [r7, #4]
+ 8001c58:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
 		timer1_flag[index] = 0;
- 8001c18:	4a06      	ldr	r2, [pc, #24]	; (8001c34 <setTimer1+0x38>)
- 8001c1a:	687b      	ldr	r3, [r7, #4]
- 8001c1c:	2100      	movs	r1, #0
- 8001c1e:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8001c5c:	4a06      	ldr	r2, [pc, #24]	; (8001c78 <setTimer1+0x38>)
+ 8001c5e:	687b      	ldr	r3, [r7, #4]
+ 8001c60:	2100      	movs	r1, #0
+ 8001c62:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 	}
- 8001c22:	bf00      	nop
- 8001c24:	370c      	adds	r7, #12
- 8001c26:	46bd      	mov	sp, r7
- 8001c28:	bc80      	pop	{r7}
- 8001c2a:	4770      	bx	lr
- 8001c2c:	20000014 	.word	0x20000014
- 8001c30:	200000bc 	.word	0x200000bc
- 8001c34:	20000094 	.word	0x20000094
+ 8001c66:	bf00      	nop
+ 8001c68:	370c      	adds	r7, #12
+ 8001c6a:	46bd      	mov	sp, r7
+ 8001c6c:	bc80      	pop	{r7}
+ 8001c6e:	4770      	bx	lr
+ 8001c70:	20000018 	.word	0x20000018
+ 8001c74:	200000c4 	.word	0x200000c4
+ 8001c78:	2000009c 	.word	0x2000009c
 
-08001c38 <SetTimerForTimerSet>:
+08001c7c <SetTimerForTimerSet>:
 	void SetTimerForTimerSet(int index,int duration,int timer_set){
- 8001c38:	b580      	push	{r7, lr}
- 8001c3a:	b084      	sub	sp, #16
- 8001c3c:	af00      	add	r7, sp, #0
- 8001c3e:	60f8      	str	r0, [r7, #12]
- 8001c40:	60b9      	str	r1, [r7, #8]
- 8001c42:	607a      	str	r2, [r7, #4]
+ 8001c7c:	b580      	push	{r7, lr}
+ 8001c7e:	b084      	sub	sp, #16
+ 8001c80:	af00      	add	r7, sp, #0
+ 8001c82:	60f8      	str	r0, [r7, #12]
+ 8001c84:	60b9      	str	r1, [r7, #8]
+ 8001c86:	607a      	str	r2, [r7, #4]
 		time_cycle = timer_set;
- 8001c44:	4a05      	ldr	r2, [pc, #20]	; (8001c5c <SetTimerForTimerSet+0x24>)
- 8001c46:	687b      	ldr	r3, [r7, #4]
- 8001c48:	6013      	str	r3, [r2, #0]
+ 8001c88:	4a05      	ldr	r2, [pc, #20]	; (8001ca0 <SetTimerForTimerSet+0x24>)
+ 8001c8a:	687b      	ldr	r3, [r7, #4]
+ 8001c8c:	6013      	str	r3, [r2, #0]
 		setTimer1(index, duration);
- 8001c4a:	68b9      	ldr	r1, [r7, #8]
- 8001c4c:	68f8      	ldr	r0, [r7, #12]
- 8001c4e:	f7ff ffd5 	bl	8001bfc <setTimer1>
+ 8001c8e:	68b9      	ldr	r1, [r7, #8]
+ 8001c90:	68f8      	ldr	r0, [r7, #12]
+ 8001c92:	f7ff ffd5 	bl	8001c40 <setTimer1>
 	}
- 8001c52:	bf00      	nop
- 8001c54:	3710      	adds	r7, #16
- 8001c56:	46bd      	mov	sp, r7
- 8001c58:	bd80      	pop	{r7, pc}
- 8001c5a:	bf00      	nop
- 8001c5c:	20000014 	.word	0x20000014
+ 8001c96:	bf00      	nop
+ 8001c98:	3710      	adds	r7, #16
+ 8001c9a:	46bd      	mov	sp, r7
+ 8001c9c:	bd80      	pop	{r7, pc}
+ 8001c9e:	bf00      	nop
+ 8001ca0:	20000018 	.word	0x20000018
 
-08001c60 <timerRun>:
+08001ca4 <timerRun>:
 	void timerRun(){
- 8001c60:	b480      	push	{r7}
- 8001c62:	b083      	sub	sp, #12
- 8001c64:	af00      	add	r7, sp, #0
+ 8001ca4:	b480      	push	{r7}
+ 8001ca6:	b083      	sub	sp, #12
+ 8001ca8:	af00      	add	r7, sp, #0
 		for (int i = 0 ; i <10 ; i++){
- 8001c66:	2300      	movs	r3, #0
- 8001c68:	607b      	str	r3, [r7, #4]
- 8001c6a:	e01c      	b.n	8001ca6 <timerRun+0x46>
+ 8001caa:	2300      	movs	r3, #0
+ 8001cac:	607b      	str	r3, [r7, #4]
+ 8001cae:	e01c      	b.n	8001cea <timerRun+0x46>
 			if(timer1_counter[i] >  0 ){
- 8001c6c:	4a12      	ldr	r2, [pc, #72]	; (8001cb8 <timerRun+0x58>)
- 8001c6e:	687b      	ldr	r3, [r7, #4]
- 8001c70:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
- 8001c74:	2b00      	cmp	r3, #0
- 8001c76:	dd08      	ble.n	8001c8a <timerRun+0x2a>
+ 8001cb0:	4a12      	ldr	r2, [pc, #72]	; (8001cfc <timerRun+0x58>)
+ 8001cb2:	687b      	ldr	r3, [r7, #4]
+ 8001cb4:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
+ 8001cb8:	2b00      	cmp	r3, #0
+ 8001cba:	dd08      	ble.n	8001cce <timerRun+0x2a>
 					timer1_counter[i]--;
- 8001c78:	4a0f      	ldr	r2, [pc, #60]	; (8001cb8 <timerRun+0x58>)
- 8001c7a:	687b      	ldr	r3, [r7, #4]
- 8001c7c:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
- 8001c80:	1e5a      	subs	r2, r3, #1
- 8001c82:	490d      	ldr	r1, [pc, #52]	; (8001cb8 <timerRun+0x58>)
- 8001c84:	687b      	ldr	r3, [r7, #4]
- 8001c86:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
+ 8001cbc:	4a0f      	ldr	r2, [pc, #60]	; (8001cfc <timerRun+0x58>)
+ 8001cbe:	687b      	ldr	r3, [r7, #4]
+ 8001cc0:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
+ 8001cc4:	1e5a      	subs	r2, r3, #1
+ 8001cc6:	490d      	ldr	r1, [pc, #52]	; (8001cfc <timerRun+0x58>)
+ 8001cc8:	687b      	ldr	r3, [r7, #4]
+ 8001cca:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
 			 }
 			if(timer1_counter[i]<=0){
- 8001c8a:	4a0b      	ldr	r2, [pc, #44]	; (8001cb8 <timerRun+0x58>)
- 8001c8c:	687b      	ldr	r3, [r7, #4]
- 8001c8e:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
- 8001c92:	2b00      	cmp	r3, #0
- 8001c94:	dc04      	bgt.n	8001ca0 <timerRun+0x40>
+ 8001cce:	4a0b      	ldr	r2, [pc, #44]	; (8001cfc <timerRun+0x58>)
+ 8001cd0:	687b      	ldr	r3, [r7, #4]
+ 8001cd2:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
+ 8001cd6:	2b00      	cmp	r3, #0
+ 8001cd8:	dc04      	bgt.n	8001ce4 <timerRun+0x40>
 					timer1_flag[i]=1;
- 8001c96:	4a09      	ldr	r2, [pc, #36]	; (8001cbc <timerRun+0x5c>)
- 8001c98:	687b      	ldr	r3, [r7, #4]
- 8001c9a:	2101      	movs	r1, #1
- 8001c9c:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8001cda:	4a09      	ldr	r2, [pc, #36]	; (8001d00 <timerRun+0x5c>)
+ 8001cdc:	687b      	ldr	r3, [r7, #4]
+ 8001cde:	2101      	movs	r1, #1
+ 8001ce0:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 		for (int i = 0 ; i <10 ; i++){
- 8001ca0:	687b      	ldr	r3, [r7, #4]
- 8001ca2:	3301      	adds	r3, #1
- 8001ca4:	607b      	str	r3, [r7, #4]
- 8001ca6:	687b      	ldr	r3, [r7, #4]
- 8001ca8:	2b09      	cmp	r3, #9
- 8001caa:	dddf      	ble.n	8001c6c <timerRun+0xc>
+ 8001ce4:	687b      	ldr	r3, [r7, #4]
+ 8001ce6:	3301      	adds	r3, #1
+ 8001ce8:	607b      	str	r3, [r7, #4]
+ 8001cea:	687b      	ldr	r3, [r7, #4]
+ 8001cec:	2b09      	cmp	r3, #9
+ 8001cee:	dddf      	ble.n	8001cb0 <timerRun+0xc>
 			}
 		}
 
 
 	}
- 8001cac:	bf00      	nop
- 8001cae:	bf00      	nop
- 8001cb0:	370c      	adds	r7, #12
- 8001cb2:	46bd      	mov	sp, r7
- 8001cb4:	bc80      	pop	{r7}
- 8001cb6:	4770      	bx	lr
- 8001cb8:	200000bc 	.word	0x200000bc
- 8001cbc:	20000094 	.word	0x20000094
+ 8001cf0:	bf00      	nop
+ 8001cf2:	bf00      	nop
+ 8001cf4:	370c      	adds	r7, #12
+ 8001cf6:	46bd      	mov	sp, r7
+ 8001cf8:	bc80      	pop	{r7}
+ 8001cfa:	4770      	bx	lr
+ 8001cfc:	200000c4 	.word	0x200000c4
+ 8001d00:	2000009c 	.word	0x2000009c
 
-08001cc0 <__libc_init_array>:
- 8001cc0:	b570      	push	{r4, r5, r6, lr}
- 8001cc2:	2600      	movs	r6, #0
- 8001cc4:	4d0c      	ldr	r5, [pc, #48]	; (8001cf8 <__libc_init_array+0x38>)
- 8001cc6:	4c0d      	ldr	r4, [pc, #52]	; (8001cfc <__libc_init_array+0x3c>)
- 8001cc8:	1b64      	subs	r4, r4, r5
- 8001cca:	10a4      	asrs	r4, r4, #2
- 8001ccc:	42a6      	cmp	r6, r4
- 8001cce:	d109      	bne.n	8001ce4 <__libc_init_array+0x24>
- 8001cd0:	f000 f822 	bl	8001d18 <_init>
- 8001cd4:	2600      	movs	r6, #0
- 8001cd6:	4d0a      	ldr	r5, [pc, #40]	; (8001d00 <__libc_init_array+0x40>)
- 8001cd8:	4c0a      	ldr	r4, [pc, #40]	; (8001d04 <__libc_init_array+0x44>)
- 8001cda:	1b64      	subs	r4, r4, r5
- 8001cdc:	10a4      	asrs	r4, r4, #2
- 8001cde:	42a6      	cmp	r6, r4
- 8001ce0:	d105      	bne.n	8001cee <__libc_init_array+0x2e>
- 8001ce2:	bd70      	pop	{r4, r5, r6, pc}
- 8001ce4:	f855 3b04 	ldr.w	r3, [r5], #4
- 8001ce8:	4798      	blx	r3
- 8001cea:	3601      	adds	r6, #1
- 8001cec:	e7ee      	b.n	8001ccc <__libc_init_array+0xc>
- 8001cee:	f855 3b04 	ldr.w	r3, [r5], #4
- 8001cf2:	4798      	blx	r3
- 8001cf4:	3601      	adds	r6, #1
- 8001cf6:	e7f2      	b.n	8001cde <__libc_init_array+0x1e>
- 8001cf8:	08001d54 	.word	0x08001d54
- 8001cfc:	08001d54 	.word	0x08001d54
- 8001d00:	08001d54 	.word	0x08001d54
- 8001d04:	08001d58 	.word	0x08001d58
+08001d04 <__libc_init_array>:
+ 8001d04:	b570      	push	{r4, r5, r6, lr}
+ 8001d06:	2600      	movs	r6, #0
+ 8001d08:	4d0c      	ldr	r5, [pc, #48]	; (8001d3c <__libc_init_array+0x38>)
+ 8001d0a:	4c0d      	ldr	r4, [pc, #52]	; (8001d40 <__libc_init_array+0x3c>)
+ 8001d0c:	1b64      	subs	r4, r4, r5
+ 8001d0e:	10a4      	asrs	r4, r4, #2
+ 8001d10:	42a6      	cmp	r6, r4
+ 8001d12:	d109      	bne.n	8001d28 <__libc_init_array+0x24>
+ 8001d14:	f000 f822 	bl	8001d5c <_init>
+ 8001d18:	2600      	movs	r6, #0
+ 8001d1a:	4d0a      	ldr	r5, [pc, #40]	; (8001d44 <__libc_init_array+0x40>)
+ 8001d1c:	4c0a      	ldr	r4, [pc, #40]	; (8001d48 <__libc_init_array+0x44>)
+ 8001d1e:	1b64      	subs	r4, r4, r5
+ 8001d20:	10a4      	asrs	r4, r4, #2
+ 8001d22:	42a6      	cmp	r6, r4
+ 8001d24:	d105      	bne.n	8001d32 <__libc_init_array+0x2e>
+ 8001d26:	bd70      	pop	{r4, r5, r6, pc}
+ 8001d28:	f855 3b04 	ldr.w	r3, [r5], #4
+ 8001d2c:	4798      	blx	r3
+ 8001d2e:	3601      	adds	r6, #1
+ 8001d30:	e7ee      	b.n	8001d10 <__libc_init_array+0xc>
+ 8001d32:	f855 3b04 	ldr.w	r3, [r5], #4
+ 8001d36:	4798      	blx	r3
+ 8001d38:	3601      	adds	r6, #1
+ 8001d3a:	e7f2      	b.n	8001d22 <__libc_init_array+0x1e>
+ 8001d3c:	08001d98 	.word	0x08001d98
+ 8001d40:	08001d98 	.word	0x08001d98
+ 8001d44:	08001d98 	.word	0x08001d98
+ 8001d48:	08001d9c 	.word	0x08001d9c
 
-08001d08 <memset>:
- 8001d08:	4603      	mov	r3, r0
- 8001d0a:	4402      	add	r2, r0
- 8001d0c:	4293      	cmp	r3, r2
- 8001d0e:	d100      	bne.n	8001d12 <memset+0xa>
- 8001d10:	4770      	bx	lr
- 8001d12:	f803 1b01 	strb.w	r1, [r3], #1
- 8001d16:	e7f9      	b.n	8001d0c <memset+0x4>
+08001d4c <memset>:
+ 8001d4c:	4603      	mov	r3, r0
+ 8001d4e:	4402      	add	r2, r0
+ 8001d50:	4293      	cmp	r3, r2
+ 8001d52:	d100      	bne.n	8001d56 <memset+0xa>
+ 8001d54:	4770      	bx	lr
+ 8001d56:	f803 1b01 	strb.w	r1, [r3], #1
+ 8001d5a:	e7f9      	b.n	8001d50 <memset+0x4>
 
-08001d18 <_init>:
- 8001d18:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 8001d1a:	bf00      	nop
- 8001d1c:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8001d1e:	bc08      	pop	{r3}
- 8001d20:	469e      	mov	lr, r3
- 8001d22:	4770      	bx	lr
+08001d5c <_init>:
+ 8001d5c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8001d5e:	bf00      	nop
+ 8001d60:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8001d62:	bc08      	pop	{r3}
+ 8001d64:	469e      	mov	lr, r3
+ 8001d66:	4770      	bx	lr
 
-08001d24 <_fini>:
- 8001d24:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 8001d26:	bf00      	nop
- 8001d28:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8001d2a:	bc08      	pop	{r3}
- 8001d2c:	469e      	mov	lr, r3
- 8001d2e:	4770      	bx	lr
+08001d68 <_fini>:
+ 8001d68:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8001d6a:	bf00      	nop
+ 8001d6c:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8001d6e:	bc08      	pop	{r3}
+ 8001d70:	469e      	mov	lr, r3
+ 8001d72:	4770      	bx	lr
