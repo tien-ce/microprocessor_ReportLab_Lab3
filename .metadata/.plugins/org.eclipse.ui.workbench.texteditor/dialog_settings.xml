@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Tim"/>
+		<item key="selection" value="&lt;="/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="&lt;"/>
+			<item value="status"/>
+			<item value="= 0;"/>
+			<item value="= 0"/>
+			<item value="button1_flag"/>
+			<item value="button1_flag == 1"/>
+			<item value="is_button_pressed(0)"/>
+			<item value="time_c"/>
+			<item value="flagForButtonPress1s"/>
+			<item value="5"/>
 			<item value="tim"/>
 			<item value="timm"/>
 			<item value="timmer"/>
 			<item value="HAL_TIM_PER"/>
 			<item value="HAL_TIM_PRE"/>
-			<item value="HAL_TIM_pre"/>
-			<item value="HAL_TIM_Base_Start_IT"/>
-			<item value="traffic"/>
-			<item value="munual"/>
 		</list>
 		<list key="replacehistory">
+			<item value="&lt;="/>
+			<item value=""/>
+			<item value="is_button_pressed(0)"/>
+			<item value="flagForButtonPress"/>
+			<item value="4"/>
 			<item value="traffic_mannual"/>
 			<item value="manual"/>
 		</list>
