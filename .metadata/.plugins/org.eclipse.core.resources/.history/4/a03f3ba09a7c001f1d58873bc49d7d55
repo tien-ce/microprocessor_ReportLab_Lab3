@@ -1,0 +1,58 @@
+/*
+ * automatic.c
+ *
+ *  Created on: Sep 23, 2024
+ *      Author: thuyh
+ */
+#include "automatic.h"
+void automatic_init(){
+
+}
+void automatic_run(){
+	if(is_button_pressed_1s(0)){
+		switch(status){
+			case INIT:
+				status = SET_TIME_RED;
+				break;
+			case GREEN_RED:
+				status = SET_TIME_RED;
+				break;
+			case YELLOW_RED:
+				status = SET_TIME_RED;
+				break;
+			case RED_GREEN:
+				status = SET_TIME_RED;
+				break;
+			case RED_YELLOW:
+				status = SET_TIME_RED;
+				break;
+			default:
+				break;
+		}
+	}
+	switch(status)
+	{
+	case (INIT):
+			if(1){
+				status = GREEN_RED;
+				setTimer1(0, 3000);
+				timer1_flag[1] = 1;
+			}
+			break;
+	case (GREEN_RED):
+			// TODO
+				traffic_green_red();
+			break;
+	case (YELLOW_RED):
+				traffic_yellow_red();
+			break;
+	case (RED_GREEN):
+				traffic_red_green();
+			break;
+	case (RED_YELLOW):
+				traffic_red_yellow();
+			break;
+	default:
+		break;
+	}
+}

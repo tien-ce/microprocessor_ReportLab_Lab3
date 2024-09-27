@@ -1,0 +1,40 @@
+/*
+ * munual.c
+ *
+ *  Created on: Sep 23, 2024
+ *      Author: thuyh
+ */
+#include "manual.h"
+void manual_init(){
+
+}
+void manual_run(){
+	if(is_button_pressed(0)){
+		switch(status){
+		case SET_TIME_RED:
+			status = SET_TIME_YELLOW;
+			break;
+		case SET_TIME_YELLOW:
+			status = SET_TIME_GREEN;
+			break;
+		case SET_TIME_GREEN:
+			status = INIT;
+			break;
+		default:
+			break;
+		}
+	}
+	/*	switch(status){
+	case MAN_GREEN_RED:
+		traffic_mannual_green_red();
+	case MAN_YELLOW_RED:
+		traffic_mannual_yellow_red();
+	case MAN_RED_GREEN:
+		traffic_mannual_red_green();
+	case MAN_RED_YELLOW:
+		traffic_mannual_red_yellow();
+	default :
+		break;
+	}
+*/
+}

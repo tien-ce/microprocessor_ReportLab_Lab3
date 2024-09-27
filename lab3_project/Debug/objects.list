@@ -24,6 +24,7 @@
 "./SOW/Src/Traffic_light.o"
 "./SOW/Src/automatic.o"
 "./SOW/Src/button.o"
+"./SOW/Src/ex5.o"
 "./SOW/Src/global.o"
 "./SOW/Src/i2c.o"
 "./SOW/Src/input_processing.o"

@@ -1,0 +1,29 @@
+/*
+ * ex5.c
+ *
+ *  Created on: Sep 27, 2024
+ *      Author: thuyh
+ */
+#include "ex5.h"
+void ex5_init(){
+
+}
+void ex5_run(){
+	if(is_button_pressed(0)){
+		switch(status){
+		case INIT:
+		case GREEN_RED:
+		case YELLOW_RED:
+		case RED_GREEN:
+		case RED_YELLOW:
+			status = SET_TIME_RED;
+			break;
+		case SET_TIME_RED:
+			status = SET_TIME_YELLOW;
+			break;
+		case SET_TIME_YELLOW:
+			status = SET_TIME_GREEN;
+		}
+	}
+}
+
