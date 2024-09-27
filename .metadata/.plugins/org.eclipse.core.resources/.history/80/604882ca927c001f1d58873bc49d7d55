@@ -18,7 +18,6 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -26,7 +25,7 @@
 #include "global.h"
 #include "input_reading.h"
 #include "input_processing.h"
-#include <ex4.h>
+#include "ex5.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,14 +94,14 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
-  ex4_init();
+  ex5_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  ex4_run();
+	  ex5_run();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

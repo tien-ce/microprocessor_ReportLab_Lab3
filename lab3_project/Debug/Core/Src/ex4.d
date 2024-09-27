@@ -1,4 +1,4 @@
-Core/Src/ex5.o: ../Core/Src/ex5.c ../Core/Inc/ex5.h ../Core/Inc/main.h \
+Core/Src/ex4.o: ../Core/Src/ex4.c ../Core/Inc/ex4.h ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -28,7 +28,7 @@ Core/Src/ex5.o: ../Core/Src/ex5.c ../Core/Inc/ex5.h ../Core/Inc/main.h \
  E:/SOW/Ins/Traffic_light.h E:/SOW/Ins/button.h \
  E:/SOW/Ins/input_reading.h E:/SOW/Ins/input_processing.h
 
-../Core/Inc/ex5.h:
+../Core/Inc/ex4.h:
 
 ../Core/Inc/main.h:
 

@@ -76,40 +76,40 @@ Disassembly of section .text:
  8000144:	2000001c 	.word	0x2000001c
  8000148:	08001d18 	.word	0x08001d18
 
-0800014c <ex5_init>:
+0800014c <ex4_init>:
  *
  *  Created on: Sep 27, 2024
  *      Author: thuyh
  */
-#include "ex5.h"
-void ex5_init(){
+#include <ex4.h>
+void ex4_init(){
  800014c:	b580      	push	{r7, lr}
  800014e:	af00      	add	r7, sp, #0
-	SetTimerForTimerSet(0, 500,10);
+	SetTimerForTimerSet(0, 400,10);
  8000150:	220a      	movs	r2, #10
- 8000152:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
+ 8000152:	f44f 71c8 	mov.w	r1, #400	; 0x190
  8000156:	2000      	movs	r0, #0
  8000158:	f001 fd6e 	bl	8001c38 <SetTimerForTimerSet>
 }
  800015c:	bf00      	nop
  800015e:	bd80      	pop	{r7, pc}
 
-08000160 <ex5_run>:
-void ex5_run(){
+08000160 <ex4_run>:
+void ex4_run(){
  8000160:	b580      	push	{r7, lr}
  8000162:	af00      	add	r7, sp, #0
 	if(timer1_flag[0] == 1){
- 8000164:	4b07      	ldr	r3, [pc, #28]	; (8000184 <ex5_run+0x24>)
+ 8000164:	4b07      	ldr	r3, [pc, #28]	; (8000184 <ex4_run+0x24>)
  8000166:	681b      	ldr	r3, [r3, #0]
  8000168:	2b01      	cmp	r3, #1
- 800016a:	d109      	bne.n	8000180 <ex5_run+0x20>
+ 800016a:	d109      	bne.n	8000180 <ex4_run+0x20>
 		HAL_GPIO_TogglePin(GPIOA, LED_RED_Pin);
  800016c:	2120      	movs	r1, #32
- 800016e:	4806      	ldr	r0, [pc, #24]	; (8000188 <ex5_run+0x28>)
+ 800016e:	4806      	ldr	r0, [pc, #24]	; (8000188 <ex4_run+0x28>)
  8000170:	f000 fcff 	bl	8000b72 <HAL_GPIO_TogglePin>
-		SetTimerForTimerSet(0, 500,10);
+		SetTimerForTimerSet(0, 400,10);
  8000174:	220a      	movs	r2, #10
- 8000176:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
+ 8000176:	f44f 71c8 	mov.w	r1, #400	; 0x190
  800017a:	2000      	movs	r0, #0
  800017c:	f001 fd5c 	bl	8001c38 <SetTimerForTimerSet>
 	}
@@ -155,15 +155,15 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
  80001a0:	4803      	ldr	r0, [pc, #12]	; (80001b0 <main+0x24>)
  80001a2:	f001 f92b 	bl	80013fc <HAL_TIM_Base_Start_IT>
-  ex5_init();
- 80001a6:	f7ff ffd1 	bl	800014c <ex5_init>
+  ex4_init();
+ 80001a6:	f7ff ffd1 	bl	800014c <ex4_init>
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  ex5_run();
- 80001aa:	f7ff ffd9 	bl	8000160 <ex5_run>
+	  ex4_run();
+ 80001aa:	f7ff ffd9 	bl	8000160 <ex4_run>
  80001ae:	e7fc      	b.n	80001aa <main+0x1e>
  80001b0:	20000048 	.word	0x20000048
 
