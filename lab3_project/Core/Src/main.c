@@ -105,8 +105,8 @@ int main(void)
   while (1)
   {
 	  ex4_run();
-	  ex5_run();
 	  automatic_run();
+	  ex5_run();
 	  traffic_double_display(GPIOA, RED_1_Pin, YELLOW_1_Pin, GREEN_1_Pin, GPIOA, RED_2_Pin, YELLOW_2_Pin, GREEN_2_Pin, status);
     /* USER CODE END WHILE */
 
