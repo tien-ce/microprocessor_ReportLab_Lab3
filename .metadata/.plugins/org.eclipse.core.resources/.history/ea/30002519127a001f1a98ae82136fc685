@@ -1,0 +1,18 @@
+/*
+ * munual.c
+ *
+ *  Created on: Sep 23, 2024
+ *      Author: thuyh
+ */
+#include "manual.h"
+void manual_init(){
+
+}
+void manual_run(){
+	switch(status){
+	case INIT:
+		break;
+	default :
+		break;
+	}
+}

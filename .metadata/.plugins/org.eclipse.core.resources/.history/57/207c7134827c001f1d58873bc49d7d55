@@ -1,0 +1,54 @@
+/*
+ * input_reading.c
+ *
+ *  Created on: Sep 27, 2024
+ *      Author: thuyh
+ */
+#include "main.h"
+#define N0_OF_BUTTONS 1 // So luong nut nhan
+#define DURATION_FOR_AUTO_INCREASING 100	// 1s
+#define BUTTON_IS_PRESSED GPIO_PIN_RESET	// Nut bam dang nhan
+#define BUTTON_IS_RELEASED GPIO_PIN_SET		// Nut bam dang tha
+static GPIO_PinState buttonBuffer[N0_OF_BUTTONS];	// finall state after chong nay
+static GPIO_PinState debounceButtonBuffer1[N0_OF_BUTTONS]; // Bo dem chong nay
+static GPIO_PinState debounceButtonBuffer2[N0_OF_BUTTONS];
+static uint8_t flagForButtonPress1s[N0_OF_BUTTONS]; // flag for button pressed (AN) hon 1 giay
+static uint16_t counterForButtonPress1s[N0_OF_BUTTONS]; // Counter tang gia tri sau khi nut duoc nhan hon 1 giay
+void button_reading ( GPIO_TypeDef* GPIOx[] , uint16_t GPIO_Pin[] ) {
+	for (int i = 0 ; i< N0_OF_BUTTONS ; i ++ ){
+		debounceButtonBuffer2[i] = debounceButtonBuffer1[i];
+		debounceButtonBuffer1[i] = HAL_GPIO_ReadPin(GPIOx[i], GPIO_Pin[i]);
+		if(debounceButtonBuffer1[i] == debounceButtonBuffer2[i]){
+			buttonBuffer[i] = debounceButtonBuffer1[i];
+		}
+		if(buttonBuffer[i] == BUTTON_IS_PRESSED){
+			// Xu ly tin hieu nhan
+			if(counterForButtonPress1s[i] < DURATION_FOR_AUTO_INCREASING){
+				counterForButtonPress1s[i] ++ ;
+			}
+			else{
+				flagForButtonPress1s[i] = 1;
+				// todo
+			}
+
+		}
+		else{
+			counterForButtonPress1s[i] = 0;
+			flagForButtonPress1s[i] = 0;
+		}
+	}
+}
+unsigned int is_button_pressed ( unsigned int index ){
+	// Tra ve trang thai nut nhan co dang bat hay khong
+	if(index>= N0_OF_BUTTONS_of){
+		return 0;
+	}
+	return buttonBuffer[index] == BUTTON_IS_PRESSED;
+}
+unsigned int is_button_pressed_1s ( unsigned int index ) {
+	if(index>= N0_OF_BUTTONS){
+		return 0 ;
+	}
+	return flagForButtonPress1s[index] == 1;
+}
+

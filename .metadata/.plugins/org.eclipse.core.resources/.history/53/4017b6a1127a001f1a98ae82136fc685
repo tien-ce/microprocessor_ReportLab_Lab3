@@ -1,0 +1,19 @@
+#ifndef ___traffic_mannual_light_H_
+#define ___traffic_mannual_light_H_
+typedef enum{
+	RED = 0, YELLOW =1,GREEN = 2
+
+} State;
+#include "main.h"
+#include "global.h"
+void  traffic(GPIO_TypeDef * GPIOx, uint16_t LED_RED, uint16_t LED_YELLOW, uint16_t LED_GREEN, State type);
+void traffic_green_red();
+void traffic_yellow_red();
+void traffic_red_green();
+void traffic_red_yellow();
+void traffic_mannual_green_red();
+void traffic_mannual_yellow_red();
+void traffic_mannual_red_green();
+void traffic_mannual_red_yellow();
+
+#endif /* INC_traffic_mannual_light_H_*/
