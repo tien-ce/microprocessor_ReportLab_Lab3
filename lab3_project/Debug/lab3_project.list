@@ -5,45 +5,45 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .isr_vector   0000010c  08000000  08000000  00010000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  1 .text         00002be4  0800010c  0800010c  0001010c  2**2
+  1 .text         00002b54  0800010c  0800010c  0001010c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000024  08002cf0  08002cf0  00012cf0  2**2
+  2 .rodata       00000024  08002c60  08002c60  00012c60  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  08002d14  08002d14  00020044  2**0
+  3 .ARM.extab    00000000  08002c84  08002c84  00020044  2**0
                   CONTENTS
-  4 .ARM          00000000  08002d14  08002d14  00020044  2**0
+  4 .ARM          00000000  08002c84  08002c84  00020044  2**0
                   CONTENTS
-  5 .preinit_array 00000000  08002d14  08002d14  00020044  2**0
+  5 .preinit_array 00000000  08002c84  08002c84  00020044  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  08002d14  08002d14  00012d14  2**2
+  6 .init_array   00000004  08002c84  08002c84  00012c84  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  08002d18  08002d18  00012d18  2**2
+  7 .fini_array   00000004  08002c88  08002c88  00012c88  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         00000044  20000000  08002d1c  00020000  2**2
+  8 .data         00000044  20000000  08002c8c  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000000e0  20000044  08002d60  00020044  2**2
+  9 .bss          000000e0  20000044  08002cd0  00020044  2**2
                   ALLOC
- 10 ._user_heap_stack 00000604  20000124  08002d60  00020124  2**0
+ 10 ._user_heap_stack 00000604  20000124  08002cd0  00020124  2**0
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00020044  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00009d34  00000000  00000000  0002006d  2**0
+ 12 .debug_info   00009d21  00000000  00000000  0002006d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00001e1e  00000000  00000000  00029da1  2**0
+ 13 .debug_abbrev 00001e1e  00000000  00000000  00029d8e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000b18  00000000  00000000  0002bbc0  2**3
+ 14 .debug_aranges 00000b10  00000000  00000000  0002bbb0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000009d8  00000000  00000000  0002c6d8  2**3
+ 15 .debug_ranges 000009d0  00000000  00000000  0002c6c0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0001769b  00000000  00000000  0002d0b0  2**0
+ 16 .debug_macro  00017695  00000000  00000000  0002d090  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000d981  00000000  00000000  0004474b  2**0
+ 17 .debug_line   0000d93b  00000000  00000000  00044725  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000828b7  00000000  00000000  000520cc  2**0
+ 18 .debug_str    0008289b  00000000  00000000  00052060  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000d4983  2**0
+ 19 .comment      00000053  00000000  00000000  000d48fb  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002a8c  00000000  00000000  000d49d8  2**2
+ 20 .debug_frame  00002a70  00000000  00000000  000d4950  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -62,7 +62,7 @@ Disassembly of section .text:
  8000122:	bd10      	pop	{r4, pc}
  8000124:	20000044 	.word	0x20000044
  8000128:	00000000 	.word	0x00000000
- 800012c:	08002cd8 	.word	0x08002cd8
+ 800012c:	08002c48 	.word	0x08002c48
 
 08000130 <frame_dummy>:
  8000130:	b508      	push	{r3, lr}
@@ -74,7 +74,7 @@ Disassembly of section .text:
  800013e:	bd08      	pop	{r3, pc}
  8000140:	00000000 	.word	0x00000000
  8000144:	20000048 	.word	0x20000048
- 8000148:	08002cd8 	.word	0x08002cd8
+ 8000148:	08002c48 	.word	0x08002c48
 
 0800014c <ex4_init>:
  *
@@ -89,7 +89,7 @@ void ex4_init(){
  8000150:	220a      	movs	r2, #10
  8000152:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  8000156:	2000      	movs	r0, #0
- 8000158:	f002 fd4e 	bl	8002bf8 <SetTimerForTimerSet>
+ 8000158:	f002 fd06 	bl	8002b68 <SetTimerForTimerSet>
 }
  800015c:	bf00      	nop
  800015e:	bd80      	pop	{r7, pc}
@@ -157,9 +157,9 @@ int main(void)
   while (1)
   {
 	  automatic_run();
- 8000190:	f002 fbfe 	bl	8002990 <automatic_run>
+ 8000190:	f002 fbba 	bl	8002908 <automatic_run>
 	  manual_run();
- 8000194:	f002 fce2 	bl	8002b5c <manual_run>
+ 8000194:	f002 fc9a 	bl	8002acc <manual_run>
 	  traffic_double_display(GPIOA, RED_1_Pin, YELLOW_1_Pin, GREEN_1_Pin, GPIOA, RED_2_Pin, YELLOW_2_Pin, GREEN_2_Pin, status);
  8000198:	4b0a      	ldr	r3, [pc, #40]	; (80001c4 <main+0x58>)
  800019a:	681b      	ldr	r3, [r3, #0]
@@ -199,7 +199,7 @@ void SystemClock_Config(void)
  80001d6:	2228      	movs	r2, #40	; 0x28
  80001d8:	2100      	movs	r1, #0
  80001da:	4618      	mov	r0, r3
- 80001dc:	f002 fd74 	bl	8002cc8 <memset>
+ 80001dc:	f002 fd2c 	bl	8002c38 <memset>
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
  80001e0:	1d3b      	adds	r3, r7, #4
  80001e2:	2200      	movs	r2, #0
@@ -535,11 +535,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  80003c4:	af00      	add	r7, sp, #0
  80003c6:	6078      	str	r0, [r7, #4]
 	timerRun();
- 80003c8:	f002 fc2a 	bl	8002c20 <timerRun>
+ 80003c8:	f002 fbe2 	bl	8002b90 <timerRun>
 	button_reading(GPIOx, GPIO_Pin);
  80003cc:	4903      	ldr	r1, [pc, #12]	; (80003dc <HAL_TIM_PeriodElapsedCallback+0x1c>)
  80003ce:	4804      	ldr	r0, [pc, #16]	; (80003e0 <HAL_TIM_PeriodElapsedCallback+0x20>)
- 80003d0:	f002 fb10 	bl	80029f4 <button_reading>
+ 80003d0:	f002 fac8 	bl	8002964 <button_reading>
 }
  80003d4:	bf00      	nop
  80003d6:	3708      	adds	r7, #8
@@ -965,7 +965,7 @@ LoopFillZerobss:
 
 /* Call static constructors */
     bl __libc_init_array
- 8000536:	f002 fba3 	bl	8002c80 <__libc_init_array>
+ 8000536:	f002 fb5b 	bl	8002bf0 <__libc_init_array>
 /* Call the application's entry point.*/
   bl main
  800053a:	f7ff fe17 	bl	800016c <main>
@@ -976,7 +976,7 @@ LoopFillZerobss:
   ldr r1, =_edata
  8000544:	20000044 	.word	0x20000044
   ldr r2, =_sidata
- 8000548:	08002d1c 	.word	0x08002d1c
+ 8000548:	08002c8c 	.word	0x08002c8c
   ldr r2, =_sbss
  800054c:	20000044 	.word	0x20000044
   ldr r4, =_ebss
@@ -3369,7 +3369,7 @@ if (((RCC_ClkInitStruct->ClockType) & RCC_CLOCKTYPE_PCLK1) == RCC_CLOCKTYPE_PCLK
  800127a:	bf00      	nop
  800127c:	40022000 	.word	0x40022000
  8001280:	40021000 	.word	0x40021000
- 8001284:	08002cf0 	.word	0x08002cf0
+ 8001284:	08002c60 	.word	0x08002c60
  8001288:	20000014 	.word	0x20000014
  800128c:	20000018 	.word	0x20000018
 
@@ -3504,8 +3504,8 @@ uint32_t HAL_RCC_GetSysClockFreq(void)
  8001322:	bf00      	nop
  8001324:	40021000 	.word	0x40021000
  8001328:	007a1200 	.word	0x007a1200
- 800132c:	08002d00 	.word	0x08002d00
- 8001330:	08002d10 	.word	0x08002d10
+ 800132c:	08002c70 	.word	0x08002c70
+ 8001330:	08002c80 	.word	0x08002c80
  8001334:	003d0900 	.word	0x003d0900
 
 08001338 <RCC_Delay>:
@@ -5640,7 +5640,7 @@ void traffic_double_display(GPIO_TypeDef * GPIOx1, uint16_t LED_RED1, uint16_t L
  8001f74:	08001fe9 	.word	0x08001fe9
  8001f78:	0800200b 	.word	0x0800200b
  8001f7c:	08002077 	.word	0x08002077
- 8001f80:	08002077 	.word	0x08002077
+ 8001f80:	080021a3 	.word	0x080021a3
  8001f84:	08002099 	.word	0x08002099
  8001f88:	080020f3 	.word	0x080020f3
  8001f8c:	0800214b 	.word	0x0800214b
@@ -5770,7 +5770,7 @@ void traffic_double_display(GPIO_TypeDef * GPIOx1, uint16_t LED_RED1, uint16_t L
             break;
  8002074:	e0bf      	b.n	80021f6 <traffic_double_display+0x2ba>
         case RED_RED1:
-        case RED_RED2:
+    //    case RED_RED2:
             traffic_display(GPIOx1, LED_RED1, LED_YELLOW1, LED_GREEN1, RED);
  8002076:	88fb      	ldrh	r3, [r7, #6]
  8002078:	893a      	ldrh	r2, [r7, #8]
@@ -5832,7 +5832,7 @@ void traffic_double_display(GPIO_TypeDef * GPIOx1, uint16_t LED_RED1, uint16_t L
         		setTimer1(2, 500);
  80020e6:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  80020ea:	2002      	movs	r0, #2
- 80020ec:	f000 fd66 	bl	8002bbc <setTimer1>
+ 80020ec:	f000 fd1e 	bl	8002b2c <setTimer1>
         	}
             break;
  80020f0:	e07c      	b.n	80021ec <traffic_double_display+0x2b0>
@@ -5880,7 +5880,7 @@ void traffic_double_display(GPIO_TypeDef * GPIOx1, uint16_t LED_RED1, uint16_t L
         		setTimer1(2, 500);
  800213e:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  8002142:	2002      	movs	r0, #2
- 8002144:	f000 fd3a 	bl	8002bbc <setTimer1>
+ 8002144:	f000 fcf2 	bl	8002b2c <setTimer1>
         	}
             break;
  8002148:	e052      	b.n	80021f0 <traffic_double_display+0x2b4>
@@ -5928,7 +5928,7 @@ void traffic_double_display(GPIO_TypeDef * GPIOx1, uint16_t LED_RED1, uint16_t L
         		setTimer1(2, 500);
  8002196:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  800219a:	2002      	movs	r0, #2
- 800219c:	f000 fd0e 	bl	8002bbc <setTimer1>
+ 800219c:	f000 fcc6 	bl	8002b2c <setTimer1>
         	}
             break;
  80021a0:	e028      	b.n	80021f4 <traffic_double_display+0x2b8>
@@ -6136,7 +6136,7 @@ void traffic_init() {
 	}
 	if (is_button_pressed(0)) {
  80022f8:	2000      	movs	r0, #0
- 80022fa:	f000 fc11 	bl	8002b20 <is_button_pressed>
+ 80022fa:	f000 fbc9 	bl	8002a90 <is_button_pressed>
  80022fe:	4603      	mov	r3, r0
  8002300:	2b00      	cmp	r3, #0
  8002302:	d002      	beq.n	800230a <traffic_init+0x5a>
@@ -6146,9 +6146,9 @@ void traffic_init() {
  8002308:	601a      	str	r2, [r3, #0]
 	}
 	 display_times();
- 800230a:	f000 f941 	bl	8002590 <display_times>
+ 800230a:	f000 f8fd 	bl	8002508 <display_times>
 	 update_timers();
- 800230e:	f000 f921 	bl	8002554 <update_timers>
+ 800230e:	f000 f8dd 	bl	80024cc <update_timers>
 
 }
  8002312:	bf00      	nop
@@ -6168,7 +6168,7 @@ void traffic_green_red() {
  8002334:	b580      	push	{r7, lr}
  8002336:	af00      	add	r7, sp, #0
     update_timers();
- 8002338:	f000 f90c 	bl	8002554 <update_timers>
+ 8002338:	f000 f8c8 	bl	80024cc <update_timers>
     if (time_1 <= 0) {
  800233c:	4b0b      	ldr	r3, [pc, #44]	; (800236c <traffic_green_red+0x38>)
  800233e:	681b      	ldr	r3, [r3, #0]
@@ -6186,7 +6186,7 @@ void traffic_green_red() {
     }
     if (is_button_pressed(0)) {
  8002352:	2000      	movs	r0, #0
- 8002354:	f000 fbe4 	bl	8002b20 <is_button_pressed>
+ 8002354:	f000 fb9c 	bl	8002a90 <is_button_pressed>
  8002358:	4603      	mov	r3, r0
  800235a:	2b00      	cmp	r3, #0
  800235c:	d002      	beq.n	8002364 <traffic_green_red+0x30>
@@ -6196,7 +6196,7 @@ void traffic_green_red() {
  8002362:	601a      	str	r2, [r3, #0]
     }
     display_times();
- 8002364:	f000 f914 	bl	8002590 <display_times>
+ 8002364:	f000 f8d0 	bl	8002508 <display_times>
 }
  8002368:	bf00      	nop
  800236a:	bd80      	pop	{r7, pc}
@@ -6210,7 +6210,7 @@ void traffic_yellow_red() {
  8002378:	b580      	push	{r7, lr}
  800237a:	af00      	add	r7, sp, #0
     update_timers();
- 800237c:	f000 f8ea 	bl	8002554 <update_timers>
+ 800237c:	f000 f8a6 	bl	80024cc <update_timers>
     if (redred == 1) {
  8002380:	4b15      	ldr	r3, [pc, #84]	; (80023d8 <traffic_yellow_red+0x60>)
  8002382:	781b      	ldrb	r3, [r3, #0]
@@ -6256,7 +6256,7 @@ void traffic_yellow_red() {
     }
     if (is_button_pressed(0)) {
  80023be:	2000      	movs	r0, #0
- 80023c0:	f000 fbae 	bl	8002b20 <is_button_pressed>
+ 80023c0:	f000 fb66 	bl	8002a90 <is_button_pressed>
  80023c4:	4603      	mov	r3, r0
  80023c6:	2b00      	cmp	r3, #0
  80023c8:	d002      	beq.n	80023d0 <traffic_yellow_red+0x58>
@@ -6266,7 +6266,7 @@ void traffic_yellow_red() {
  80023ce:	601a      	str	r2, [r3, #0]
     }
     display_times();
- 80023d0:	f000 f8de 	bl	8002590 <display_times>
+ 80023d0:	f000 f89a 	bl	8002508 <display_times>
 }
  80023d4:	bf00      	nop
  80023d6:	bd80      	pop	{r7, pc}
@@ -6283,1340 +6283,1263 @@ void traffic_red_red1() {
  80023f0:	b580      	push	{r7, lr}
  80023f2:	af00      	add	r7, sp, #0
     update_timers();
- 80023f4:	f000 f8ae 	bl	8002554 <update_timers>
+ 80023f4:	f000 f86a 	bl	80024cc <update_timers>
     if (time_2 <= 0) {
- 80023f8:	4b0d      	ldr	r3, [pc, #52]	; (8002430 <traffic_red_red1+0x40>)
+ 80023f8:	4b0b      	ldr	r3, [pc, #44]	; (8002428 <traffic_red_red1+0x38>)
  80023fa:	681b      	ldr	r3, [r3, #0]
  80023fc:	2b00      	cmp	r3, #0
- 80023fe:	dc0a      	bgt.n	8002416 <traffic_red_red1+0x26>
-    	time_1 = time_red_set;
- 8002400:	4b0c      	ldr	r3, [pc, #48]	; (8002434 <traffic_red_red1+0x44>)
- 8002402:	681b      	ldr	r3, [r3, #0]
- 8002404:	4a0c      	ldr	r2, [pc, #48]	; (8002438 <traffic_red_red1+0x48>)
- 8002406:	6013      	str	r3, [r2, #0]
+ 80023fe:	dc06      	bgt.n	800240e <traffic_red_red1+0x1e>
+    	// time_1 = time_red_set;
         time_2 = time_green_set;
- 8002408:	4b0c      	ldr	r3, [pc, #48]	; (800243c <traffic_red_red1+0x4c>)
- 800240a:	681b      	ldr	r3, [r3, #0]
- 800240c:	4a08      	ldr	r2, [pc, #32]	; (8002430 <traffic_red_red1+0x40>)
- 800240e:	6013      	str	r3, [r2, #0]
+ 8002400:	4b0a      	ldr	r3, [pc, #40]	; (800242c <traffic_red_red1+0x3c>)
+ 8002402:	681b      	ldr	r3, [r3, #0]
+ 8002404:	4a08      	ldr	r2, [pc, #32]	; (8002428 <traffic_red_red1+0x38>)
+ 8002406:	6013      	str	r3, [r2, #0]
         status = RED_GREEN;
- 8002410:	4b0b      	ldr	r3, [pc, #44]	; (8002440 <traffic_red_red1+0x50>)
- 8002412:	2204      	movs	r2, #4
- 8002414:	601a      	str	r2, [r3, #0]
+ 8002408:	4b09      	ldr	r3, [pc, #36]	; (8002430 <traffic_red_red1+0x40>)
+ 800240a:	2204      	movs	r2, #4
+ 800240c:	601a      	str	r2, [r3, #0]
     }
     if (is_button_pressed(0)) {
- 8002416:	2000      	movs	r0, #0
- 8002418:	f000 fb82 	bl	8002b20 <is_button_pressed>
- 800241c:	4603      	mov	r3, r0
- 800241e:	2b00      	cmp	r3, #0
- 8002420:	d002      	beq.n	8002428 <traffic_red_red1+0x38>
+ 800240e:	2000      	movs	r0, #0
+ 8002410:	f000 fb3e 	bl	8002a90 <is_button_pressed>
+ 8002414:	4603      	mov	r3, r0
+ 8002416:	2b00      	cmp	r3, #0
+ 8002418:	d002      	beq.n	8002420 <traffic_red_red1+0x30>
         status = SET_TIME_RED;
- 8002422:	4b07      	ldr	r3, [pc, #28]	; (8002440 <traffic_red_red1+0x50>)
- 8002424:	2208      	movs	r2, #8
- 8002426:	601a      	str	r2, [r3, #0]
+ 800241a:	4b05      	ldr	r3, [pc, #20]	; (8002430 <traffic_red_red1+0x40>)
+ 800241c:	2208      	movs	r2, #8
+ 800241e:	601a      	str	r2, [r3, #0]
     }
     display_times();
- 8002428:	f000 f8b2 	bl	8002590 <display_times>
+ 8002420:	f000 f872 	bl	8002508 <display_times>
 }
- 800242c:	bf00      	nop
- 800242e:	bd80      	pop	{r7, pc}
- 8002430:	20000034 	.word	0x20000034
- 8002434:	20000028 	.word	0x20000028
- 8002438:	20000030 	.word	0x20000030
- 800243c:	20000020 	.word	0x20000020
- 8002440:	20000038 	.word	0x20000038
+ 8002424:	bf00      	nop
+ 8002426:	bd80      	pop	{r7, pc}
+ 8002428:	20000034 	.word	0x20000034
+ 800242c:	20000020 	.word	0x20000020
+ 8002430:	20000038 	.word	0x20000038
 
-08002444 <traffic_red_green>:
+08002434 <traffic_red_green>:
 
 void traffic_red_green() {
- 8002444:	b580      	push	{r7, lr}
- 8002446:	af00      	add	r7, sp, #0
+ 8002434:	b580      	push	{r7, lr}
+ 8002436:	af00      	add	r7, sp, #0
     update_timers();
- 8002448:	f000 f884 	bl	8002554 <update_timers>
+ 8002438:	f000 f848 	bl	80024cc <update_timers>
     if (time_2 <= 0) {
- 800244c:	4b0b      	ldr	r3, [pc, #44]	; (800247c <traffic_red_green+0x38>)
- 800244e:	681b      	ldr	r3, [r3, #0]
- 8002450:	2b00      	cmp	r3, #0
- 8002452:	dc06      	bgt.n	8002462 <traffic_red_green+0x1e>
+ 800243c:	4b0b      	ldr	r3, [pc, #44]	; (800246c <traffic_red_green+0x38>)
+ 800243e:	681b      	ldr	r3, [r3, #0]
+ 8002440:	2b00      	cmp	r3, #0
+ 8002442:	dc06      	bgt.n	8002452 <traffic_red_green+0x1e>
         time_2 = time_yellow_set;
- 8002454:	4b0a      	ldr	r3, [pc, #40]	; (8002480 <traffic_red_green+0x3c>)
- 8002456:	681b      	ldr	r3, [r3, #0]
- 8002458:	4a08      	ldr	r2, [pc, #32]	; (800247c <traffic_red_green+0x38>)
- 800245a:	6013      	str	r3, [r2, #0]
+ 8002444:	4b0a      	ldr	r3, [pc, #40]	; (8002470 <traffic_red_green+0x3c>)
+ 8002446:	681b      	ldr	r3, [r3, #0]
+ 8002448:	4a08      	ldr	r2, [pc, #32]	; (800246c <traffic_red_green+0x38>)
+ 800244a:	6013      	str	r3, [r2, #0]
         status = RED_YELLOW;
- 800245c:	4b09      	ldr	r3, [pc, #36]	; (8002484 <traffic_red_green+0x40>)
- 800245e:	2205      	movs	r2, #5
- 8002460:	601a      	str	r2, [r3, #0]
+ 800244c:	4b09      	ldr	r3, [pc, #36]	; (8002474 <traffic_red_green+0x40>)
+ 800244e:	2205      	movs	r2, #5
+ 8002450:	601a      	str	r2, [r3, #0]
     }
     if (is_button_pressed(0)) {
- 8002462:	2000      	movs	r0, #0
- 8002464:	f000 fb5c 	bl	8002b20 <is_button_pressed>
- 8002468:	4603      	mov	r3, r0
- 800246a:	2b00      	cmp	r3, #0
- 800246c:	d002      	beq.n	8002474 <traffic_red_green+0x30>
+ 8002452:	2000      	movs	r0, #0
+ 8002454:	f000 fb1c 	bl	8002a90 <is_button_pressed>
+ 8002458:	4603      	mov	r3, r0
+ 800245a:	2b00      	cmp	r3, #0
+ 800245c:	d002      	beq.n	8002464 <traffic_red_green+0x30>
         status = SET_TIME_RED;
- 800246e:	4b05      	ldr	r3, [pc, #20]	; (8002484 <traffic_red_green+0x40>)
- 8002470:	2208      	movs	r2, #8
- 8002472:	601a      	str	r2, [r3, #0]
+ 800245e:	4b05      	ldr	r3, [pc, #20]	; (8002474 <traffic_red_green+0x40>)
+ 8002460:	2208      	movs	r2, #8
+ 8002462:	601a      	str	r2, [r3, #0]
     }
     display_times();
- 8002474:	f000 f88c 	bl	8002590 <display_times>
+ 8002464:	f000 f850 	bl	8002508 <display_times>
 }
- 8002478:	bf00      	nop
- 800247a:	bd80      	pop	{r7, pc}
- 800247c:	20000034 	.word	0x20000034
- 8002480:	20000024 	.word	0x20000024
- 8002484:	20000038 	.word	0x20000038
+ 8002468:	bf00      	nop
+ 800246a:	bd80      	pop	{r7, pc}
+ 800246c:	20000034 	.word	0x20000034
+ 8002470:	20000024 	.word	0x20000024
+ 8002474:	20000038 	.word	0x20000038
 
-08002488 <traffic_red_yellow>:
+08002478 <traffic_red_yellow>:
 
 void traffic_red_yellow() {
- 8002488:	b580      	push	{r7, lr}
- 800248a:	af00      	add	r7, sp, #0
+ 8002478:	b580      	push	{r7, lr}
+ 800247a:	af00      	add	r7, sp, #0
     update_timers();
- 800248c:	f000 f862 	bl	8002554 <update_timers>
-    if (redred == 1) {
- 8002490:	4b15      	ldr	r3, [pc, #84]	; (80024e8 <traffic_red_yellow+0x60>)
- 8002492:	781b      	ldrb	r3, [r3, #0]
- 8002494:	2b01      	cmp	r3, #1
- 8002496:	d10b      	bne.n	80024b0 <traffic_red_yellow+0x28>
-        if (time_2 <= 0) {
- 8002498:	4b14      	ldr	r3, [pc, #80]	; (80024ec <traffic_red_yellow+0x64>)
- 800249a:	681b      	ldr	r3, [r3, #0]
- 800249c:	2b00      	cmp	r3, #0
- 800249e:	dc16      	bgt.n	80024ce <traffic_red_yellow+0x46>
-            time_2 = time_red_set;
- 80024a0:	4b13      	ldr	r3, [pc, #76]	; (80024f0 <traffic_red_yellow+0x68>)
- 80024a2:	681b      	ldr	r3, [r3, #0]
- 80024a4:	4a11      	ldr	r2, [pc, #68]	; (80024ec <traffic_red_yellow+0x64>)
- 80024a6:	6013      	str	r3, [r2, #0]
-            status = RED_RED2;
- 80024a8:	4b12      	ldr	r3, [pc, #72]	; (80024f4 <traffic_red_yellow+0x6c>)
- 80024aa:	2207      	movs	r2, #7
- 80024ac:	601a      	str	r2, [r3, #0]
- 80024ae:	e00e      	b.n	80024ce <traffic_red_yellow+0x46>
-        }
-    } else {
-        if (time_1 <= 0) {
- 80024b0:	4b11      	ldr	r3, [pc, #68]	; (80024f8 <traffic_red_yellow+0x70>)
- 80024b2:	681b      	ldr	r3, [r3, #0]
- 80024b4:	2b00      	cmp	r3, #0
- 80024b6:	dc0a      	bgt.n	80024ce <traffic_red_yellow+0x46>
-            time_1 = time_green_set;
- 80024b8:	4b10      	ldr	r3, [pc, #64]	; (80024fc <traffic_red_yellow+0x74>)
- 80024ba:	681b      	ldr	r3, [r3, #0]
- 80024bc:	4a0e      	ldr	r2, [pc, #56]	; (80024f8 <traffic_red_yellow+0x70>)
- 80024be:	6013      	str	r3, [r2, #0]
-            time_2 = time_red_set;
- 80024c0:	4b0b      	ldr	r3, [pc, #44]	; (80024f0 <traffic_red_yellow+0x68>)
- 80024c2:	681b      	ldr	r3, [r3, #0]
- 80024c4:	4a09      	ldr	r2, [pc, #36]	; (80024ec <traffic_red_yellow+0x64>)
- 80024c6:	6013      	str	r3, [r2, #0]
-            status = GREEN_RED;
- 80024c8:	4b0a      	ldr	r3, [pc, #40]	; (80024f4 <traffic_red_yellow+0x6c>)
- 80024ca:	2202      	movs	r2, #2
- 80024cc:	601a      	str	r2, [r3, #0]
-        }
-    }
+ 800247c:	f000 f826 	bl	80024cc <update_timers>
+	if (time_1 <= 0) {
+ 8002480:	4b0d      	ldr	r3, [pc, #52]	; (80024b8 <traffic_red_yellow+0x40>)
+ 8002482:	681b      	ldr	r3, [r3, #0]
+ 8002484:	2b00      	cmp	r3, #0
+ 8002486:	dc0a      	bgt.n	800249e <traffic_red_yellow+0x26>
+		time_1 = time_green_set;
+ 8002488:	4b0c      	ldr	r3, [pc, #48]	; (80024bc <traffic_red_yellow+0x44>)
+ 800248a:	681b      	ldr	r3, [r3, #0]
+ 800248c:	4a0a      	ldr	r2, [pc, #40]	; (80024b8 <traffic_red_yellow+0x40>)
+ 800248e:	6013      	str	r3, [r2, #0]
+		time_2 = time_red_set;
+ 8002490:	4b0b      	ldr	r3, [pc, #44]	; (80024c0 <traffic_red_yellow+0x48>)
+ 8002492:	681b      	ldr	r3, [r3, #0]
+ 8002494:	4a0b      	ldr	r2, [pc, #44]	; (80024c4 <traffic_red_yellow+0x4c>)
+ 8002496:	6013      	str	r3, [r2, #0]
+		status = GREEN_RED;
+ 8002498:	4b0b      	ldr	r3, [pc, #44]	; (80024c8 <traffic_red_yellow+0x50>)
+ 800249a:	2202      	movs	r2, #2
+ 800249c:	601a      	str	r2, [r3, #0]
+	}
     if (is_button_pressed(0)) {
- 80024ce:	2000      	movs	r0, #0
- 80024d0:	f000 fb26 	bl	8002b20 <is_button_pressed>
- 80024d4:	4603      	mov	r3, r0
- 80024d6:	2b00      	cmp	r3, #0
- 80024d8:	d002      	beq.n	80024e0 <traffic_red_yellow+0x58>
+ 800249e:	2000      	movs	r0, #0
+ 80024a0:	f000 faf6 	bl	8002a90 <is_button_pressed>
+ 80024a4:	4603      	mov	r3, r0
+ 80024a6:	2b00      	cmp	r3, #0
+ 80024a8:	d002      	beq.n	80024b0 <traffic_red_yellow+0x38>
         status = SET_TIME_RED;
- 80024da:	4b06      	ldr	r3, [pc, #24]	; (80024f4 <traffic_red_yellow+0x6c>)
- 80024dc:	2208      	movs	r2, #8
- 80024de:	601a      	str	r2, [r3, #0]
+ 80024aa:	4b07      	ldr	r3, [pc, #28]	; (80024c8 <traffic_red_yellow+0x50>)
+ 80024ac:	2208      	movs	r2, #8
+ 80024ae:	601a      	str	r2, [r3, #0]
     }
     display_times();
- 80024e0:	f000 f856 	bl	8002590 <display_times>
+ 80024b0:	f000 f82a 	bl	8002508 <display_times>
 }
- 80024e4:	bf00      	nop
- 80024e6:	bd80      	pop	{r7, pc}
- 80024e8:	200000d0 	.word	0x200000d0
- 80024ec:	20000034 	.word	0x20000034
- 80024f0:	20000028 	.word	0x20000028
- 80024f4:	20000038 	.word	0x20000038
- 80024f8:	20000030 	.word	0x20000030
- 80024fc:	20000020 	.word	0x20000020
+ 80024b4:	bf00      	nop
+ 80024b6:	bd80      	pop	{r7, pc}
+ 80024b8:	20000030 	.word	0x20000030
+ 80024bc:	20000020 	.word	0x20000020
+ 80024c0:	20000028 	.word	0x20000028
+ 80024c4:	20000034 	.word	0x20000034
+ 80024c8:	20000038 	.word	0x20000038
 
-08002500 <traffic_red_red2>:
-
-void traffic_red_red2() {
- 8002500:	b580      	push	{r7, lr}
- 8002502:	af00      	add	r7, sp, #0
-    update_timers();
- 8002504:	f000 f826 	bl	8002554 <update_timers>
-    if (time_1 <= 0) {
- 8002508:	4b0d      	ldr	r3, [pc, #52]	; (8002540 <traffic_red_red2+0x40>)
- 800250a:	681b      	ldr	r3, [r3, #0]
- 800250c:	2b00      	cmp	r3, #0
- 800250e:	dc0a      	bgt.n	8002526 <traffic_red_red2+0x26>
-        time_1 = time_green_set;
- 8002510:	4b0c      	ldr	r3, [pc, #48]	; (8002544 <traffic_red_red2+0x44>)
- 8002512:	681b      	ldr	r3, [r3, #0]
- 8002514:	4a0a      	ldr	r2, [pc, #40]	; (8002540 <traffic_red_red2+0x40>)
- 8002516:	6013      	str	r3, [r2, #0]
-        time_2 = time_red_set;
- 8002518:	4b0b      	ldr	r3, [pc, #44]	; (8002548 <traffic_red_red2+0x48>)
- 800251a:	681b      	ldr	r3, [r3, #0]
- 800251c:	4a0b      	ldr	r2, [pc, #44]	; (800254c <traffic_red_red2+0x4c>)
- 800251e:	6013      	str	r3, [r2, #0]
-        status = GREEN_RED;
- 8002520:	4b0b      	ldr	r3, [pc, #44]	; (8002550 <traffic_red_red2+0x50>)
- 8002522:	2202      	movs	r2, #2
- 8002524:	601a      	str	r2, [r3, #0]
-    }
-    if (is_button_pressed(0)) {
- 8002526:	2000      	movs	r0, #0
- 8002528:	f000 fafa 	bl	8002b20 <is_button_pressed>
- 800252c:	4603      	mov	r3, r0
- 800252e:	2b00      	cmp	r3, #0
- 8002530:	d002      	beq.n	8002538 <traffic_red_red2+0x38>
+080024cc <update_timers>:
         status = SET_TIME_RED;
- 8002532:	4b07      	ldr	r3, [pc, #28]	; (8002550 <traffic_red_red2+0x50>)
- 8002534:	2208      	movs	r2, #8
- 8002536:	601a      	str	r2, [r3, #0]
     }
     display_times();
- 8002538:	f000 f82a 	bl	8002590 <display_times>
 }
- 800253c:	bf00      	nop
- 800253e:	bd80      	pop	{r7, pc}
- 8002540:	20000030 	.word	0x20000030
- 8002544:	20000020 	.word	0x20000020
- 8002548:	20000028 	.word	0x20000028
- 800254c:	20000034 	.word	0x20000034
- 8002550:	20000038 	.word	0x20000038
-
-08002554 <update_timers>:
-
+*/
 void update_timers() {
- 8002554:	b580      	push	{r7, lr}
- 8002556:	af00      	add	r7, sp, #0
+ 80024cc:	b580      	push	{r7, lr}
+ 80024ce:	af00      	add	r7, sp, #0
     if (timer1_flag[1] == 1) {
- 8002558:	4b0a      	ldr	r3, [pc, #40]	; (8002584 <update_timers+0x30>)
- 800255a:	685b      	ldr	r3, [r3, #4]
- 800255c:	2b01      	cmp	r3, #1
- 800255e:	d10e      	bne.n	800257e <update_timers+0x2a>
+ 80024d0:	4b0a      	ldr	r3, [pc, #40]	; (80024fc <update_timers+0x30>)
+ 80024d2:	685b      	ldr	r3, [r3, #4]
+ 80024d4:	2b01      	cmp	r3, #1
+ 80024d6:	d10e      	bne.n	80024f6 <update_timers+0x2a>
         time_1--;
- 8002560:	4b09      	ldr	r3, [pc, #36]	; (8002588 <update_timers+0x34>)
- 8002562:	681b      	ldr	r3, [r3, #0]
- 8002564:	3b01      	subs	r3, #1
- 8002566:	4a08      	ldr	r2, [pc, #32]	; (8002588 <update_timers+0x34>)
- 8002568:	6013      	str	r3, [r2, #0]
+ 80024d8:	4b09      	ldr	r3, [pc, #36]	; (8002500 <update_timers+0x34>)
+ 80024da:	681b      	ldr	r3, [r3, #0]
+ 80024dc:	3b01      	subs	r3, #1
+ 80024de:	4a08      	ldr	r2, [pc, #32]	; (8002500 <update_timers+0x34>)
+ 80024e0:	6013      	str	r3, [r2, #0]
         time_2--;
- 800256a:	4b08      	ldr	r3, [pc, #32]	; (800258c <update_timers+0x38>)
- 800256c:	681b      	ldr	r3, [r3, #0]
- 800256e:	3b01      	subs	r3, #1
- 8002570:	4a06      	ldr	r2, [pc, #24]	; (800258c <update_timers+0x38>)
- 8002572:	6013      	str	r3, [r2, #0]
+ 80024e2:	4b08      	ldr	r3, [pc, #32]	; (8002504 <update_timers+0x38>)
+ 80024e4:	681b      	ldr	r3, [r3, #0]
+ 80024e6:	3b01      	subs	r3, #1
+ 80024e8:	4a06      	ldr	r2, [pc, #24]	; (8002504 <update_timers+0x38>)
+ 80024ea:	6013      	str	r3, [r2, #0]
         setTimer1(1, 1000);
- 8002574:	f44f 717a 	mov.w	r1, #1000	; 0x3e8
- 8002578:	2001      	movs	r0, #1
- 800257a:	f000 fb1f 	bl	8002bbc <setTimer1>
+ 80024ec:	f44f 717a 	mov.w	r1, #1000	; 0x3e8
+ 80024f0:	2001      	movs	r0, #1
+ 80024f2:	f000 fb1b 	bl	8002b2c <setTimer1>
     }
 }
- 800257e:	bf00      	nop
- 8002580:	bd80      	pop	{r7, pc}
- 8002582:	bf00      	nop
- 8002584:	200000d4 	.word	0x200000d4
- 8002588:	20000030 	.word	0x20000030
- 800258c:	20000034 	.word	0x20000034
+ 80024f6:	bf00      	nop
+ 80024f8:	bd80      	pop	{r7, pc}
+ 80024fa:	bf00      	nop
+ 80024fc:	200000d4 	.word	0x200000d4
+ 8002500:	20000030 	.word	0x20000030
+ 8002504:	20000034 	.word	0x20000034
 
-08002590 <display_times>:
+08002508 <display_times>:
 
 void display_times() {
- 8002590:	b580      	push	{r7, lr}
- 8002592:	b086      	sub	sp, #24
- 8002594:	af06      	add	r7, sp, #24
+ 8002508:	b580      	push	{r7, lr}
+ 800250a:	b086      	sub	sp, #24
+ 800250c:	af06      	add	r7, sp, #24
 	DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED1_0_Pin, SEGLED1_1_Pin, SEGLED1_2_Pin, SEGLED1_3_Pin, SEGLED1_4_Pin, SEGLED1_5_Pin, SEGLED1_6_Pin, time_1-1);
- 8002596:	4b18      	ldr	r3, [pc, #96]	; (80025f8 <display_times+0x68>)
- 8002598:	681b      	ldr	r3, [r3, #0]
- 800259a:	b2db      	uxtb	r3, r3
- 800259c:	3b01      	subs	r3, #1
- 800259e:	b2db      	uxtb	r3, r3
- 80025a0:	9304      	str	r3, [sp, #16]
- 80025a2:	2340      	movs	r3, #64	; 0x40
- 80025a4:	9303      	str	r3, [sp, #12]
- 80025a6:	2320      	movs	r3, #32
- 80025a8:	9302      	str	r3, [sp, #8]
- 80025aa:	2310      	movs	r3, #16
- 80025ac:	9301      	str	r3, [sp, #4]
- 80025ae:	2308      	movs	r3, #8
- 80025b0:	9300      	str	r3, [sp, #0]
- 80025b2:	2304      	movs	r3, #4
- 80025b4:	2202      	movs	r2, #2
- 80025b6:	2101      	movs	r1, #1
- 80025b8:	4810      	ldr	r0, [pc, #64]	; (80025fc <display_times+0x6c>)
- 80025ba:	f7ff fab7 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
+ 800250e:	4b18      	ldr	r3, [pc, #96]	; (8002570 <display_times+0x68>)
+ 8002510:	681b      	ldr	r3, [r3, #0]
+ 8002512:	b2db      	uxtb	r3, r3
+ 8002514:	3b01      	subs	r3, #1
+ 8002516:	b2db      	uxtb	r3, r3
+ 8002518:	9304      	str	r3, [sp, #16]
+ 800251a:	2340      	movs	r3, #64	; 0x40
+ 800251c:	9303      	str	r3, [sp, #12]
+ 800251e:	2320      	movs	r3, #32
+ 8002520:	9302      	str	r3, [sp, #8]
+ 8002522:	2310      	movs	r3, #16
+ 8002524:	9301      	str	r3, [sp, #4]
+ 8002526:	2308      	movs	r3, #8
+ 8002528:	9300      	str	r3, [sp, #0]
+ 800252a:	2304      	movs	r3, #4
+ 800252c:	2202      	movs	r2, #2
+ 800252e:	2101      	movs	r1, #1
+ 8002530:	4810      	ldr	r0, [pc, #64]	; (8002574 <display_times+0x6c>)
+ 8002532:	f7ff fafb 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
     DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED2_0_Pin, SEGLED2_1_Pin, SEGLED2_2_Pin, SEGLED2_3_Pin, SEGLED2_4_Pin, SEGLED2_5_Pin, SEGLED2_6_Pin, time_2-1);
- 80025be:	4b10      	ldr	r3, [pc, #64]	; (8002600 <display_times+0x70>)
- 80025c0:	681b      	ldr	r3, [r3, #0]
- 80025c2:	b2db      	uxtb	r3, r3
- 80025c4:	3b01      	subs	r3, #1
- 80025c6:	b2db      	uxtb	r3, r3
- 80025c8:	9304      	str	r3, [sp, #16]
- 80025ca:	f44f 5300 	mov.w	r3, #8192	; 0x2000
- 80025ce:	9303      	str	r3, [sp, #12]
- 80025d0:	f44f 5380 	mov.w	r3, #4096	; 0x1000
- 80025d4:	9302      	str	r3, [sp, #8]
- 80025d6:	f44f 6300 	mov.w	r3, #2048	; 0x800
- 80025da:	9301      	str	r3, [sp, #4]
- 80025dc:	f44f 6380 	mov.w	r3, #1024	; 0x400
- 80025e0:	9300      	str	r3, [sp, #0]
- 80025e2:	f44f 7300 	mov.w	r3, #512	; 0x200
- 80025e6:	f44f 7280 	mov.w	r2, #256	; 0x100
- 80025ea:	2180      	movs	r1, #128	; 0x80
- 80025ec:	4803      	ldr	r0, [pc, #12]	; (80025fc <display_times+0x6c>)
- 80025ee:	f7ff fa9d 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
+ 8002536:	4b10      	ldr	r3, [pc, #64]	; (8002578 <display_times+0x70>)
+ 8002538:	681b      	ldr	r3, [r3, #0]
+ 800253a:	b2db      	uxtb	r3, r3
+ 800253c:	3b01      	subs	r3, #1
+ 800253e:	b2db      	uxtb	r3, r3
+ 8002540:	9304      	str	r3, [sp, #16]
+ 8002542:	f44f 5300 	mov.w	r3, #8192	; 0x2000
+ 8002546:	9303      	str	r3, [sp, #12]
+ 8002548:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+ 800254c:	9302      	str	r3, [sp, #8]
+ 800254e:	f44f 6300 	mov.w	r3, #2048	; 0x800
+ 8002552:	9301      	str	r3, [sp, #4]
+ 8002554:	f44f 6380 	mov.w	r3, #1024	; 0x400
+ 8002558:	9300      	str	r3, [sp, #0]
+ 800255a:	f44f 7300 	mov.w	r3, #512	; 0x200
+ 800255e:	f44f 7280 	mov.w	r2, #256	; 0x100
+ 8002562:	2180      	movs	r1, #128	; 0x80
+ 8002564:	4803      	ldr	r0, [pc, #12]	; (8002574 <display_times+0x6c>)
+ 8002566:	f7ff fae1 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
 }
- 80025f2:	bf00      	nop
- 80025f4:	46bd      	mov	sp, r7
- 80025f6:	bd80      	pop	{r7, pc}
- 80025f8:	20000030 	.word	0x20000030
- 80025fc:	40010c00 	.word	0x40010c00
- 8002600:	20000034 	.word	0x20000034
+ 800256a:	bf00      	nop
+ 800256c:	46bd      	mov	sp, r7
+ 800256e:	bd80      	pop	{r7, pc}
+ 8002570:	20000030 	.word	0x20000030
+ 8002574:	40010c00 	.word	0x40010c00
+ 8002578:	20000034 	.word	0x20000034
 
-08002604 <traffic_mannual_green_red>:
+0800257c <traffic_mannual_green_red>:
 
 
 void traffic_mannual_green_red(){
- 8002604:	b580      	push	{r7, lr}
- 8002606:	af00      	add	r7, sp, #0
+ 800257c:	b580      	push	{r7, lr}
+ 800257e:	af00      	add	r7, sp, #0
 	if(timer1_flag[1]  == 1){
- 8002608:	4b08      	ldr	r3, [pc, #32]	; (800262c <traffic_mannual_green_red+0x28>)
- 800260a:	685b      	ldr	r3, [r3, #4]
- 800260c:	2b01      	cmp	r3, #1
- 800260e:	d102      	bne.n	8002616 <traffic_mannual_green_red+0x12>
+ 8002580:	4b08      	ldr	r3, [pc, #32]	; (80025a4 <traffic_mannual_green_red+0x28>)
+ 8002582:	685b      	ldr	r3, [r3, #4]
+ 8002584:	2b01      	cmp	r3, #1
+ 8002586:	d102      	bne.n	800258e <traffic_mannual_green_red+0x12>
 		status = GREEN_RED;
- 8002610:	4b07      	ldr	r3, [pc, #28]	; (8002630 <traffic_mannual_green_red+0x2c>)
- 8002612:	2202      	movs	r2, #2
- 8002614:	601a      	str	r2, [r3, #0]
+ 8002588:	4b07      	ldr	r3, [pc, #28]	; (80025a8 <traffic_mannual_green_red+0x2c>)
+ 800258a:	2202      	movs	r2, #2
+ 800258c:	601a      	str	r2, [r3, #0]
 	}
 	if(is_button_pressed(0)){
- 8002616:	2000      	movs	r0, #0
- 8002618:	f000 fa82 	bl	8002b20 <is_button_pressed>
- 800261c:	4603      	mov	r3, r0
- 800261e:	2b00      	cmp	r3, #0
- 8002620:	d002      	beq.n	8002628 <traffic_mannual_green_red+0x24>
+ 800258e:	2000      	movs	r0, #0
+ 8002590:	f000 fa7e 	bl	8002a90 <is_button_pressed>
+ 8002594:	4603      	mov	r3, r0
+ 8002596:	2b00      	cmp	r3, #0
+ 8002598:	d002      	beq.n	80025a0 <traffic_mannual_green_red+0x24>
 		status = SET_TIME_RED;
- 8002622:	4b03      	ldr	r3, [pc, #12]	; (8002630 <traffic_mannual_green_red+0x2c>)
- 8002624:	2208      	movs	r2, #8
- 8002626:	601a      	str	r2, [r3, #0]
+ 800259a:	4b03      	ldr	r3, [pc, #12]	; (80025a8 <traffic_mannual_green_red+0x2c>)
+ 800259c:	2208      	movs	r2, #8
+ 800259e:	601a      	str	r2, [r3, #0]
 	}
 }
- 8002628:	bf00      	nop
- 800262a:	bd80      	pop	{r7, pc}
- 800262c:	200000d4 	.word	0x200000d4
- 8002630:	20000038 	.word	0x20000038
+ 80025a0:	bf00      	nop
+ 80025a2:	bd80      	pop	{r7, pc}
+ 80025a4:	200000d4 	.word	0x200000d4
+ 80025a8:	20000038 	.word	0x20000038
 
-08002634 <traffic_mannual_yellow_red>:
+080025ac <traffic_mannual_yellow_red>:
 void traffic_mannual_yellow_red(){
- 8002634:	b580      	push	{r7, lr}
- 8002636:	af00      	add	r7, sp, #0
+ 80025ac:	b580      	push	{r7, lr}
+ 80025ae:	af00      	add	r7, sp, #0
 	if(timer1_flag[1]  == 1){
- 8002638:	4b08      	ldr	r3, [pc, #32]	; (800265c <traffic_mannual_yellow_red+0x28>)
- 800263a:	685b      	ldr	r3, [r3, #4]
- 800263c:	2b01      	cmp	r3, #1
- 800263e:	d102      	bne.n	8002646 <traffic_mannual_yellow_red+0x12>
+ 80025b0:	4b08      	ldr	r3, [pc, #32]	; (80025d4 <traffic_mannual_yellow_red+0x28>)
+ 80025b2:	685b      	ldr	r3, [r3, #4]
+ 80025b4:	2b01      	cmp	r3, #1
+ 80025b6:	d102      	bne.n	80025be <traffic_mannual_yellow_red+0x12>
 		status = YELLOW_RED;
- 8002640:	4b07      	ldr	r3, [pc, #28]	; (8002660 <traffic_mannual_yellow_red+0x2c>)
- 8002642:	2203      	movs	r2, #3
- 8002644:	601a      	str	r2, [r3, #0]
+ 80025b8:	4b07      	ldr	r3, [pc, #28]	; (80025d8 <traffic_mannual_yellow_red+0x2c>)
+ 80025ba:	2203      	movs	r2, #3
+ 80025bc:	601a      	str	r2, [r3, #0]
 	}
 	if(is_button_pressed(0)){
- 8002646:	2000      	movs	r0, #0
- 8002648:	f000 fa6a 	bl	8002b20 <is_button_pressed>
- 800264c:	4603      	mov	r3, r0
- 800264e:	2b00      	cmp	r3, #0
- 8002650:	d002      	beq.n	8002658 <traffic_mannual_yellow_red+0x24>
+ 80025be:	2000      	movs	r0, #0
+ 80025c0:	f000 fa66 	bl	8002a90 <is_button_pressed>
+ 80025c4:	4603      	mov	r3, r0
+ 80025c6:	2b00      	cmp	r3, #0
+ 80025c8:	d002      	beq.n	80025d0 <traffic_mannual_yellow_red+0x24>
 		status = SET_TIME_RED;
- 8002652:	4b03      	ldr	r3, [pc, #12]	; (8002660 <traffic_mannual_yellow_red+0x2c>)
- 8002654:	2208      	movs	r2, #8
- 8002656:	601a      	str	r2, [r3, #0]
+ 80025ca:	4b03      	ldr	r3, [pc, #12]	; (80025d8 <traffic_mannual_yellow_red+0x2c>)
+ 80025cc:	2208      	movs	r2, #8
+ 80025ce:	601a      	str	r2, [r3, #0]
 	}
 }
- 8002658:	bf00      	nop
- 800265a:	bd80      	pop	{r7, pc}
- 800265c:	200000d4 	.word	0x200000d4
- 8002660:	20000038 	.word	0x20000038
+ 80025d0:	bf00      	nop
+ 80025d2:	bd80      	pop	{r7, pc}
+ 80025d4:	200000d4 	.word	0x200000d4
+ 80025d8:	20000038 	.word	0x20000038
 
-08002664 <traffic_mannual_red_green>:
+080025dc <traffic_mannual_red_green>:
 void traffic_mannual_red_green(){
- 8002664:	b580      	push	{r7, lr}
- 8002666:	af00      	add	r7, sp, #0
+ 80025dc:	b580      	push	{r7, lr}
+ 80025de:	af00      	add	r7, sp, #0
 	if(timer1_flag[1]  == 1){
- 8002668:	4b08      	ldr	r3, [pc, #32]	; (800268c <traffic_mannual_red_green+0x28>)
- 800266a:	685b      	ldr	r3, [r3, #4]
- 800266c:	2b01      	cmp	r3, #1
- 800266e:	d102      	bne.n	8002676 <traffic_mannual_red_green+0x12>
+ 80025e0:	4b08      	ldr	r3, [pc, #32]	; (8002604 <traffic_mannual_red_green+0x28>)
+ 80025e2:	685b      	ldr	r3, [r3, #4]
+ 80025e4:	2b01      	cmp	r3, #1
+ 80025e6:	d102      	bne.n	80025ee <traffic_mannual_red_green+0x12>
 		status = RED_GREEN;
- 8002670:	4b07      	ldr	r3, [pc, #28]	; (8002690 <traffic_mannual_red_green+0x2c>)
- 8002672:	2204      	movs	r2, #4
- 8002674:	601a      	str	r2, [r3, #0]
+ 80025e8:	4b07      	ldr	r3, [pc, #28]	; (8002608 <traffic_mannual_red_green+0x2c>)
+ 80025ea:	2204      	movs	r2, #4
+ 80025ec:	601a      	str	r2, [r3, #0]
 	}
 	if(is_button_pressed(0)){
- 8002676:	2000      	movs	r0, #0
- 8002678:	f000 fa52 	bl	8002b20 <is_button_pressed>
- 800267c:	4603      	mov	r3, r0
- 800267e:	2b00      	cmp	r3, #0
- 8002680:	d002      	beq.n	8002688 <traffic_mannual_red_green+0x24>
+ 80025ee:	2000      	movs	r0, #0
+ 80025f0:	f000 fa4e 	bl	8002a90 <is_button_pressed>
+ 80025f4:	4603      	mov	r3, r0
+ 80025f6:	2b00      	cmp	r3, #0
+ 80025f8:	d002      	beq.n	8002600 <traffic_mannual_red_green+0x24>
 		status = SET_TIME_RED;
- 8002682:	4b03      	ldr	r3, [pc, #12]	; (8002690 <traffic_mannual_red_green+0x2c>)
- 8002684:	2208      	movs	r2, #8
- 8002686:	601a      	str	r2, [r3, #0]
+ 80025fa:	4b03      	ldr	r3, [pc, #12]	; (8002608 <traffic_mannual_red_green+0x2c>)
+ 80025fc:	2208      	movs	r2, #8
+ 80025fe:	601a      	str	r2, [r3, #0]
 	}
 }
- 8002688:	bf00      	nop
- 800268a:	bd80      	pop	{r7, pc}
- 800268c:	200000d4 	.word	0x200000d4
- 8002690:	20000038 	.word	0x20000038
+ 8002600:	bf00      	nop
+ 8002602:	bd80      	pop	{r7, pc}
+ 8002604:	200000d4 	.word	0x200000d4
+ 8002608:	20000038 	.word	0x20000038
 
-08002694 <traffic_mannual_red_yellow>:
+0800260c <traffic_mannual_red_yellow>:
 void traffic_mannual_red_yellow(){
- 8002694:	b580      	push	{r7, lr}
- 8002696:	af00      	add	r7, sp, #0
+ 800260c:	b580      	push	{r7, lr}
+ 800260e:	af00      	add	r7, sp, #0
 	if(timer1_flag[1]  == 1){
- 8002698:	4b08      	ldr	r3, [pc, #32]	; (80026bc <traffic_mannual_red_yellow+0x28>)
- 800269a:	685b      	ldr	r3, [r3, #4]
- 800269c:	2b01      	cmp	r3, #1
- 800269e:	d102      	bne.n	80026a6 <traffic_mannual_red_yellow+0x12>
+ 8002610:	4b08      	ldr	r3, [pc, #32]	; (8002634 <traffic_mannual_red_yellow+0x28>)
+ 8002612:	685b      	ldr	r3, [r3, #4]
+ 8002614:	2b01      	cmp	r3, #1
+ 8002616:	d102      	bne.n	800261e <traffic_mannual_red_yellow+0x12>
 		status = RED_YELLOW;
- 80026a0:	4b07      	ldr	r3, [pc, #28]	; (80026c0 <traffic_mannual_red_yellow+0x2c>)
- 80026a2:	2205      	movs	r2, #5
- 80026a4:	601a      	str	r2, [r3, #0]
+ 8002618:	4b07      	ldr	r3, [pc, #28]	; (8002638 <traffic_mannual_red_yellow+0x2c>)
+ 800261a:	2205      	movs	r2, #5
+ 800261c:	601a      	str	r2, [r3, #0]
 	}
 	if(is_button_pressed(0)){
- 80026a6:	2000      	movs	r0, #0
- 80026a8:	f000 fa3a 	bl	8002b20 <is_button_pressed>
- 80026ac:	4603      	mov	r3, r0
- 80026ae:	2b00      	cmp	r3, #0
- 80026b0:	d002      	beq.n	80026b8 <traffic_mannual_red_yellow+0x24>
+ 800261e:	2000      	movs	r0, #0
+ 8002620:	f000 fa36 	bl	8002a90 <is_button_pressed>
+ 8002624:	4603      	mov	r3, r0
+ 8002626:	2b00      	cmp	r3, #0
+ 8002628:	d002      	beq.n	8002630 <traffic_mannual_red_yellow+0x24>
 		status = SET_TIME_RED;
- 80026b2:	4b03      	ldr	r3, [pc, #12]	; (80026c0 <traffic_mannual_red_yellow+0x2c>)
- 80026b4:	2208      	movs	r2, #8
- 80026b6:	601a      	str	r2, [r3, #0]
+ 800262a:	4b03      	ldr	r3, [pc, #12]	; (8002638 <traffic_mannual_red_yellow+0x2c>)
+ 800262c:	2208      	movs	r2, #8
+ 800262e:	601a      	str	r2, [r3, #0]
 	}
 }
- 80026b8:	bf00      	nop
- 80026ba:	bd80      	pop	{r7, pc}
- 80026bc:	200000d4 	.word	0x200000d4
- 80026c0:	20000038 	.word	0x20000038
+ 8002630:	bf00      	nop
+ 8002632:	bd80      	pop	{r7, pc}
+ 8002634:	200000d4 	.word	0x200000d4
+ 8002638:	20000038 	.word	0x20000038
 
-080026c4 <traffic_set_time_red>:
+0800263c <traffic_set_time_red>:
 void traffic_set_time_red(){
- 80026c4:	b580      	push	{r7, lr}
- 80026c6:	b086      	sub	sp, #24
- 80026c8:	af06      	add	r7, sp, #24
+ 800263c:	b580      	push	{r7, lr}
+ 800263e:	b086      	sub	sp, #24
+ 8002640:	af06      	add	r7, sp, #24
 	DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED1_0_Pin, SEGLED1_1_Pin, SEGLED1_2_Pin, SEGLED1_3_Pin, SEGLED1_4_Pin, SEGLED1_5_Pin, SEGLED1_6_Pin, time_red_select-1);
- 80026ca:	4b32      	ldr	r3, [pc, #200]	; (8002794 <traffic_set_time_red+0xd0>)
- 80026cc:	681b      	ldr	r3, [r3, #0]
- 80026ce:	b2db      	uxtb	r3, r3
- 80026d0:	3b01      	subs	r3, #1
- 80026d2:	b2db      	uxtb	r3, r3
- 80026d4:	9304      	str	r3, [sp, #16]
- 80026d6:	2340      	movs	r3, #64	; 0x40
- 80026d8:	9303      	str	r3, [sp, #12]
- 80026da:	2320      	movs	r3, #32
- 80026dc:	9302      	str	r3, [sp, #8]
- 80026de:	2310      	movs	r3, #16
- 80026e0:	9301      	str	r3, [sp, #4]
- 80026e2:	2308      	movs	r3, #8
- 80026e4:	9300      	str	r3, [sp, #0]
- 80026e6:	2304      	movs	r3, #4
- 80026e8:	2202      	movs	r2, #2
- 80026ea:	2101      	movs	r1, #1
- 80026ec:	482a      	ldr	r0, [pc, #168]	; (8002798 <traffic_set_time_red+0xd4>)
- 80026ee:	f7ff fa1d 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
+ 8002642:	4b32      	ldr	r3, [pc, #200]	; (800270c <traffic_set_time_red+0xd0>)
+ 8002644:	681b      	ldr	r3, [r3, #0]
+ 8002646:	b2db      	uxtb	r3, r3
+ 8002648:	3b01      	subs	r3, #1
+ 800264a:	b2db      	uxtb	r3, r3
+ 800264c:	9304      	str	r3, [sp, #16]
+ 800264e:	2340      	movs	r3, #64	; 0x40
+ 8002650:	9303      	str	r3, [sp, #12]
+ 8002652:	2320      	movs	r3, #32
+ 8002654:	9302      	str	r3, [sp, #8]
+ 8002656:	2310      	movs	r3, #16
+ 8002658:	9301      	str	r3, [sp, #4]
+ 800265a:	2308      	movs	r3, #8
+ 800265c:	9300      	str	r3, [sp, #0]
+ 800265e:	2304      	movs	r3, #4
+ 8002660:	2202      	movs	r2, #2
+ 8002662:	2101      	movs	r1, #1
+ 8002664:	482a      	ldr	r0, [pc, #168]	; (8002710 <traffic_set_time_red+0xd4>)
+ 8002666:	f7ff fa61 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
     DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED2_0_Pin, SEGLED2_1_Pin, SEGLED2_2_Pin, SEGLED2_3_Pin, SEGLED2_4_Pin, SEGLED2_5_Pin, SEGLED2_6_Pin, 2);
- 80026f2:	2302      	movs	r3, #2
- 80026f4:	9304      	str	r3, [sp, #16]
- 80026f6:	f44f 5300 	mov.w	r3, #8192	; 0x2000
- 80026fa:	9303      	str	r3, [sp, #12]
- 80026fc:	f44f 5380 	mov.w	r3, #4096	; 0x1000
- 8002700:	9302      	str	r3, [sp, #8]
- 8002702:	f44f 6300 	mov.w	r3, #2048	; 0x800
- 8002706:	9301      	str	r3, [sp, #4]
- 8002708:	f44f 6380 	mov.w	r3, #1024	; 0x400
- 800270c:	9300      	str	r3, [sp, #0]
- 800270e:	f44f 7300 	mov.w	r3, #512	; 0x200
- 8002712:	f44f 7280 	mov.w	r2, #256	; 0x100
- 8002716:	2180      	movs	r1, #128	; 0x80
- 8002718:	481f      	ldr	r0, [pc, #124]	; (8002798 <traffic_set_time_red+0xd4>)
- 800271a:	f7ff fa07 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
+ 800266a:	2302      	movs	r3, #2
+ 800266c:	9304      	str	r3, [sp, #16]
+ 800266e:	f44f 5300 	mov.w	r3, #8192	; 0x2000
+ 8002672:	9303      	str	r3, [sp, #12]
+ 8002674:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+ 8002678:	9302      	str	r3, [sp, #8]
+ 800267a:	f44f 6300 	mov.w	r3, #2048	; 0x800
+ 800267e:	9301      	str	r3, [sp, #4]
+ 8002680:	f44f 6380 	mov.w	r3, #1024	; 0x400
+ 8002684:	9300      	str	r3, [sp, #0]
+ 8002686:	f44f 7300 	mov.w	r3, #512	; 0x200
+ 800268a:	f44f 7280 	mov.w	r2, #256	; 0x100
+ 800268e:	2180      	movs	r1, #128	; 0x80
+ 8002690:	481f      	ldr	r0, [pc, #124]	; (8002710 <traffic_set_time_red+0xd4>)
+ 8002692:	f7ff fa4b 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
 	if(time_red_select< time_red_set){
- 800271e:	4b1d      	ldr	r3, [pc, #116]	; (8002794 <traffic_set_time_red+0xd0>)
- 8002720:	681a      	ldr	r2, [r3, #0]
- 8002722:	4b1e      	ldr	r3, [pc, #120]	; (800279c <traffic_set_time_red+0xd8>)
- 8002724:	681b      	ldr	r3, [r3, #0]
- 8002726:	429a      	cmp	r2, r3
- 8002728:	da03      	bge.n	8002732 <traffic_set_time_red+0x6e>
+ 8002696:	4b1d      	ldr	r3, [pc, #116]	; (800270c <traffic_set_time_red+0xd0>)
+ 8002698:	681a      	ldr	r2, [r3, #0]
+ 800269a:	4b1e      	ldr	r3, [pc, #120]	; (8002714 <traffic_set_time_red+0xd8>)
+ 800269c:	681b      	ldr	r3, [r3, #0]
+ 800269e:	429a      	cmp	r2, r3
+ 80026a0:	da03      	bge.n	80026aa <traffic_set_time_red+0x6e>
 		time_red_select = time_red_set;
- 800272a:	4b1c      	ldr	r3, [pc, #112]	; (800279c <traffic_set_time_red+0xd8>)
- 800272c:	681b      	ldr	r3, [r3, #0]
- 800272e:	4a19      	ldr	r2, [pc, #100]	; (8002794 <traffic_set_time_red+0xd0>)
- 8002730:	6013      	str	r3, [r2, #0]
+ 80026a2:	4b1c      	ldr	r3, [pc, #112]	; (8002714 <traffic_set_time_red+0xd8>)
+ 80026a4:	681b      	ldr	r3, [r3, #0]
+ 80026a6:	4a19      	ldr	r2, [pc, #100]	; (800270c <traffic_set_time_red+0xd0>)
+ 80026a8:	6013      	str	r3, [r2, #0]
 	}
 	if(is_button_pressed(1)){
- 8002732:	2001      	movs	r0, #1
- 8002734:	f000 f9f4 	bl	8002b20 <is_button_pressed>
- 8002738:	4603      	mov	r3, r0
- 800273a:	2b00      	cmp	r3, #0
- 800273c:	d010      	beq.n	8002760 <traffic_set_time_red+0x9c>
+ 80026aa:	2001      	movs	r0, #1
+ 80026ac:	f000 f9f0 	bl	8002a90 <is_button_pressed>
+ 80026b0:	4603      	mov	r3, r0
+ 80026b2:	2b00      	cmp	r3, #0
+ 80026b4:	d010      	beq.n	80026d8 <traffic_set_time_red+0x9c>
 		// Tang gia tri
 		if(time_red_select<100)
- 800273e:	4b15      	ldr	r3, [pc, #84]	; (8002794 <traffic_set_time_red+0xd0>)
- 8002740:	681b      	ldr	r3, [r3, #0]
- 8002742:	2b63      	cmp	r3, #99	; 0x63
- 8002744:	dc05      	bgt.n	8002752 <traffic_set_time_red+0x8e>
+ 80026b6:	4b15      	ldr	r3, [pc, #84]	; (800270c <traffic_set_time_red+0xd0>)
+ 80026b8:	681b      	ldr	r3, [r3, #0]
+ 80026ba:	2b63      	cmp	r3, #99	; 0x63
+ 80026bc:	dc05      	bgt.n	80026ca <traffic_set_time_red+0x8e>
 		{
 			time_red_select ++;
- 8002746:	4b13      	ldr	r3, [pc, #76]	; (8002794 <traffic_set_time_red+0xd0>)
- 8002748:	681b      	ldr	r3, [r3, #0]
- 800274a:	3301      	adds	r3, #1
- 800274c:	4a11      	ldr	r2, [pc, #68]	; (8002794 <traffic_set_time_red+0xd0>)
- 800274e:	6013      	str	r3, [r2, #0]
- 8002750:	e006      	b.n	8002760 <traffic_set_time_red+0x9c>
+ 80026be:	4b13      	ldr	r3, [pc, #76]	; (800270c <traffic_set_time_red+0xd0>)
+ 80026c0:	681b      	ldr	r3, [r3, #0]
+ 80026c2:	3301      	adds	r3, #1
+ 80026c4:	4a11      	ldr	r2, [pc, #68]	; (800270c <traffic_set_time_red+0xd0>)
+ 80026c6:	6013      	str	r3, [r2, #0]
+ 80026c8:	e006      	b.n	80026d8 <traffic_set_time_red+0x9c>
 		}
 		else {
 			time_red_select = time_green_set + time_yellow_set;
- 8002752:	4b13      	ldr	r3, [pc, #76]	; (80027a0 <traffic_set_time_red+0xdc>)
- 8002754:	681a      	ldr	r2, [r3, #0]
- 8002756:	4b13      	ldr	r3, [pc, #76]	; (80027a4 <traffic_set_time_red+0xe0>)
- 8002758:	681b      	ldr	r3, [r3, #0]
- 800275a:	4413      	add	r3, r2
- 800275c:	4a0d      	ldr	r2, [pc, #52]	; (8002794 <traffic_set_time_red+0xd0>)
- 800275e:	6013      	str	r3, [r2, #0]
+ 80026ca:	4b13      	ldr	r3, [pc, #76]	; (8002718 <traffic_set_time_red+0xdc>)
+ 80026cc:	681a      	ldr	r2, [r3, #0]
+ 80026ce:	4b13      	ldr	r3, [pc, #76]	; (800271c <traffic_set_time_red+0xe0>)
+ 80026d0:	681b      	ldr	r3, [r3, #0]
+ 80026d2:	4413      	add	r3, r2
+ 80026d4:	4a0d      	ldr	r2, [pc, #52]	; (800270c <traffic_set_time_red+0xd0>)
+ 80026d6:	6013      	str	r3, [r2, #0]
 		}
 	}
 	if(is_button_pressed(2)){
- 8002760:	2002      	movs	r0, #2
- 8002762:	f000 f9dd 	bl	8002b20 <is_button_pressed>
- 8002766:	4603      	mov	r3, r0
- 8002768:	2b00      	cmp	r3, #0
- 800276a:	d003      	beq.n	8002774 <traffic_set_time_red+0xb0>
+ 80026d8:	2002      	movs	r0, #2
+ 80026da:	f000 f9d9 	bl	8002a90 <is_button_pressed>
+ 80026de:	4603      	mov	r3, r0
+ 80026e0:	2b00      	cmp	r3, #0
+ 80026e2:	d003      	beq.n	80026ec <traffic_set_time_red+0xb0>
 		// Chon gia tri
 		time_red_set = time_red_select;
- 800276c:	4b09      	ldr	r3, [pc, #36]	; (8002794 <traffic_set_time_red+0xd0>)
- 800276e:	681b      	ldr	r3, [r3, #0]
- 8002770:	4a0a      	ldr	r2, [pc, #40]	; (800279c <traffic_set_time_red+0xd8>)
- 8002772:	6013      	str	r3, [r2, #0]
+ 80026e4:	4b09      	ldr	r3, [pc, #36]	; (800270c <traffic_set_time_red+0xd0>)
+ 80026e6:	681b      	ldr	r3, [r3, #0]
+ 80026e8:	4a0a      	ldr	r2, [pc, #40]	; (8002714 <traffic_set_time_red+0xd8>)
+ 80026ea:	6013      	str	r3, [r2, #0]
 	}
 	if(is_button_pressed(0)){
- 8002774:	2000      	movs	r0, #0
- 8002776:	f000 f9d3 	bl	8002b20 <is_button_pressed>
- 800277a:	4603      	mov	r3, r0
- 800277c:	2b00      	cmp	r3, #0
- 800277e:	d006      	beq.n	800278e <traffic_set_time_red+0xca>
+ 80026ec:	2000      	movs	r0, #0
+ 80026ee:	f000 f9cf 	bl	8002a90 <is_button_pressed>
+ 80026f2:	4603      	mov	r3, r0
+ 80026f4:	2b00      	cmp	r3, #0
+ 80026f6:	d006      	beq.n	8002706 <traffic_set_time_red+0xca>
 		time_yellow_select = time_yellow_set;
- 8002780:	4b08      	ldr	r3, [pc, #32]	; (80027a4 <traffic_set_time_red+0xe0>)
- 8002782:	681b      	ldr	r3, [r3, #0]
- 8002784:	4a08      	ldr	r2, [pc, #32]	; (80027a8 <traffic_set_time_red+0xe4>)
- 8002786:	6013      	str	r3, [r2, #0]
+ 80026f8:	4b08      	ldr	r3, [pc, #32]	; (800271c <traffic_set_time_red+0xe0>)
+ 80026fa:	681b      	ldr	r3, [r3, #0]
+ 80026fc:	4a08      	ldr	r2, [pc, #32]	; (8002720 <traffic_set_time_red+0xe4>)
+ 80026fe:	6013      	str	r3, [r2, #0]
 		status = SET_TIME_YELLOW;
- 8002788:	4b08      	ldr	r3, [pc, #32]	; (80027ac <traffic_set_time_red+0xe8>)
- 800278a:	2209      	movs	r2, #9
- 800278c:	601a      	str	r2, [r3, #0]
+ 8002700:	4b08      	ldr	r3, [pc, #32]	; (8002724 <traffic_set_time_red+0xe8>)
+ 8002702:	2209      	movs	r2, #9
+ 8002704:	601a      	str	r2, [r3, #0]
 	}
 }
- 800278e:	bf00      	nop
- 8002790:	46bd      	mov	sp, r7
- 8002792:	bd80      	pop	{r7, pc}
- 8002794:	200000cc 	.word	0x200000cc
- 8002798:	40010c00 	.word	0x40010c00
- 800279c:	20000028 	.word	0x20000028
- 80027a0:	20000020 	.word	0x20000020
- 80027a4:	20000024 	.word	0x20000024
- 80027a8:	20000060 	.word	0x20000060
- 80027ac:	20000038 	.word	0x20000038
+ 8002706:	bf00      	nop
+ 8002708:	46bd      	mov	sp, r7
+ 800270a:	bd80      	pop	{r7, pc}
+ 800270c:	200000cc 	.word	0x200000cc
+ 8002710:	40010c00 	.word	0x40010c00
+ 8002714:	20000028 	.word	0x20000028
+ 8002718:	20000020 	.word	0x20000020
+ 800271c:	20000024 	.word	0x20000024
+ 8002720:	20000060 	.word	0x20000060
+ 8002724:	20000038 	.word	0x20000038
 
-080027b0 <traffic_set_time_yellow>:
+08002728 <traffic_set_time_yellow>:
 
 void traffic_set_time_yellow() {
- 80027b0:	b580      	push	{r7, lr}
- 80027b2:	b086      	sub	sp, #24
- 80027b4:	af06      	add	r7, sp, #24
+ 8002728:	b580      	push	{r7, lr}
+ 800272a:	b086      	sub	sp, #24
+ 800272c:	af06      	add	r7, sp, #24
     DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED1_0_Pin, SEGLED1_1_Pin, SEGLED1_2_Pin, SEGLED1_3_Pin, SEGLED1_4_Pin, SEGLED1_5_Pin, SEGLED1_6_Pin, time_yellow_select - 1);
- 80027b6:	4b30      	ldr	r3, [pc, #192]	; (8002878 <traffic_set_time_yellow+0xc8>)
- 80027b8:	681b      	ldr	r3, [r3, #0]
- 80027ba:	b2db      	uxtb	r3, r3
- 80027bc:	3b01      	subs	r3, #1
- 80027be:	b2db      	uxtb	r3, r3
- 80027c0:	9304      	str	r3, [sp, #16]
- 80027c2:	2340      	movs	r3, #64	; 0x40
- 80027c4:	9303      	str	r3, [sp, #12]
- 80027c6:	2320      	movs	r3, #32
- 80027c8:	9302      	str	r3, [sp, #8]
- 80027ca:	2310      	movs	r3, #16
- 80027cc:	9301      	str	r3, [sp, #4]
- 80027ce:	2308      	movs	r3, #8
- 80027d0:	9300      	str	r3, [sp, #0]
- 80027d2:	2304      	movs	r3, #4
- 80027d4:	2202      	movs	r2, #2
- 80027d6:	2101      	movs	r1, #1
- 80027d8:	4828      	ldr	r0, [pc, #160]	; (800287c <traffic_set_time_yellow+0xcc>)
- 80027da:	f7ff f9a7 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
+ 800272e:	4b30      	ldr	r3, [pc, #192]	; (80027f0 <traffic_set_time_yellow+0xc8>)
+ 8002730:	681b      	ldr	r3, [r3, #0]
+ 8002732:	b2db      	uxtb	r3, r3
+ 8002734:	3b01      	subs	r3, #1
+ 8002736:	b2db      	uxtb	r3, r3
+ 8002738:	9304      	str	r3, [sp, #16]
+ 800273a:	2340      	movs	r3, #64	; 0x40
+ 800273c:	9303      	str	r3, [sp, #12]
+ 800273e:	2320      	movs	r3, #32
+ 8002740:	9302      	str	r3, [sp, #8]
+ 8002742:	2310      	movs	r3, #16
+ 8002744:	9301      	str	r3, [sp, #4]
+ 8002746:	2308      	movs	r3, #8
+ 8002748:	9300      	str	r3, [sp, #0]
+ 800274a:	2304      	movs	r3, #4
+ 800274c:	2202      	movs	r2, #2
+ 800274e:	2101      	movs	r1, #1
+ 8002750:	4828      	ldr	r0, [pc, #160]	; (80027f4 <traffic_set_time_yellow+0xcc>)
+ 8002752:	f7ff f9eb 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
     DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED2_0_Pin, SEGLED2_1_Pin, SEGLED2_2_Pin, SEGLED2_3_Pin, SEGLED2_4_Pin, SEGLED2_5_Pin, SEGLED2_6_Pin, 3);
- 80027de:	2303      	movs	r3, #3
- 80027e0:	9304      	str	r3, [sp, #16]
- 80027e2:	f44f 5300 	mov.w	r3, #8192	; 0x2000
- 80027e6:	9303      	str	r3, [sp, #12]
- 80027e8:	f44f 5380 	mov.w	r3, #4096	; 0x1000
- 80027ec:	9302      	str	r3, [sp, #8]
- 80027ee:	f44f 6300 	mov.w	r3, #2048	; 0x800
- 80027f2:	9301      	str	r3, [sp, #4]
- 80027f4:	f44f 6380 	mov.w	r3, #1024	; 0x400
- 80027f8:	9300      	str	r3, [sp, #0]
- 80027fa:	f44f 7300 	mov.w	r3, #512	; 0x200
- 80027fe:	f44f 7280 	mov.w	r2, #256	; 0x100
- 8002802:	2180      	movs	r1, #128	; 0x80
- 8002804:	481d      	ldr	r0, [pc, #116]	; (800287c <traffic_set_time_yellow+0xcc>)
- 8002806:	f7ff f991 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
+ 8002756:	2303      	movs	r3, #3
+ 8002758:	9304      	str	r3, [sp, #16]
+ 800275a:	f44f 5300 	mov.w	r3, #8192	; 0x2000
+ 800275e:	9303      	str	r3, [sp, #12]
+ 8002760:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+ 8002764:	9302      	str	r3, [sp, #8]
+ 8002766:	f44f 6300 	mov.w	r3, #2048	; 0x800
+ 800276a:	9301      	str	r3, [sp, #4]
+ 800276c:	f44f 6380 	mov.w	r3, #1024	; 0x400
+ 8002770:	9300      	str	r3, [sp, #0]
+ 8002772:	f44f 7300 	mov.w	r3, #512	; 0x200
+ 8002776:	f44f 7280 	mov.w	r2, #256	; 0x100
+ 800277a:	2180      	movs	r1, #128	; 0x80
+ 800277c:	481d      	ldr	r0, [pc, #116]	; (80027f4 <traffic_set_time_yellow+0xcc>)
+ 800277e:	f7ff f9d5 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
 
     if (time_yellow_select < 1) {
- 800280a:	4b1b      	ldr	r3, [pc, #108]	; (8002878 <traffic_set_time_yellow+0xc8>)
- 800280c:	681b      	ldr	r3, [r3, #0]
- 800280e:	2b00      	cmp	r3, #0
- 8002810:	dc02      	bgt.n	8002818 <traffic_set_time_yellow+0x68>
+ 8002782:	4b1b      	ldr	r3, [pc, #108]	; (80027f0 <traffic_set_time_yellow+0xc8>)
+ 8002784:	681b      	ldr	r3, [r3, #0]
+ 8002786:	2b00      	cmp	r3, #0
+ 8002788:	dc02      	bgt.n	8002790 <traffic_set_time_yellow+0x68>
         time_yellow_select = 1;
- 8002812:	4b19      	ldr	r3, [pc, #100]	; (8002878 <traffic_set_time_yellow+0xc8>)
- 8002814:	2201      	movs	r2, #1
- 8002816:	601a      	str	r2, [r3, #0]
+ 800278a:	4b19      	ldr	r3, [pc, #100]	; (80027f0 <traffic_set_time_yellow+0xc8>)
+ 800278c:	2201      	movs	r2, #1
+ 800278e:	601a      	str	r2, [r3, #0]
     }
 
     if (is_button_pressed(1)) {
- 8002818:	2001      	movs	r0, #1
- 800281a:	f000 f981 	bl	8002b20 <is_button_pressed>
- 800281e:	4603      	mov	r3, r0
- 8002820:	2b00      	cmp	r3, #0
- 8002822:	d00e      	beq.n	8002842 <traffic_set_time_yellow+0x92>
+ 8002790:	2001      	movs	r0, #1
+ 8002792:	f000 f97d 	bl	8002a90 <is_button_pressed>
+ 8002796:	4603      	mov	r3, r0
+ 8002798:	2b00      	cmp	r3, #0
+ 800279a:	d00e      	beq.n	80027ba <traffic_set_time_yellow+0x92>
         // Tăng giá trị
         if (time_yellow_select < time_green_set) {
- 8002824:	4b14      	ldr	r3, [pc, #80]	; (8002878 <traffic_set_time_yellow+0xc8>)
- 8002826:	681a      	ldr	r2, [r3, #0]
- 8002828:	4b15      	ldr	r3, [pc, #84]	; (8002880 <traffic_set_time_yellow+0xd0>)
- 800282a:	681b      	ldr	r3, [r3, #0]
- 800282c:	429a      	cmp	r2, r3
- 800282e:	da05      	bge.n	800283c <traffic_set_time_yellow+0x8c>
+ 800279c:	4b14      	ldr	r3, [pc, #80]	; (80027f0 <traffic_set_time_yellow+0xc8>)
+ 800279e:	681a      	ldr	r2, [r3, #0]
+ 80027a0:	4b15      	ldr	r3, [pc, #84]	; (80027f8 <traffic_set_time_yellow+0xd0>)
+ 80027a2:	681b      	ldr	r3, [r3, #0]
+ 80027a4:	429a      	cmp	r2, r3
+ 80027a6:	da05      	bge.n	80027b4 <traffic_set_time_yellow+0x8c>
             time_yellow_select++;
- 8002830:	4b11      	ldr	r3, [pc, #68]	; (8002878 <traffic_set_time_yellow+0xc8>)
- 8002832:	681b      	ldr	r3, [r3, #0]
- 8002834:	3301      	adds	r3, #1
- 8002836:	4a10      	ldr	r2, [pc, #64]	; (8002878 <traffic_set_time_yellow+0xc8>)
- 8002838:	6013      	str	r3, [r2, #0]
- 800283a:	e002      	b.n	8002842 <traffic_set_time_yellow+0x92>
+ 80027a8:	4b11      	ldr	r3, [pc, #68]	; (80027f0 <traffic_set_time_yellow+0xc8>)
+ 80027aa:	681b      	ldr	r3, [r3, #0]
+ 80027ac:	3301      	adds	r3, #1
+ 80027ae:	4a10      	ldr	r2, [pc, #64]	; (80027f0 <traffic_set_time_yellow+0xc8>)
+ 80027b0:	6013      	str	r3, [r2, #0]
+ 80027b2:	e002      	b.n	80027ba <traffic_set_time_yellow+0x92>
         } else {
             time_yellow_select = 0;
- 800283c:	4b0e      	ldr	r3, [pc, #56]	; (8002878 <traffic_set_time_yellow+0xc8>)
- 800283e:	2200      	movs	r2, #0
- 8002840:	601a      	str	r2, [r3, #0]
+ 80027b4:	4b0e      	ldr	r3, [pc, #56]	; (80027f0 <traffic_set_time_yellow+0xc8>)
+ 80027b6:	2200      	movs	r2, #0
+ 80027b8:	601a      	str	r2, [r3, #0]
         }
     }
 
     if (is_button_pressed(2)) {
- 8002842:	2002      	movs	r0, #2
- 8002844:	f000 f96c 	bl	8002b20 <is_button_pressed>
- 8002848:	4603      	mov	r3, r0
- 800284a:	2b00      	cmp	r3, #0
- 800284c:	d003      	beq.n	8002856 <traffic_set_time_yellow+0xa6>
+ 80027ba:	2002      	movs	r0, #2
+ 80027bc:	f000 f968 	bl	8002a90 <is_button_pressed>
+ 80027c0:	4603      	mov	r3, r0
+ 80027c2:	2b00      	cmp	r3, #0
+ 80027c4:	d003      	beq.n	80027ce <traffic_set_time_yellow+0xa6>
         // Chọn giá trị
         time_yellow_set = time_yellow_select;
- 800284e:	4b0a      	ldr	r3, [pc, #40]	; (8002878 <traffic_set_time_yellow+0xc8>)
- 8002850:	681b      	ldr	r3, [r3, #0]
- 8002852:	4a0c      	ldr	r2, [pc, #48]	; (8002884 <traffic_set_time_yellow+0xd4>)
- 8002854:	6013      	str	r3, [r2, #0]
+ 80027c6:	4b0a      	ldr	r3, [pc, #40]	; (80027f0 <traffic_set_time_yellow+0xc8>)
+ 80027c8:	681b      	ldr	r3, [r3, #0]
+ 80027ca:	4a0c      	ldr	r2, [pc, #48]	; (80027fc <traffic_set_time_yellow+0xd4>)
+ 80027cc:	6013      	str	r3, [r2, #0]
     }
     if (is_button_pressed(0)) {
- 8002856:	2000      	movs	r0, #0
- 8002858:	f000 f962 	bl	8002b20 <is_button_pressed>
- 800285c:	4603      	mov	r3, r0
- 800285e:	2b00      	cmp	r3, #0
- 8002860:	d006      	beq.n	8002870 <traffic_set_time_yellow+0xc0>
+ 80027ce:	2000      	movs	r0, #0
+ 80027d0:	f000 f95e 	bl	8002a90 <is_button_pressed>
+ 80027d4:	4603      	mov	r3, r0
+ 80027d6:	2b00      	cmp	r3, #0
+ 80027d8:	d006      	beq.n	80027e8 <traffic_set_time_yellow+0xc0>
     	time_green_select = time_green_set;
- 8002862:	4b07      	ldr	r3, [pc, #28]	; (8002880 <traffic_set_time_yellow+0xd0>)
- 8002864:	681b      	ldr	r3, [r3, #0]
- 8002866:	4a08      	ldr	r2, [pc, #32]	; (8002888 <traffic_set_time_yellow+0xd8>)
- 8002868:	6013      	str	r3, [r2, #0]
+ 80027da:	4b07      	ldr	r3, [pc, #28]	; (80027f8 <traffic_set_time_yellow+0xd0>)
+ 80027dc:	681b      	ldr	r3, [r3, #0]
+ 80027de:	4a08      	ldr	r2, [pc, #32]	; (8002800 <traffic_set_time_yellow+0xd8>)
+ 80027e0:	6013      	str	r3, [r2, #0]
         status = SET_TIME_GREEN;
- 800286a:	4b08      	ldr	r3, [pc, #32]	; (800288c <traffic_set_time_yellow+0xdc>)
- 800286c:	220a      	movs	r2, #10
- 800286e:	601a      	str	r2, [r3, #0]
+ 80027e2:	4b08      	ldr	r3, [pc, #32]	; (8002804 <traffic_set_time_yellow+0xdc>)
+ 80027e4:	220a      	movs	r2, #10
+ 80027e6:	601a      	str	r2, [r3, #0]
     }
 
 }
- 8002870:	bf00      	nop
- 8002872:	46bd      	mov	sp, r7
- 8002874:	bd80      	pop	{r7, pc}
- 8002876:	bf00      	nop
- 8002878:	20000060 	.word	0x20000060
- 800287c:	40010c00 	.word	0x40010c00
- 8002880:	20000020 	.word	0x20000020
- 8002884:	20000024 	.word	0x20000024
- 8002888:	200000c8 	.word	0x200000c8
- 800288c:	20000038 	.word	0x20000038
+ 80027e8:	bf00      	nop
+ 80027ea:	46bd      	mov	sp, r7
+ 80027ec:	bd80      	pop	{r7, pc}
+ 80027ee:	bf00      	nop
+ 80027f0:	20000060 	.word	0x20000060
+ 80027f4:	40010c00 	.word	0x40010c00
+ 80027f8:	20000020 	.word	0x20000020
+ 80027fc:	20000024 	.word	0x20000024
+ 8002800:	200000c8 	.word	0x200000c8
+ 8002804:	20000038 	.word	0x20000038
 
-08002890 <traffic_set_time_green>:
+08002808 <traffic_set_time_green>:
 
 void traffic_set_time_green() {
- 8002890:	b580      	push	{r7, lr}
- 8002892:	b086      	sub	sp, #24
- 8002894:	af06      	add	r7, sp, #24
+ 8002808:	b580      	push	{r7, lr}
+ 800280a:	b086      	sub	sp, #24
+ 800280c:	af06      	add	r7, sp, #24
     DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED1_0_Pin, SEGLED1_1_Pin, SEGLED1_2_Pin, SEGLED1_3_Pin, SEGLED1_4_Pin, SEGLED1_5_Pin, SEGLED1_6_Pin, time_green_select - 1);
- 8002896:	4b35      	ldr	r3, [pc, #212]	; (800296c <traffic_set_time_green+0xdc>)
- 8002898:	681b      	ldr	r3, [r3, #0]
- 800289a:	b2db      	uxtb	r3, r3
- 800289c:	3b01      	subs	r3, #1
- 800289e:	b2db      	uxtb	r3, r3
- 80028a0:	9304      	str	r3, [sp, #16]
- 80028a2:	2340      	movs	r3, #64	; 0x40
- 80028a4:	9303      	str	r3, [sp, #12]
- 80028a6:	2320      	movs	r3, #32
- 80028a8:	9302      	str	r3, [sp, #8]
- 80028aa:	2310      	movs	r3, #16
- 80028ac:	9301      	str	r3, [sp, #4]
- 80028ae:	2308      	movs	r3, #8
- 80028b0:	9300      	str	r3, [sp, #0]
- 80028b2:	2304      	movs	r3, #4
- 80028b4:	2202      	movs	r2, #2
- 80028b6:	2101      	movs	r1, #1
- 80028b8:	482d      	ldr	r0, [pc, #180]	; (8002970 <traffic_set_time_green+0xe0>)
- 80028ba:	f7ff f937 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
+ 800280e:	4b35      	ldr	r3, [pc, #212]	; (80028e4 <traffic_set_time_green+0xdc>)
+ 8002810:	681b      	ldr	r3, [r3, #0]
+ 8002812:	b2db      	uxtb	r3, r3
+ 8002814:	3b01      	subs	r3, #1
+ 8002816:	b2db      	uxtb	r3, r3
+ 8002818:	9304      	str	r3, [sp, #16]
+ 800281a:	2340      	movs	r3, #64	; 0x40
+ 800281c:	9303      	str	r3, [sp, #12]
+ 800281e:	2320      	movs	r3, #32
+ 8002820:	9302      	str	r3, [sp, #8]
+ 8002822:	2310      	movs	r3, #16
+ 8002824:	9301      	str	r3, [sp, #4]
+ 8002826:	2308      	movs	r3, #8
+ 8002828:	9300      	str	r3, [sp, #0]
+ 800282a:	2304      	movs	r3, #4
+ 800282c:	2202      	movs	r2, #2
+ 800282e:	2101      	movs	r1, #1
+ 8002830:	482d      	ldr	r0, [pc, #180]	; (80028e8 <traffic_set_time_green+0xe0>)
+ 8002832:	f7ff f97b 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
     DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED2_0_Pin, SEGLED2_1_Pin, SEGLED2_2_Pin, SEGLED2_3_Pin, SEGLED2_4_Pin, SEGLED2_5_Pin, SEGLED2_6_Pin, 4);
- 80028be:	2304      	movs	r3, #4
- 80028c0:	9304      	str	r3, [sp, #16]
- 80028c2:	f44f 5300 	mov.w	r3, #8192	; 0x2000
- 80028c6:	9303      	str	r3, [sp, #12]
- 80028c8:	f44f 5380 	mov.w	r3, #4096	; 0x1000
- 80028cc:	9302      	str	r3, [sp, #8]
- 80028ce:	f44f 6300 	mov.w	r3, #2048	; 0x800
- 80028d2:	9301      	str	r3, [sp, #4]
- 80028d4:	f44f 6380 	mov.w	r3, #1024	; 0x400
- 80028d8:	9300      	str	r3, [sp, #0]
- 80028da:	f44f 7300 	mov.w	r3, #512	; 0x200
- 80028de:	f44f 7280 	mov.w	r2, #256	; 0x100
- 80028e2:	2180      	movs	r1, #128	; 0x80
- 80028e4:	4822      	ldr	r0, [pc, #136]	; (8002970 <traffic_set_time_green+0xe0>)
- 80028e6:	f7ff f921 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
+ 8002836:	2304      	movs	r3, #4
+ 8002838:	9304      	str	r3, [sp, #16]
+ 800283a:	f44f 5300 	mov.w	r3, #8192	; 0x2000
+ 800283e:	9303      	str	r3, [sp, #12]
+ 8002840:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+ 8002844:	9302      	str	r3, [sp, #8]
+ 8002846:	f44f 6300 	mov.w	r3, #2048	; 0x800
+ 800284a:	9301      	str	r3, [sp, #4]
+ 800284c:	f44f 6380 	mov.w	r3, #1024	; 0x400
+ 8002850:	9300      	str	r3, [sp, #0]
+ 8002852:	f44f 7300 	mov.w	r3, #512	; 0x200
+ 8002856:	f44f 7280 	mov.w	r2, #256	; 0x100
+ 800285a:	2180      	movs	r1, #128	; 0x80
+ 800285c:	4822      	ldr	r0, [pc, #136]	; (80028e8 <traffic_set_time_green+0xe0>)
+ 800285e:	f7ff f965 	bl	8001b2c <DISPLAY_LED_7_SEGMENT>
 
     if (time_green_select < time_yellow_set) {
- 80028ea:	4b20      	ldr	r3, [pc, #128]	; (800296c <traffic_set_time_green+0xdc>)
- 80028ec:	681a      	ldr	r2, [r3, #0]
- 80028ee:	4b21      	ldr	r3, [pc, #132]	; (8002974 <traffic_set_time_green+0xe4>)
- 80028f0:	681b      	ldr	r3, [r3, #0]
- 80028f2:	429a      	cmp	r2, r3
- 80028f4:	da03      	bge.n	80028fe <traffic_set_time_green+0x6e>
+ 8002862:	4b20      	ldr	r3, [pc, #128]	; (80028e4 <traffic_set_time_green+0xdc>)
+ 8002864:	681a      	ldr	r2, [r3, #0]
+ 8002866:	4b21      	ldr	r3, [pc, #132]	; (80028ec <traffic_set_time_green+0xe4>)
+ 8002868:	681b      	ldr	r3, [r3, #0]
+ 800286a:	429a      	cmp	r2, r3
+ 800286c:	da03      	bge.n	8002876 <traffic_set_time_green+0x6e>
         time_green_select = time_yellow_set;
- 80028f6:	4b1f      	ldr	r3, [pc, #124]	; (8002974 <traffic_set_time_green+0xe4>)
- 80028f8:	681b      	ldr	r3, [r3, #0]
- 80028fa:	4a1c      	ldr	r2, [pc, #112]	; (800296c <traffic_set_time_green+0xdc>)
- 80028fc:	6013      	str	r3, [r2, #0]
+ 800286e:	4b1f      	ldr	r3, [pc, #124]	; (80028ec <traffic_set_time_green+0xe4>)
+ 8002870:	681b      	ldr	r3, [r3, #0]
+ 8002872:	4a1c      	ldr	r2, [pc, #112]	; (80028e4 <traffic_set_time_green+0xdc>)
+ 8002874:	6013      	str	r3, [r2, #0]
     }
 
     if (is_button_pressed(1)) {
- 80028fe:	2001      	movs	r0, #1
- 8002900:	f000 f90e 	bl	8002b20 <is_button_pressed>
- 8002904:	4603      	mov	r3, r0
- 8002906:	2b00      	cmp	r3, #0
- 8002908:	d012      	beq.n	8002930 <traffic_set_time_green+0xa0>
+ 8002876:	2001      	movs	r0, #1
+ 8002878:	f000 f90a 	bl	8002a90 <is_button_pressed>
+ 800287c:	4603      	mov	r3, r0
+ 800287e:	2b00      	cmp	r3, #0
+ 8002880:	d012      	beq.n	80028a8 <traffic_set_time_green+0xa0>
         // Tăng giá trị
         if (time_green_select + time_yellow_set < time_red_set) {
- 800290a:	4b18      	ldr	r3, [pc, #96]	; (800296c <traffic_set_time_green+0xdc>)
- 800290c:	681a      	ldr	r2, [r3, #0]
- 800290e:	4b19      	ldr	r3, [pc, #100]	; (8002974 <traffic_set_time_green+0xe4>)
- 8002910:	681b      	ldr	r3, [r3, #0]
- 8002912:	441a      	add	r2, r3
- 8002914:	4b18      	ldr	r3, [pc, #96]	; (8002978 <traffic_set_time_green+0xe8>)
- 8002916:	681b      	ldr	r3, [r3, #0]
- 8002918:	429a      	cmp	r2, r3
- 800291a:	da05      	bge.n	8002928 <traffic_set_time_green+0x98>
+ 8002882:	4b18      	ldr	r3, [pc, #96]	; (80028e4 <traffic_set_time_green+0xdc>)
+ 8002884:	681a      	ldr	r2, [r3, #0]
+ 8002886:	4b19      	ldr	r3, [pc, #100]	; (80028ec <traffic_set_time_green+0xe4>)
+ 8002888:	681b      	ldr	r3, [r3, #0]
+ 800288a:	441a      	add	r2, r3
+ 800288c:	4b18      	ldr	r3, [pc, #96]	; (80028f0 <traffic_set_time_green+0xe8>)
+ 800288e:	681b      	ldr	r3, [r3, #0]
+ 8002890:	429a      	cmp	r2, r3
+ 8002892:	da05      	bge.n	80028a0 <traffic_set_time_green+0x98>
             time_green_select++;
- 800291c:	4b13      	ldr	r3, [pc, #76]	; (800296c <traffic_set_time_green+0xdc>)
- 800291e:	681b      	ldr	r3, [r3, #0]
- 8002920:	3301      	adds	r3, #1
- 8002922:	4a12      	ldr	r2, [pc, #72]	; (800296c <traffic_set_time_green+0xdc>)
- 8002924:	6013      	str	r3, [r2, #0]
- 8002926:	e003      	b.n	8002930 <traffic_set_time_green+0xa0>
+ 8002894:	4b13      	ldr	r3, [pc, #76]	; (80028e4 <traffic_set_time_green+0xdc>)
+ 8002896:	681b      	ldr	r3, [r3, #0]
+ 8002898:	3301      	adds	r3, #1
+ 800289a:	4a12      	ldr	r2, [pc, #72]	; (80028e4 <traffic_set_time_green+0xdc>)
+ 800289c:	6013      	str	r3, [r2, #0]
+ 800289e:	e003      	b.n	80028a8 <traffic_set_time_green+0xa0>
         } else {
             time_green_select = time_yellow_set;
- 8002928:	4b12      	ldr	r3, [pc, #72]	; (8002974 <traffic_set_time_green+0xe4>)
- 800292a:	681b      	ldr	r3, [r3, #0]
- 800292c:	4a0f      	ldr	r2, [pc, #60]	; (800296c <traffic_set_time_green+0xdc>)
- 800292e:	6013      	str	r3, [r2, #0]
+ 80028a0:	4b12      	ldr	r3, [pc, #72]	; (80028ec <traffic_set_time_green+0xe4>)
+ 80028a2:	681b      	ldr	r3, [r3, #0]
+ 80028a4:	4a0f      	ldr	r2, [pc, #60]	; (80028e4 <traffic_set_time_green+0xdc>)
+ 80028a6:	6013      	str	r3, [r2, #0]
         }
     }
 
     if (is_button_pressed(2)) {
- 8002930:	2002      	movs	r0, #2
- 8002932:	f000 f8f5 	bl	8002b20 <is_button_pressed>
- 8002936:	4603      	mov	r3, r0
- 8002938:	2b00      	cmp	r3, #0
- 800293a:	d003      	beq.n	8002944 <traffic_set_time_green+0xb4>
+ 80028a8:	2002      	movs	r0, #2
+ 80028aa:	f000 f8f1 	bl	8002a90 <is_button_pressed>
+ 80028ae:	4603      	mov	r3, r0
+ 80028b0:	2b00      	cmp	r3, #0
+ 80028b2:	d003      	beq.n	80028bc <traffic_set_time_green+0xb4>
         // Chọn giá trị
         time_green_set = time_green_select;
- 800293c:	4b0b      	ldr	r3, [pc, #44]	; (800296c <traffic_set_time_green+0xdc>)
- 800293e:	681b      	ldr	r3, [r3, #0]
- 8002940:	4a0e      	ldr	r2, [pc, #56]	; (800297c <traffic_set_time_green+0xec>)
- 8002942:	6013      	str	r3, [r2, #0]
+ 80028b4:	4b0b      	ldr	r3, [pc, #44]	; (80028e4 <traffic_set_time_green+0xdc>)
+ 80028b6:	681b      	ldr	r3, [r3, #0]
+ 80028b8:	4a0e      	ldr	r2, [pc, #56]	; (80028f4 <traffic_set_time_green+0xec>)
+ 80028ba:	6013      	str	r3, [r2, #0]
     }
 
     if (is_button_pressed(0)) {
- 8002944:	2000      	movs	r0, #0
- 8002946:	f000 f8eb 	bl	8002b20 <is_button_pressed>
- 800294a:	4603      	mov	r3, r0
- 800294c:	2b00      	cmp	r3, #0
- 800294e:	d00a      	beq.n	8002966 <traffic_set_time_green+0xd6>
+ 80028bc:	2000      	movs	r0, #0
+ 80028be:	f000 f8e7 	bl	8002a90 <is_button_pressed>
+ 80028c2:	4603      	mov	r3, r0
+ 80028c4:	2b00      	cmp	r3, #0
+ 80028c6:	d00a      	beq.n	80028de <traffic_set_time_green+0xd6>
         time_1 = time_init;
- 8002950:	4b0b      	ldr	r3, [pc, #44]	; (8002980 <traffic_set_time_green+0xf0>)
- 8002952:	681b      	ldr	r3, [r3, #0]
- 8002954:	4a0b      	ldr	r2, [pc, #44]	; (8002984 <traffic_set_time_green+0xf4>)
- 8002956:	6013      	str	r3, [r2, #0]
+ 80028c8:	4b0b      	ldr	r3, [pc, #44]	; (80028f8 <traffic_set_time_green+0xf0>)
+ 80028ca:	681b      	ldr	r3, [r3, #0]
+ 80028cc:	4a0b      	ldr	r2, [pc, #44]	; (80028fc <traffic_set_time_green+0xf4>)
+ 80028ce:	6013      	str	r3, [r2, #0]
         time_2 = time_init;
- 8002958:	4b09      	ldr	r3, [pc, #36]	; (8002980 <traffic_set_time_green+0xf0>)
- 800295a:	681b      	ldr	r3, [r3, #0]
- 800295c:	4a0a      	ldr	r2, [pc, #40]	; (8002988 <traffic_set_time_green+0xf8>)
- 800295e:	6013      	str	r3, [r2, #0]
+ 80028d0:	4b09      	ldr	r3, [pc, #36]	; (80028f8 <traffic_set_time_green+0xf0>)
+ 80028d2:	681b      	ldr	r3, [r3, #0]
+ 80028d4:	4a0a      	ldr	r2, [pc, #40]	; (8002900 <traffic_set_time_green+0xf8>)
+ 80028d6:	6013      	str	r3, [r2, #0]
         status = INIT;
- 8002960:	4b0a      	ldr	r3, [pc, #40]	; (800298c <traffic_set_time_green+0xfc>)
- 8002962:	2201      	movs	r2, #1
- 8002964:	601a      	str	r2, [r3, #0]
+ 80028d8:	4b0a      	ldr	r3, [pc, #40]	; (8002904 <traffic_set_time_green+0xfc>)
+ 80028da:	2201      	movs	r2, #1
+ 80028dc:	601a      	str	r2, [r3, #0]
     }
 }
- 8002966:	bf00      	nop
- 8002968:	46bd      	mov	sp, r7
- 800296a:	bd80      	pop	{r7, pc}
- 800296c:	200000c8 	.word	0x200000c8
- 8002970:	40010c00 	.word	0x40010c00
- 8002974:	20000024 	.word	0x20000024
- 8002978:	20000028 	.word	0x20000028
- 800297c:	20000020 	.word	0x20000020
- 8002980:	2000002c 	.word	0x2000002c
- 8002984:	20000030 	.word	0x20000030
- 8002988:	20000034 	.word	0x20000034
- 800298c:	20000038 	.word	0x20000038
+ 80028de:	bf00      	nop
+ 80028e0:	46bd      	mov	sp, r7
+ 80028e2:	bd80      	pop	{r7, pc}
+ 80028e4:	200000c8 	.word	0x200000c8
+ 80028e8:	40010c00 	.word	0x40010c00
+ 80028ec:	20000024 	.word	0x20000024
+ 80028f0:	20000028 	.word	0x20000028
+ 80028f4:	20000020 	.word	0x20000020
+ 80028f8:	2000002c 	.word	0x2000002c
+ 80028fc:	20000030 	.word	0x20000030
+ 8002900:	20000034 	.word	0x20000034
+ 8002904:	20000038 	.word	0x20000038
 
-08002990 <automatic_run>:
+08002908 <automatic_run>:
 void automatic_init(){
 	if(status == INIT){
 		setTimer1(1, 1000);
 	}
 }
 void automatic_run(){
- 8002990:	b580      	push	{r7, lr}
- 8002992:	af00      	add	r7, sp, #0
+ 8002908:	b580      	push	{r7, lr}
+ 800290a:	af00      	add	r7, sp, #0
  	switch(status)
- 8002994:	4b16      	ldr	r3, [pc, #88]	; (80029f0 <automatic_run+0x60>)
- 8002996:	681b      	ldr	r3, [r3, #0]
- 8002998:	3b01      	subs	r3, #1
- 800299a:	2b06      	cmp	r3, #6
- 800299c:	d825      	bhi.n	80029ea <automatic_run+0x5a>
- 800299e:	a201      	add	r2, pc, #4	; (adr r2, 80029a4 <automatic_run+0x14>)
- 80029a0:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
- 80029a4:	080029c1 	.word	0x080029c1
- 80029a8:	080029c7 	.word	0x080029c7
- 80029ac:	080029cd 	.word	0x080029cd
- 80029b0:	080029d9 	.word	0x080029d9
- 80029b4:	080029df 	.word	0x080029df
- 80029b8:	080029d3 	.word	0x080029d3
- 80029bc:	080029e5 	.word	0x080029e5
+ 800290c:	4b14      	ldr	r3, [pc, #80]	; (8002960 <automatic_run+0x58>)
+ 800290e:	681b      	ldr	r3, [r3, #0]
+ 8002910:	3b01      	subs	r3, #1
+ 8002912:	2b05      	cmp	r3, #5
+ 8002914:	d820      	bhi.n	8002958 <automatic_run+0x50>
+ 8002916:	a201      	add	r2, pc, #4	; (adr r2, 800291c <automatic_run+0x14>)
+ 8002918:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
+ 800291c:	08002935 	.word	0x08002935
+ 8002920:	0800293b 	.word	0x0800293b
+ 8002924:	08002941 	.word	0x08002941
+ 8002928:	0800294d 	.word	0x0800294d
+ 800292c:	08002953 	.word	0x08002953
+ 8002930:	08002947 	.word	0x08002947
 	{
 	case (INIT):
 				traffic_init();
- 80029c0:	f7ff fc76 	bl	80022b0 <traffic_init>
+ 8002934:	f7ff fcbc 	bl	80022b0 <traffic_init>
 			break;
- 80029c4:	e012      	b.n	80029ec <automatic_run+0x5c>
+ 8002938:	e00f      	b.n	800295a <automatic_run+0x52>
 	case (GREEN_RED):
 			// TODO
 				traffic_green_red();
- 80029c6:	f7ff fcb5 	bl	8002334 <traffic_green_red>
+ 800293a:	f7ff fcfb 	bl	8002334 <traffic_green_red>
 			break;
- 80029ca:	e00f      	b.n	80029ec <automatic_run+0x5c>
+ 800293e:	e00c      	b.n	800295a <automatic_run+0x52>
 	case (YELLOW_RED):
 				traffic_yellow_red();
- 80029cc:	f7ff fcd4 	bl	8002378 <traffic_yellow_red>
+ 8002940:	f7ff fd1a 	bl	8002378 <traffic_yellow_red>
 			break;
- 80029d0:	e00c      	b.n	80029ec <automatic_run+0x5c>
+ 8002944:	e009      	b.n	800295a <automatic_run+0x52>
 	case RED_RED1:
 				traffic_red_red1();
- 80029d2:	f7ff fd0d 	bl	80023f0 <traffic_red_red1>
+ 8002946:	f7ff fd53 	bl	80023f0 <traffic_red_red1>
 			break;
- 80029d6:	e009      	b.n	80029ec <automatic_run+0x5c>
+ 800294a:	e006      	b.n	800295a <automatic_run+0x52>
 	case (RED_GREEN):
 				traffic_red_green();
- 80029d8:	f7ff fd34 	bl	8002444 <traffic_red_green>
+ 800294c:	f7ff fd72 	bl	8002434 <traffic_red_green>
 			break;
- 80029dc:	e006      	b.n	80029ec <automatic_run+0x5c>
+ 8002950:	e003      	b.n	800295a <automatic_run+0x52>
 	case (RED_YELLOW):
 				traffic_red_yellow();
- 80029de:	f7ff fd53 	bl	8002488 <traffic_red_yellow>
+ 8002952:	f7ff fd91 	bl	8002478 <traffic_red_yellow>
 			break;
- 80029e2:	e003      	b.n	80029ec <automatic_run+0x5c>
-	case RED_RED2:
-				traffic_red_red2();
- 80029e4:	f7ff fd8c 	bl	8002500 <traffic_red_red2>
-			break;
- 80029e8:	e000      	b.n	80029ec <automatic_run+0x5c>
+ 8002956:	e000      	b.n	800295a <automatic_run+0x52>
+	//case RED_RED2:
+		//		traffic_red_red2();
+			//break;
 	default:
 		break;
- 80029ea:	bf00      	nop
+ 8002958:	bf00      	nop
 	}
 
 }
- 80029ec:	bf00      	nop
- 80029ee:	bd80      	pop	{r7, pc}
- 80029f0:	20000038 	.word	0x20000038
+ 800295a:	bf00      	nop
+ 800295c:	bd80      	pop	{r7, pc}
+ 800295e:	bf00      	nop
+ 8002960:	20000038 	.word	0x20000038
 
-080029f4 <button_reading>:
+08002964 <button_reading>:
 static GPIO_PinState debounceButtonBuffer3[N0_OF_BUTTONS];
 static GPIO_PinState debounceButtonBuffer4[N0_OF_BUTTONS];
 static uint8_t flagForButtonPress[N0_OF_BUTTONS]; // flag for button pressed (AN) hon 1 giay
 static uint8_t flagForButton_longPress[N0_OF_BUTTONS];
 int time_out_input = 500;
 void button_reading ( GPIO_TypeDef* GPIOx[] , uint16_t GPIO_Pin[] ) {
- 80029f4:	b580      	push	{r7, lr}
- 80029f6:	b084      	sub	sp, #16
- 80029f8:	af00      	add	r7, sp, #0
- 80029fa:	6078      	str	r0, [r7, #4]
- 80029fc:	6039      	str	r1, [r7, #0]
+ 8002964:	b580      	push	{r7, lr}
+ 8002966:	b084      	sub	sp, #16
+ 8002968:	af00      	add	r7, sp, #0
+ 800296a:	6078      	str	r0, [r7, #4]
+ 800296c:	6039      	str	r1, [r7, #0]
 	for (int i = 0 ; i< N0_OF_BUTTONS ; i ++ ){
- 80029fe:	2300      	movs	r3, #0
- 8002a00:	60fb      	str	r3, [r7, #12]
- 8002a02:	e077      	b.n	8002af4 <button_reading+0x100>
+ 800296e:	2300      	movs	r3, #0
+ 8002970:	60fb      	str	r3, [r7, #12]
+ 8002972:	e077      	b.n	8002a64 <button_reading+0x100>
 		debounceButtonBuffer3[i] = debounceButtonBuffer2[i];
- 8002a04:	4a3f      	ldr	r2, [pc, #252]	; (8002b04 <button_reading+0x110>)
- 8002a06:	68fb      	ldr	r3, [r7, #12]
- 8002a08:	4413      	add	r3, r2
- 8002a0a:	7819      	ldrb	r1, [r3, #0]
- 8002a0c:	4a3e      	ldr	r2, [pc, #248]	; (8002b08 <button_reading+0x114>)
- 8002a0e:	68fb      	ldr	r3, [r7, #12]
- 8002a10:	4413      	add	r3, r2
- 8002a12:	460a      	mov	r2, r1
- 8002a14:	701a      	strb	r2, [r3, #0]
+ 8002974:	4a3f      	ldr	r2, [pc, #252]	; (8002a74 <button_reading+0x110>)
+ 8002976:	68fb      	ldr	r3, [r7, #12]
+ 8002978:	4413      	add	r3, r2
+ 800297a:	7819      	ldrb	r1, [r3, #0]
+ 800297c:	4a3e      	ldr	r2, [pc, #248]	; (8002a78 <button_reading+0x114>)
+ 800297e:	68fb      	ldr	r3, [r7, #12]
+ 8002980:	4413      	add	r3, r2
+ 8002982:	460a      	mov	r2, r1
+ 8002984:	701a      	strb	r2, [r3, #0]
 		debounceButtonBuffer2[i] = debounceButtonBuffer1[i];
- 8002a16:	4a3d      	ldr	r2, [pc, #244]	; (8002b0c <button_reading+0x118>)
- 8002a18:	68fb      	ldr	r3, [r7, #12]
- 8002a1a:	4413      	add	r3, r2
- 8002a1c:	7819      	ldrb	r1, [r3, #0]
- 8002a1e:	4a39      	ldr	r2, [pc, #228]	; (8002b04 <button_reading+0x110>)
- 8002a20:	68fb      	ldr	r3, [r7, #12]
- 8002a22:	4413      	add	r3, r2
- 8002a24:	460a      	mov	r2, r1
- 8002a26:	701a      	strb	r2, [r3, #0]
+ 8002986:	4a3d      	ldr	r2, [pc, #244]	; (8002a7c <button_reading+0x118>)
+ 8002988:	68fb      	ldr	r3, [r7, #12]
+ 800298a:	4413      	add	r3, r2
+ 800298c:	7819      	ldrb	r1, [r3, #0]
+ 800298e:	4a39      	ldr	r2, [pc, #228]	; (8002a74 <button_reading+0x110>)
+ 8002990:	68fb      	ldr	r3, [r7, #12]
+ 8002992:	4413      	add	r3, r2
+ 8002994:	460a      	mov	r2, r1
+ 8002996:	701a      	strb	r2, [r3, #0]
 		debounceButtonBuffer1[i] = HAL_GPIO_ReadPin(GPIOx[i], GPIO_Pin[i]);
- 8002a28:	68fb      	ldr	r3, [r7, #12]
- 8002a2a:	009b      	lsls	r3, r3, #2
- 8002a2c:	687a      	ldr	r2, [r7, #4]
- 8002a2e:	4413      	add	r3, r2
- 8002a30:	6818      	ldr	r0, [r3, #0]
- 8002a32:	68fb      	ldr	r3, [r7, #12]
- 8002a34:	005b      	lsls	r3, r3, #1
- 8002a36:	683a      	ldr	r2, [r7, #0]
- 8002a38:	4413      	add	r3, r2
- 8002a3a:	881b      	ldrh	r3, [r3, #0]
- 8002a3c:	4619      	mov	r1, r3
- 8002a3e:	f7fe f875 	bl	8000b2c <HAL_GPIO_ReadPin>
- 8002a42:	4603      	mov	r3, r0
- 8002a44:	4619      	mov	r1, r3
- 8002a46:	4a31      	ldr	r2, [pc, #196]	; (8002b0c <button_reading+0x118>)
- 8002a48:	68fb      	ldr	r3, [r7, #12]
- 8002a4a:	4413      	add	r3, r2
- 8002a4c:	460a      	mov	r2, r1
- 8002a4e:	701a      	strb	r2, [r3, #0]
+ 8002998:	68fb      	ldr	r3, [r7, #12]
+ 800299a:	009b      	lsls	r3, r3, #2
+ 800299c:	687a      	ldr	r2, [r7, #4]
+ 800299e:	4413      	add	r3, r2
+ 80029a0:	6818      	ldr	r0, [r3, #0]
+ 80029a2:	68fb      	ldr	r3, [r7, #12]
+ 80029a4:	005b      	lsls	r3, r3, #1
+ 80029a6:	683a      	ldr	r2, [r7, #0]
+ 80029a8:	4413      	add	r3, r2
+ 80029aa:	881b      	ldrh	r3, [r3, #0]
+ 80029ac:	4619      	mov	r1, r3
+ 80029ae:	f7fe f8bd 	bl	8000b2c <HAL_GPIO_ReadPin>
+ 80029b2:	4603      	mov	r3, r0
+ 80029b4:	4619      	mov	r1, r3
+ 80029b6:	4a31      	ldr	r2, [pc, #196]	; (8002a7c <button_reading+0x118>)
+ 80029b8:	68fb      	ldr	r3, [r7, #12]
+ 80029ba:	4413      	add	r3, r2
+ 80029bc:	460a      	mov	r2, r1
+ 80029be:	701a      	strb	r2, [r3, #0]
 		if(debounceButtonBuffer3[i] == debounceButtonBuffer2[i] && debounceButtonBuffer2[i] == debounceButtonBuffer1[i]){
- 8002a50:	4a2d      	ldr	r2, [pc, #180]	; (8002b08 <button_reading+0x114>)
- 8002a52:	68fb      	ldr	r3, [r7, #12]
- 8002a54:	4413      	add	r3, r2
- 8002a56:	781a      	ldrb	r2, [r3, #0]
- 8002a58:	492a      	ldr	r1, [pc, #168]	; (8002b04 <button_reading+0x110>)
- 8002a5a:	68fb      	ldr	r3, [r7, #12]
- 8002a5c:	440b      	add	r3, r1
- 8002a5e:	781b      	ldrb	r3, [r3, #0]
- 8002a60:	429a      	cmp	r2, r3
- 8002a62:	d144      	bne.n	8002aee <button_reading+0xfa>
- 8002a64:	4a27      	ldr	r2, [pc, #156]	; (8002b04 <button_reading+0x110>)
- 8002a66:	68fb      	ldr	r3, [r7, #12]
- 8002a68:	4413      	add	r3, r2
- 8002a6a:	781a      	ldrb	r2, [r3, #0]
- 8002a6c:	4927      	ldr	r1, [pc, #156]	; (8002b0c <button_reading+0x118>)
- 8002a6e:	68fb      	ldr	r3, [r7, #12]
- 8002a70:	440b      	add	r3, r1
- 8002a72:	781b      	ldrb	r3, [r3, #0]
- 8002a74:	429a      	cmp	r2, r3
- 8002a76:	d13a      	bne.n	8002aee <button_reading+0xfa>
+ 80029c0:	4a2d      	ldr	r2, [pc, #180]	; (8002a78 <button_reading+0x114>)
+ 80029c2:	68fb      	ldr	r3, [r7, #12]
+ 80029c4:	4413      	add	r3, r2
+ 80029c6:	781a      	ldrb	r2, [r3, #0]
+ 80029c8:	492a      	ldr	r1, [pc, #168]	; (8002a74 <button_reading+0x110>)
+ 80029ca:	68fb      	ldr	r3, [r7, #12]
+ 80029cc:	440b      	add	r3, r1
+ 80029ce:	781b      	ldrb	r3, [r3, #0]
+ 80029d0:	429a      	cmp	r2, r3
+ 80029d2:	d144      	bne.n	8002a5e <button_reading+0xfa>
+ 80029d4:	4a27      	ldr	r2, [pc, #156]	; (8002a74 <button_reading+0x110>)
+ 80029d6:	68fb      	ldr	r3, [r7, #12]
+ 80029d8:	4413      	add	r3, r2
+ 80029da:	781a      	ldrb	r2, [r3, #0]
+ 80029dc:	4927      	ldr	r1, [pc, #156]	; (8002a7c <button_reading+0x118>)
+ 80029de:	68fb      	ldr	r3, [r7, #12]
+ 80029e0:	440b      	add	r3, r1
+ 80029e2:	781b      	ldrb	r3, [r3, #0]
+ 80029e4:	429a      	cmp	r2, r3
+ 80029e6:	d13a      	bne.n	8002a5e <button_reading+0xfa>
 			// Het Rung
 			if(debounceButtonBuffer4[i]!=debounceButtonBuffer3[i]){
- 8002a78:	4a25      	ldr	r2, [pc, #148]	; (8002b10 <button_reading+0x11c>)
- 8002a7a:	68fb      	ldr	r3, [r7, #12]
- 8002a7c:	4413      	add	r3, r2
- 8002a7e:	781a      	ldrb	r2, [r3, #0]
- 8002a80:	4921      	ldr	r1, [pc, #132]	; (8002b08 <button_reading+0x114>)
- 8002a82:	68fb      	ldr	r3, [r7, #12]
- 8002a84:	440b      	add	r3, r1
- 8002a86:	781b      	ldrb	r3, [r3, #0]
- 8002a88:	429a      	cmp	r2, r3
- 8002a8a:	d018      	beq.n	8002abe <button_reading+0xca>
+ 80029e8:	4a25      	ldr	r2, [pc, #148]	; (8002a80 <button_reading+0x11c>)
+ 80029ea:	68fb      	ldr	r3, [r7, #12]
+ 80029ec:	4413      	add	r3, r2
+ 80029ee:	781a      	ldrb	r2, [r3, #0]
+ 80029f0:	4921      	ldr	r1, [pc, #132]	; (8002a78 <button_reading+0x114>)
+ 80029f2:	68fb      	ldr	r3, [r7, #12]
+ 80029f4:	440b      	add	r3, r1
+ 80029f6:	781b      	ldrb	r3, [r3, #0]
+ 80029f8:	429a      	cmp	r2, r3
+ 80029fa:	d018      	beq.n	8002a2e <button_reading+0xca>
 				// Dong bo lai tin hieu
 				debounceButtonBuffer4[i]=debounceButtonBuffer3[i];
- 8002a8c:	4a1e      	ldr	r2, [pc, #120]	; (8002b08 <button_reading+0x114>)
- 8002a8e:	68fb      	ldr	r3, [r7, #12]
- 8002a90:	4413      	add	r3, r2
- 8002a92:	7819      	ldrb	r1, [r3, #0]
- 8002a94:	4a1e      	ldr	r2, [pc, #120]	; (8002b10 <button_reading+0x11c>)
- 8002a96:	68fb      	ldr	r3, [r7, #12]
- 8002a98:	4413      	add	r3, r2
- 8002a9a:	460a      	mov	r2, r1
- 8002a9c:	701a      	strb	r2, [r3, #0]
+ 80029fc:	4a1e      	ldr	r2, [pc, #120]	; (8002a78 <button_reading+0x114>)
+ 80029fe:	68fb      	ldr	r3, [r7, #12]
+ 8002a00:	4413      	add	r3, r2
+ 8002a02:	7819      	ldrb	r1, [r3, #0]
+ 8002a04:	4a1e      	ldr	r2, [pc, #120]	; (8002a80 <button_reading+0x11c>)
+ 8002a06:	68fb      	ldr	r3, [r7, #12]
+ 8002a08:	4413      	add	r3, r2
+ 8002a0a:	460a      	mov	r2, r1
+ 8002a0c:	701a      	strb	r2, [r3, #0]
 				if(debounceButtonBuffer4[i] == BUTTON_IS_PRESSED){
- 8002a9e:	4a1c      	ldr	r2, [pc, #112]	; (8002b10 <button_reading+0x11c>)
- 8002aa0:	68fb      	ldr	r3, [r7, #12]
- 8002aa2:	4413      	add	r3, r2
- 8002aa4:	781b      	ldrb	r3, [r3, #0]
- 8002aa6:	2b00      	cmp	r3, #0
- 8002aa8:	d121      	bne.n	8002aee <button_reading+0xfa>
+ 8002a0e:	4a1c      	ldr	r2, [pc, #112]	; (8002a80 <button_reading+0x11c>)
+ 8002a10:	68fb      	ldr	r3, [r7, #12]
+ 8002a12:	4413      	add	r3, r2
+ 8002a14:	781b      	ldrb	r3, [r3, #0]
+ 8002a16:	2b00      	cmp	r3, #0
+ 8002a18:	d121      	bne.n	8002a5e <button_reading+0xfa>
 					// Vua chuyen sang trang thai nhan
 					flagForButtonPress[i] = 1;
- 8002aaa:	4a1a      	ldr	r2, [pc, #104]	; (8002b14 <button_reading+0x120>)
- 8002aac:	68fb      	ldr	r3, [r7, #12]
- 8002aae:	4413      	add	r3, r2
- 8002ab0:	2201      	movs	r2, #1
- 8002ab2:	701a      	strb	r2, [r3, #0]
+ 8002a1a:	4a1a      	ldr	r2, [pc, #104]	; (8002a84 <button_reading+0x120>)
+ 8002a1c:	68fb      	ldr	r3, [r7, #12]
+ 8002a1e:	4413      	add	r3, r2
+ 8002a20:	2201      	movs	r2, #1
+ 8002a22:	701a      	strb	r2, [r3, #0]
 					time_out_input = 500;
- 8002ab4:	4b18      	ldr	r3, [pc, #96]	; (8002b18 <button_reading+0x124>)
- 8002ab6:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
- 8002aba:	601a      	str	r2, [r3, #0]
- 8002abc:	e017      	b.n	8002aee <button_reading+0xfa>
+ 8002a24:	4b18      	ldr	r3, [pc, #96]	; (8002a88 <button_reading+0x124>)
+ 8002a26:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
+ 8002a2a:	601a      	str	r2, [r3, #0]
+ 8002a2c:	e017      	b.n	8002a5e <button_reading+0xfa>
 				}
 			}
 			else{
 				// Dang trong qua trinh nhan de hoac nha
 				time_out_input -- ;
- 8002abe:	4b16      	ldr	r3, [pc, #88]	; (8002b18 <button_reading+0x124>)
- 8002ac0:	681b      	ldr	r3, [r3, #0]
- 8002ac2:	3b01      	subs	r3, #1
- 8002ac4:	4a14      	ldr	r2, [pc, #80]	; (8002b18 <button_reading+0x124>)
- 8002ac6:	6013      	str	r3, [r2, #0]
+ 8002a2e:	4b16      	ldr	r3, [pc, #88]	; (8002a88 <button_reading+0x124>)
+ 8002a30:	681b      	ldr	r3, [r3, #0]
+ 8002a32:	3b01      	subs	r3, #1
+ 8002a34:	4a14      	ldr	r2, [pc, #80]	; (8002a88 <button_reading+0x124>)
+ 8002a36:	6013      	str	r3, [r2, #0]
 				if(time_out_input <= 0 ){
- 8002ac8:	4b13      	ldr	r3, [pc, #76]	; (8002b18 <button_reading+0x124>)
- 8002aca:	681b      	ldr	r3, [r3, #0]
- 8002acc:	2b00      	cmp	r3, #0
- 8002ace:	dc0e      	bgt.n	8002aee <button_reading+0xfa>
+ 8002a38:	4b13      	ldr	r3, [pc, #76]	; (8002a88 <button_reading+0x124>)
+ 8002a3a:	681b      	ldr	r3, [r3, #0]
+ 8002a3c:	2b00      	cmp	r3, #0
+ 8002a3e:	dc0e      	bgt.n	8002a5e <button_reading+0xfa>
 					// Nhan du 5s hoac tha 5s
 					time_out_input = 500;
- 8002ad0:	4b11      	ldr	r3, [pc, #68]	; (8002b18 <button_reading+0x124>)
- 8002ad2:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
- 8002ad6:	601a      	str	r2, [r3, #0]
+ 8002a40:	4b11      	ldr	r3, [pc, #68]	; (8002a88 <button_reading+0x124>)
+ 8002a42:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
+ 8002a46:	601a      	str	r2, [r3, #0]
 					if(debounceButtonBuffer4[i] == BUTTON_IS_PRESSED){
- 8002ad8:	4a0d      	ldr	r2, [pc, #52]	; (8002b10 <button_reading+0x11c>)
- 8002ada:	68fb      	ldr	r3, [r7, #12]
- 8002adc:	4413      	add	r3, r2
- 8002ade:	781b      	ldrb	r3, [r3, #0]
- 8002ae0:	2b00      	cmp	r3, #0
- 8002ae2:	d104      	bne.n	8002aee <button_reading+0xfa>
+ 8002a48:	4a0d      	ldr	r2, [pc, #52]	; (8002a80 <button_reading+0x11c>)
+ 8002a4a:	68fb      	ldr	r3, [r7, #12]
+ 8002a4c:	4413      	add	r3, r2
+ 8002a4e:	781b      	ldrb	r3, [r3, #0]
+ 8002a50:	2b00      	cmp	r3, #0
+ 8002a52:	d104      	bne.n	8002a5e <button_reading+0xfa>
 						// Truong hop la nhan de
 						flagForButton_longPress[i] = 1;
- 8002ae4:	4a0d      	ldr	r2, [pc, #52]	; (8002b1c <button_reading+0x128>)
- 8002ae6:	68fb      	ldr	r3, [r7, #12]
- 8002ae8:	4413      	add	r3, r2
- 8002aea:	2201      	movs	r2, #1
- 8002aec:	701a      	strb	r2, [r3, #0]
+ 8002a54:	4a0d      	ldr	r2, [pc, #52]	; (8002a8c <button_reading+0x128>)
+ 8002a56:	68fb      	ldr	r3, [r7, #12]
+ 8002a58:	4413      	add	r3, r2
+ 8002a5a:	2201      	movs	r2, #1
+ 8002a5c:	701a      	strb	r2, [r3, #0]
 	for (int i = 0 ; i< N0_OF_BUTTONS ; i ++ ){
- 8002aee:	68fb      	ldr	r3, [r7, #12]
- 8002af0:	3301      	adds	r3, #1
- 8002af2:	60fb      	str	r3, [r7, #12]
- 8002af4:	68fb      	ldr	r3, [r7, #12]
- 8002af6:	2b02      	cmp	r3, #2
- 8002af8:	dd84      	ble.n	8002a04 <button_reading+0x10>
+ 8002a5e:	68fb      	ldr	r3, [r7, #12]
+ 8002a60:	3301      	adds	r3, #1
+ 8002a62:	60fb      	str	r3, [r7, #12]
+ 8002a64:	68fb      	ldr	r3, [r7, #12]
+ 8002a66:	2b02      	cmp	r3, #2
+ 8002a68:	dd84      	ble.n	8002974 <button_reading+0x10>
 					}
 				}
 			}
 		}
 	}
 }
- 8002afa:	bf00      	nop
- 8002afc:	bf00      	nop
- 8002afe:	3710      	adds	r7, #16
- 8002b00:	46bd      	mov	sp, r7
- 8002b02:	bd80      	pop	{r7, pc}
- 8002b04:	20000068 	.word	0x20000068
- 8002b08:	2000006c 	.word	0x2000006c
- 8002b0c:	20000064 	.word	0x20000064
- 8002b10:	20000070 	.word	0x20000070
- 8002b14:	20000074 	.word	0x20000074
- 8002b18:	2000003c 	.word	0x2000003c
- 8002b1c:	20000078 	.word	0x20000078
+ 8002a6a:	bf00      	nop
+ 8002a6c:	bf00      	nop
+ 8002a6e:	3710      	adds	r7, #16
+ 8002a70:	46bd      	mov	sp, r7
+ 8002a72:	bd80      	pop	{r7, pc}
+ 8002a74:	20000068 	.word	0x20000068
+ 8002a78:	2000006c 	.word	0x2000006c
+ 8002a7c:	20000064 	.word	0x20000064
+ 8002a80:	20000070 	.word	0x20000070
+ 8002a84:	20000074 	.word	0x20000074
+ 8002a88:	2000003c 	.word	0x2000003c
+ 8002a8c:	20000078 	.word	0x20000078
 
-08002b20 <is_button_pressed>:
+08002a90 <is_button_pressed>:
 unsigned int is_button_pressed ( unsigned int index ){
- 8002b20:	b480      	push	{r7}
- 8002b22:	b083      	sub	sp, #12
- 8002b24:	af00      	add	r7, sp, #0
- 8002b26:	6078      	str	r0, [r7, #4]
+ 8002a90:	b480      	push	{r7}
+ 8002a92:	b083      	sub	sp, #12
+ 8002a94:	af00      	add	r7, sp, #0
+ 8002a96:	6078      	str	r0, [r7, #4]
 	// Tra ve trang thai nut nhan co dang bat hay khong
 	if(index>= N0_OF_BUTTONS){
- 8002b28:	687b      	ldr	r3, [r7, #4]
- 8002b2a:	2b02      	cmp	r3, #2
- 8002b2c:	d901      	bls.n	8002b32 <is_button_pressed+0x12>
+ 8002a98:	687b      	ldr	r3, [r7, #4]
+ 8002a9a:	2b02      	cmp	r3, #2
+ 8002a9c:	d901      	bls.n	8002aa2 <is_button_pressed+0x12>
 		return 0;
- 8002b2e:	2300      	movs	r3, #0
- 8002b30:	e00d      	b.n	8002b4e <is_button_pressed+0x2e>
+ 8002a9e:	2300      	movs	r3, #0
+ 8002aa0:	e00d      	b.n	8002abe <is_button_pressed+0x2e>
 	}
 	if(flagForButtonPress[index] == 1){
- 8002b32:	4a09      	ldr	r2, [pc, #36]	; (8002b58 <is_button_pressed+0x38>)
- 8002b34:	687b      	ldr	r3, [r7, #4]
- 8002b36:	4413      	add	r3, r2
- 8002b38:	781b      	ldrb	r3, [r3, #0]
- 8002b3a:	2b01      	cmp	r3, #1
- 8002b3c:	d106      	bne.n	8002b4c <is_button_pressed+0x2c>
+ 8002aa2:	4a09      	ldr	r2, [pc, #36]	; (8002ac8 <is_button_pressed+0x38>)
+ 8002aa4:	687b      	ldr	r3, [r7, #4]
+ 8002aa6:	4413      	add	r3, r2
+ 8002aa8:	781b      	ldrb	r3, [r3, #0]
+ 8002aaa:	2b01      	cmp	r3, #1
+ 8002aac:	d106      	bne.n	8002abc <is_button_pressed+0x2c>
 		flagForButtonPress[index] = 0;
- 8002b3e:	4a06      	ldr	r2, [pc, #24]	; (8002b58 <is_button_pressed+0x38>)
- 8002b40:	687b      	ldr	r3, [r7, #4]
- 8002b42:	4413      	add	r3, r2
- 8002b44:	2200      	movs	r2, #0
- 8002b46:	701a      	strb	r2, [r3, #0]
+ 8002aae:	4a06      	ldr	r2, [pc, #24]	; (8002ac8 <is_button_pressed+0x38>)
+ 8002ab0:	687b      	ldr	r3, [r7, #4]
+ 8002ab2:	4413      	add	r3, r2
+ 8002ab4:	2200      	movs	r2, #0
+ 8002ab6:	701a      	strb	r2, [r3, #0]
 		return 1;
- 8002b48:	2301      	movs	r3, #1
- 8002b4a:	e000      	b.n	8002b4e <is_button_pressed+0x2e>
+ 8002ab8:	2301      	movs	r3, #1
+ 8002aba:	e000      	b.n	8002abe <is_button_pressed+0x2e>
 	}
 	return 0;
- 8002b4c:	2300      	movs	r3, #0
+ 8002abc:	2300      	movs	r3, #0
 }
- 8002b4e:	4618      	mov	r0, r3
- 8002b50:	370c      	adds	r7, #12
- 8002b52:	46bd      	mov	sp, r7
- 8002b54:	bc80      	pop	{r7}
- 8002b56:	4770      	bx	lr
- 8002b58:	20000074 	.word	0x20000074
+ 8002abe:	4618      	mov	r0, r3
+ 8002ac0:	370c      	adds	r7, #12
+ 8002ac2:	46bd      	mov	sp, r7
+ 8002ac4:	bc80      	pop	{r7}
+ 8002ac6:	4770      	bx	lr
+ 8002ac8:	20000074 	.word	0x20000074
 
-08002b5c <manual_run>:
+08002acc <manual_run>:
  */
 #include "manual.h"
 void manual_init(){
 	setTimer1(2, 500); // Danh cho nhap nhay den khi set thoi gian
 }
 void manual_run(){
- 8002b5c:	b580      	push	{r7, lr}
- 8002b5e:	af00      	add	r7, sp, #0
+ 8002acc:	b580      	push	{r7, lr}
+ 8002ace:	af00      	add	r7, sp, #0
 	switch(status){
- 8002b60:	4b15      	ldr	r3, [pc, #84]	; (8002bb8 <manual_run+0x5c>)
- 8002b62:	681b      	ldr	r3, [r3, #0]
- 8002b64:	3b08      	subs	r3, #8
- 8002b66:	2b07      	cmp	r3, #7
- 8002b68:	d823      	bhi.n	8002bb2 <manual_run+0x56>
- 8002b6a:	a201      	add	r2, pc, #4	; (adr r2, 8002b70 <manual_run+0x14>)
- 8002b6c:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
- 8002b70:	08002b91 	.word	0x08002b91
- 8002b74:	08002b97 	.word	0x08002b97
- 8002b78:	08002b9d 	.word	0x08002b9d
- 8002b7c:	08002bb3 	.word	0x08002bb3
- 8002b80:	08002ba3 	.word	0x08002ba3
- 8002b84:	08002ba7 	.word	0x08002ba7
- 8002b88:	08002bab 	.word	0x08002bab
- 8002b8c:	08002baf 	.word	0x08002baf
+ 8002ad0:	4b15      	ldr	r3, [pc, #84]	; (8002b28 <manual_run+0x5c>)
+ 8002ad2:	681b      	ldr	r3, [r3, #0]
+ 8002ad4:	3b08      	subs	r3, #8
+ 8002ad6:	2b07      	cmp	r3, #7
+ 8002ad8:	d823      	bhi.n	8002b22 <manual_run+0x56>
+ 8002ada:	a201      	add	r2, pc, #4	; (adr r2, 8002ae0 <manual_run+0x14>)
+ 8002adc:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
+ 8002ae0:	08002b01 	.word	0x08002b01
+ 8002ae4:	08002b07 	.word	0x08002b07
+ 8002ae8:	08002b0d 	.word	0x08002b0d
+ 8002aec:	08002b23 	.word	0x08002b23
+ 8002af0:	08002b13 	.word	0x08002b13
+ 8002af4:	08002b17 	.word	0x08002b17
+ 8002af8:	08002b1b 	.word	0x08002b1b
+ 8002afc:	08002b1f 	.word	0x08002b1f
 	case SET_TIME_RED:
 		traffic_set_time_red();
- 8002b90:	f7ff fd98 	bl	80026c4 <traffic_set_time_red>
+ 8002b00:	f7ff fd9c 	bl	800263c <traffic_set_time_red>
 		break;
- 8002b94:	e00e      	b.n	8002bb4 <manual_run+0x58>
+ 8002b04:	e00e      	b.n	8002b24 <manual_run+0x58>
 	case SET_TIME_YELLOW:
 		traffic_set_time_yellow();
- 8002b96:	f7ff fe0b 	bl	80027b0 <traffic_set_time_yellow>
+ 8002b06:	f7ff fe0f 	bl	8002728 <traffic_set_time_yellow>
 		break;
- 8002b9a:	e00b      	b.n	8002bb4 <manual_run+0x58>
+ 8002b0a:	e00b      	b.n	8002b24 <manual_run+0x58>
 	case SET_TIME_GREEN:
 		traffic_set_time_green();
- 8002b9c:	f7ff fe78 	bl	8002890 <traffic_set_time_green>
+ 8002b0c:	f7ff fe7c 	bl	8002808 <traffic_set_time_green>
 		break;
- 8002ba0:	e008      	b.n	8002bb4 <manual_run+0x58>
+ 8002b10:	e008      	b.n	8002b24 <manual_run+0x58>
 	case MAN_GREEN_RED:
 		traffic_mannual_green_red();
- 8002ba2:	f7ff fd2f 	bl	8002604 <traffic_mannual_green_red>
+ 8002b12:	f7ff fd33 	bl	800257c <traffic_mannual_green_red>
 	case MAN_YELLOW_RED:
 		traffic_mannual_yellow_red();
- 8002ba6:	f7ff fd45 	bl	8002634 <traffic_mannual_yellow_red>
+ 8002b16:	f7ff fd49 	bl	80025ac <traffic_mannual_yellow_red>
 	case MAN_RED_GREEN:
 		traffic_mannual_red_green();
- 8002baa:	f7ff fd5b 	bl	8002664 <traffic_mannual_red_green>
+ 8002b1a:	f7ff fd5f 	bl	80025dc <traffic_mannual_red_green>
 	case MAN_RED_YELLOW:
 		traffic_mannual_red_yellow();
- 8002bae:	f7ff fd71 	bl	8002694 <traffic_mannual_red_yellow>
+ 8002b1e:	f7ff fd75 	bl	800260c <traffic_mannual_red_yellow>
 	default :
 		break;
- 8002bb2:	bf00      	nop
+ 8002b22:	bf00      	nop
 	}
 
 }
- 8002bb4:	bf00      	nop
- 8002bb6:	bd80      	pop	{r7, pc}
- 8002bb8:	20000038 	.word	0x20000038
+ 8002b24:	bf00      	nop
+ 8002b26:	bd80      	pop	{r7, pc}
+ 8002b28:	20000038 	.word	0x20000038
 
-08002bbc <setTimer1>:
+08002b2c <setTimer1>:
 #include "software_timer.h"
 	int time_cycle = 10;
 	int timer1_counter[10];
 	int timer1_flag[10];
 
 	void setTimer1(int index,int duration){
- 8002bbc:	b480      	push	{r7}
- 8002bbe:	b083      	sub	sp, #12
- 8002bc0:	af00      	add	r7, sp, #0
- 8002bc2:	6078      	str	r0, [r7, #4]
- 8002bc4:	6039      	str	r1, [r7, #0]
+ 8002b2c:	b480      	push	{r7}
+ 8002b2e:	b083      	sub	sp, #12
+ 8002b30:	af00      	add	r7, sp, #0
+ 8002b32:	6078      	str	r0, [r7, #4]
+ 8002b34:	6039      	str	r1, [r7, #0]
 		timer1_counter[index]=duration / time_cycle;
- 8002bc6:	4b09      	ldr	r3, [pc, #36]	; (8002bec <setTimer1+0x30>)
- 8002bc8:	681b      	ldr	r3, [r3, #0]
- 8002bca:	683a      	ldr	r2, [r7, #0]
- 8002bcc:	fb92 f2f3 	sdiv	r2, r2, r3
- 8002bd0:	4907      	ldr	r1, [pc, #28]	; (8002bf0 <setTimer1+0x34>)
- 8002bd2:	687b      	ldr	r3, [r7, #4]
- 8002bd4:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
+ 8002b36:	4b09      	ldr	r3, [pc, #36]	; (8002b5c <setTimer1+0x30>)
+ 8002b38:	681b      	ldr	r3, [r3, #0]
+ 8002b3a:	683a      	ldr	r2, [r7, #0]
+ 8002b3c:	fb92 f2f3 	sdiv	r2, r2, r3
+ 8002b40:	4907      	ldr	r1, [pc, #28]	; (8002b60 <setTimer1+0x34>)
+ 8002b42:	687b      	ldr	r3, [r7, #4]
+ 8002b44:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
 		timer1_flag[index] = 0;
- 8002bd8:	4a06      	ldr	r2, [pc, #24]	; (8002bf4 <setTimer1+0x38>)
- 8002bda:	687b      	ldr	r3, [r7, #4]
- 8002bdc:	2100      	movs	r1, #0
- 8002bde:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8002b48:	4a06      	ldr	r2, [pc, #24]	; (8002b64 <setTimer1+0x38>)
+ 8002b4a:	687b      	ldr	r3, [r7, #4]
+ 8002b4c:	2100      	movs	r1, #0
+ 8002b4e:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 	}
- 8002be2:	bf00      	nop
- 8002be4:	370c      	adds	r7, #12
- 8002be6:	46bd      	mov	sp, r7
- 8002be8:	bc80      	pop	{r7}
- 8002bea:	4770      	bx	lr
- 8002bec:	20000040 	.word	0x20000040
- 8002bf0:	200000fc 	.word	0x200000fc
- 8002bf4:	200000d4 	.word	0x200000d4
+ 8002b52:	bf00      	nop
+ 8002b54:	370c      	adds	r7, #12
+ 8002b56:	46bd      	mov	sp, r7
+ 8002b58:	bc80      	pop	{r7}
+ 8002b5a:	4770      	bx	lr
+ 8002b5c:	20000040 	.word	0x20000040
+ 8002b60:	200000fc 	.word	0x200000fc
+ 8002b64:	200000d4 	.word	0x200000d4
 
-08002bf8 <SetTimerForTimerSet>:
+08002b68 <SetTimerForTimerSet>:
 	void SetTimerForTimerSet(int index,int duration,int timer_set){
- 8002bf8:	b580      	push	{r7, lr}
- 8002bfa:	b084      	sub	sp, #16
- 8002bfc:	af00      	add	r7, sp, #0
- 8002bfe:	60f8      	str	r0, [r7, #12]
- 8002c00:	60b9      	str	r1, [r7, #8]
- 8002c02:	607a      	str	r2, [r7, #4]
+ 8002b68:	b580      	push	{r7, lr}
+ 8002b6a:	b084      	sub	sp, #16
+ 8002b6c:	af00      	add	r7, sp, #0
+ 8002b6e:	60f8      	str	r0, [r7, #12]
+ 8002b70:	60b9      	str	r1, [r7, #8]
+ 8002b72:	607a      	str	r2, [r7, #4]
 		time_cycle = timer_set;
- 8002c04:	4a05      	ldr	r2, [pc, #20]	; (8002c1c <SetTimerForTimerSet+0x24>)
- 8002c06:	687b      	ldr	r3, [r7, #4]
- 8002c08:	6013      	str	r3, [r2, #0]
+ 8002b74:	4a05      	ldr	r2, [pc, #20]	; (8002b8c <SetTimerForTimerSet+0x24>)
+ 8002b76:	687b      	ldr	r3, [r7, #4]
+ 8002b78:	6013      	str	r3, [r2, #0]
 		setTimer1(index, duration);
- 8002c0a:	68b9      	ldr	r1, [r7, #8]
- 8002c0c:	68f8      	ldr	r0, [r7, #12]
- 8002c0e:	f7ff ffd5 	bl	8002bbc <setTimer1>
+ 8002b7a:	68b9      	ldr	r1, [r7, #8]
+ 8002b7c:	68f8      	ldr	r0, [r7, #12]
+ 8002b7e:	f7ff ffd5 	bl	8002b2c <setTimer1>
 	}
- 8002c12:	bf00      	nop
- 8002c14:	3710      	adds	r7, #16
- 8002c16:	46bd      	mov	sp, r7
- 8002c18:	bd80      	pop	{r7, pc}
- 8002c1a:	bf00      	nop
- 8002c1c:	20000040 	.word	0x20000040
+ 8002b82:	bf00      	nop
+ 8002b84:	3710      	adds	r7, #16
+ 8002b86:	46bd      	mov	sp, r7
+ 8002b88:	bd80      	pop	{r7, pc}
+ 8002b8a:	bf00      	nop
+ 8002b8c:	20000040 	.word	0x20000040
 
-08002c20 <timerRun>:
+08002b90 <timerRun>:
 	void timerRun(){
- 8002c20:	b480      	push	{r7}
- 8002c22:	b083      	sub	sp, #12
- 8002c24:	af00      	add	r7, sp, #0
+ 8002b90:	b480      	push	{r7}
+ 8002b92:	b083      	sub	sp, #12
+ 8002b94:	af00      	add	r7, sp, #0
 		for (int i = 0 ; i <10 ; i++){
- 8002c26:	2300      	movs	r3, #0
- 8002c28:	607b      	str	r3, [r7, #4]
- 8002c2a:	e01c      	b.n	8002c66 <timerRun+0x46>
+ 8002b96:	2300      	movs	r3, #0
+ 8002b98:	607b      	str	r3, [r7, #4]
+ 8002b9a:	e01c      	b.n	8002bd6 <timerRun+0x46>
 			if(timer1_counter[i] >  0 ){
- 8002c2c:	4a12      	ldr	r2, [pc, #72]	; (8002c78 <timerRun+0x58>)
- 8002c2e:	687b      	ldr	r3, [r7, #4]
- 8002c30:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
- 8002c34:	2b00      	cmp	r3, #0
- 8002c36:	dd08      	ble.n	8002c4a <timerRun+0x2a>
+ 8002b9c:	4a12      	ldr	r2, [pc, #72]	; (8002be8 <timerRun+0x58>)
+ 8002b9e:	687b      	ldr	r3, [r7, #4]
+ 8002ba0:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
+ 8002ba4:	2b00      	cmp	r3, #0
+ 8002ba6:	dd08      	ble.n	8002bba <timerRun+0x2a>
 					timer1_counter[i]--;
- 8002c38:	4a0f      	ldr	r2, [pc, #60]	; (8002c78 <timerRun+0x58>)
- 8002c3a:	687b      	ldr	r3, [r7, #4]
- 8002c3c:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
- 8002c40:	1e5a      	subs	r2, r3, #1
- 8002c42:	490d      	ldr	r1, [pc, #52]	; (8002c78 <timerRun+0x58>)
- 8002c44:	687b      	ldr	r3, [r7, #4]
- 8002c46:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
+ 8002ba8:	4a0f      	ldr	r2, [pc, #60]	; (8002be8 <timerRun+0x58>)
+ 8002baa:	687b      	ldr	r3, [r7, #4]
+ 8002bac:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
+ 8002bb0:	1e5a      	subs	r2, r3, #1
+ 8002bb2:	490d      	ldr	r1, [pc, #52]	; (8002be8 <timerRun+0x58>)
+ 8002bb4:	687b      	ldr	r3, [r7, #4]
+ 8002bb6:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
 			 }
 			if(timer1_counter[i]<=0){
- 8002c4a:	4a0b      	ldr	r2, [pc, #44]	; (8002c78 <timerRun+0x58>)
- 8002c4c:	687b      	ldr	r3, [r7, #4]
- 8002c4e:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
- 8002c52:	2b00      	cmp	r3, #0
- 8002c54:	dc04      	bgt.n	8002c60 <timerRun+0x40>
+ 8002bba:	4a0b      	ldr	r2, [pc, #44]	; (8002be8 <timerRun+0x58>)
+ 8002bbc:	687b      	ldr	r3, [r7, #4]
+ 8002bbe:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
+ 8002bc2:	2b00      	cmp	r3, #0
+ 8002bc4:	dc04      	bgt.n	8002bd0 <timerRun+0x40>
 					timer1_flag[i]=1;
- 8002c56:	4a09      	ldr	r2, [pc, #36]	; (8002c7c <timerRun+0x5c>)
- 8002c58:	687b      	ldr	r3, [r7, #4]
- 8002c5a:	2101      	movs	r1, #1
- 8002c5c:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8002bc6:	4a09      	ldr	r2, [pc, #36]	; (8002bec <timerRun+0x5c>)
+ 8002bc8:	687b      	ldr	r3, [r7, #4]
+ 8002bca:	2101      	movs	r1, #1
+ 8002bcc:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 		for (int i = 0 ; i <10 ; i++){
- 8002c60:	687b      	ldr	r3, [r7, #4]
- 8002c62:	3301      	adds	r3, #1
- 8002c64:	607b      	str	r3, [r7, #4]
- 8002c66:	687b      	ldr	r3, [r7, #4]
- 8002c68:	2b09      	cmp	r3, #9
- 8002c6a:	dddf      	ble.n	8002c2c <timerRun+0xc>
+ 8002bd0:	687b      	ldr	r3, [r7, #4]
+ 8002bd2:	3301      	adds	r3, #1
+ 8002bd4:	607b      	str	r3, [r7, #4]
+ 8002bd6:	687b      	ldr	r3, [r7, #4]
+ 8002bd8:	2b09      	cmp	r3, #9
+ 8002bda:	dddf      	ble.n	8002b9c <timerRun+0xc>
 			}
 		}
 
 
 	}
- 8002c6c:	bf00      	nop
- 8002c6e:	bf00      	nop
- 8002c70:	370c      	adds	r7, #12
- 8002c72:	46bd      	mov	sp, r7
- 8002c74:	bc80      	pop	{r7}
- 8002c76:	4770      	bx	lr
- 8002c78:	200000fc 	.word	0x200000fc
- 8002c7c:	200000d4 	.word	0x200000d4
+ 8002bdc:	bf00      	nop
+ 8002bde:	bf00      	nop
+ 8002be0:	370c      	adds	r7, #12
+ 8002be2:	46bd      	mov	sp, r7
+ 8002be4:	bc80      	pop	{r7}
+ 8002be6:	4770      	bx	lr
+ 8002be8:	200000fc 	.word	0x200000fc
+ 8002bec:	200000d4 	.word	0x200000d4
 
-08002c80 <__libc_init_array>:
- 8002c80:	b570      	push	{r4, r5, r6, lr}
- 8002c82:	2600      	movs	r6, #0
- 8002c84:	4d0c      	ldr	r5, [pc, #48]	; (8002cb8 <__libc_init_array+0x38>)
- 8002c86:	4c0d      	ldr	r4, [pc, #52]	; (8002cbc <__libc_init_array+0x3c>)
- 8002c88:	1b64      	subs	r4, r4, r5
- 8002c8a:	10a4      	asrs	r4, r4, #2
- 8002c8c:	42a6      	cmp	r6, r4
- 8002c8e:	d109      	bne.n	8002ca4 <__libc_init_array+0x24>
- 8002c90:	f000 f822 	bl	8002cd8 <_init>
- 8002c94:	2600      	movs	r6, #0
- 8002c96:	4d0a      	ldr	r5, [pc, #40]	; (8002cc0 <__libc_init_array+0x40>)
- 8002c98:	4c0a      	ldr	r4, [pc, #40]	; (8002cc4 <__libc_init_array+0x44>)
- 8002c9a:	1b64      	subs	r4, r4, r5
- 8002c9c:	10a4      	asrs	r4, r4, #2
- 8002c9e:	42a6      	cmp	r6, r4
- 8002ca0:	d105      	bne.n	8002cae <__libc_init_array+0x2e>
- 8002ca2:	bd70      	pop	{r4, r5, r6, pc}
- 8002ca4:	f855 3b04 	ldr.w	r3, [r5], #4
- 8002ca8:	4798      	blx	r3
- 8002caa:	3601      	adds	r6, #1
- 8002cac:	e7ee      	b.n	8002c8c <__libc_init_array+0xc>
- 8002cae:	f855 3b04 	ldr.w	r3, [r5], #4
- 8002cb2:	4798      	blx	r3
- 8002cb4:	3601      	adds	r6, #1
- 8002cb6:	e7f2      	b.n	8002c9e <__libc_init_array+0x1e>
- 8002cb8:	08002d14 	.word	0x08002d14
- 8002cbc:	08002d14 	.word	0x08002d14
- 8002cc0:	08002d14 	.word	0x08002d14
- 8002cc4:	08002d18 	.word	0x08002d18
+08002bf0 <__libc_init_array>:
+ 8002bf0:	b570      	push	{r4, r5, r6, lr}
+ 8002bf2:	2600      	movs	r6, #0
+ 8002bf4:	4d0c      	ldr	r5, [pc, #48]	; (8002c28 <__libc_init_array+0x38>)
+ 8002bf6:	4c0d      	ldr	r4, [pc, #52]	; (8002c2c <__libc_init_array+0x3c>)
+ 8002bf8:	1b64      	subs	r4, r4, r5
+ 8002bfa:	10a4      	asrs	r4, r4, #2
+ 8002bfc:	42a6      	cmp	r6, r4
+ 8002bfe:	d109      	bne.n	8002c14 <__libc_init_array+0x24>
+ 8002c00:	f000 f822 	bl	8002c48 <_init>
+ 8002c04:	2600      	movs	r6, #0
+ 8002c06:	4d0a      	ldr	r5, [pc, #40]	; (8002c30 <__libc_init_array+0x40>)
+ 8002c08:	4c0a      	ldr	r4, [pc, #40]	; (8002c34 <__libc_init_array+0x44>)
+ 8002c0a:	1b64      	subs	r4, r4, r5
+ 8002c0c:	10a4      	asrs	r4, r4, #2
+ 8002c0e:	42a6      	cmp	r6, r4
+ 8002c10:	d105      	bne.n	8002c1e <__libc_init_array+0x2e>
+ 8002c12:	bd70      	pop	{r4, r5, r6, pc}
+ 8002c14:	f855 3b04 	ldr.w	r3, [r5], #4
+ 8002c18:	4798      	blx	r3
+ 8002c1a:	3601      	adds	r6, #1
+ 8002c1c:	e7ee      	b.n	8002bfc <__libc_init_array+0xc>
+ 8002c1e:	f855 3b04 	ldr.w	r3, [r5], #4
+ 8002c22:	4798      	blx	r3
+ 8002c24:	3601      	adds	r6, #1
+ 8002c26:	e7f2      	b.n	8002c0e <__libc_init_array+0x1e>
+ 8002c28:	08002c84 	.word	0x08002c84
+ 8002c2c:	08002c84 	.word	0x08002c84
+ 8002c30:	08002c84 	.word	0x08002c84
+ 8002c34:	08002c88 	.word	0x08002c88
 
-08002cc8 <memset>:
- 8002cc8:	4603      	mov	r3, r0
- 8002cca:	4402      	add	r2, r0
- 8002ccc:	4293      	cmp	r3, r2
- 8002cce:	d100      	bne.n	8002cd2 <memset+0xa>
- 8002cd0:	4770      	bx	lr
- 8002cd2:	f803 1b01 	strb.w	r1, [r3], #1
- 8002cd6:	e7f9      	b.n	8002ccc <memset+0x4>
+08002c38 <memset>:
+ 8002c38:	4603      	mov	r3, r0
+ 8002c3a:	4402      	add	r2, r0
+ 8002c3c:	4293      	cmp	r3, r2
+ 8002c3e:	d100      	bne.n	8002c42 <memset+0xa>
+ 8002c40:	4770      	bx	lr
+ 8002c42:	f803 1b01 	strb.w	r1, [r3], #1
+ 8002c46:	e7f9      	b.n	8002c3c <memset+0x4>
 
-08002cd8 <_init>:
- 8002cd8:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 8002cda:	bf00      	nop
- 8002cdc:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8002cde:	bc08      	pop	{r3}
- 8002ce0:	469e      	mov	lr, r3
- 8002ce2:	4770      	bx	lr
+08002c48 <_init>:
+ 8002c48:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8002c4a:	bf00      	nop
+ 8002c4c:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8002c4e:	bc08      	pop	{r3}
+ 8002c50:	469e      	mov	lr, r3
+ 8002c52:	4770      	bx	lr
 
-08002ce4 <_fini>:
- 8002ce4:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 8002ce6:	bf00      	nop
- 8002ce8:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8002cea:	bc08      	pop	{r3}
- 8002cec:	469e      	mov	lr, r3
- 8002cee:	4770      	bx	lr
+08002c54 <_fini>:
+ 8002c54:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8002c56:	bf00      	nop
+ 8002c58:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8002c5a:	bc08      	pop	{r3}
+ 8002c5c:	469e      	mov	lr, r3
+ 8002c5e:	4770      	bx	lr
