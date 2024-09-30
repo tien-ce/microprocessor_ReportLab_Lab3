@@ -18,7 +18,6 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -104,6 +103,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  HAL_GPIO_WritePin(GPIOB, EN1_Pin, RESET);
+	  HAL_GPIO_WritePin(GPIOB, EN2_Pin, RESET);
 	  automatic_run();
 	  manual_run();
 	  traffic_double_display(GPIOA, RED_1_Pin, YELLOW_1_Pin, GREEN_1_Pin, GPIOA, RED_2_Pin, YELLOW_2_Pin, GREEN_2_Pin, status);
@@ -214,9 +215,9 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, SEGLED1_0_Pin|SEGLED1_1_Pin|SEGLED1_2_Pin|SEGLED2_3_Pin
-                          |SEGLED2_4_Pin|SEGLED2_5_Pin|SEGLED2_6_Pin|SEGLED1_3_Pin
-                          |SEGLED1_4_Pin|SEGLED1_5_Pin|SEGLED1_6_Pin|SEGLED2_0_Pin
-                          |SEGLED2_1_Pin|SEGLED2_2_Pin, GPIO_PIN_RESET);
+                          |SEGLED2_4_Pin|SEGLED2_5_Pin|SEGLED2_6_Pin|EN1_Pin
+                          |EN2_Pin|SEGLED1_3_Pin|SEGLED1_4_Pin|SEGLED1_5_Pin
+                          |SEGLED1_6_Pin|SEGLED2_0_Pin|SEGLED2_1_Pin|SEGLED2_2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : BUTTON_Pin BUTTON1_Pin BUTTON2_Pin */
   GPIO_InitStruct.Pin = BUTTON_Pin|BUTTON1_Pin|BUTTON2_Pin;
@@ -234,13 +235,13 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : SEGLED1_0_Pin SEGLED1_1_Pin SEGLED1_2_Pin SEGLED2_3_Pin
-                           SEGLED2_4_Pin SEGLED2_5_Pin SEGLED2_6_Pin SEGLED1_3_Pin
-                           SEGLED1_4_Pin SEGLED1_5_Pin SEGLED1_6_Pin SEGLED2_0_Pin
-                           SEGLED2_1_Pin SEGLED2_2_Pin */
+                           SEGLED2_4_Pin SEGLED2_5_Pin SEGLED2_6_Pin EN1_Pin
+                           EN2_Pin SEGLED1_3_Pin SEGLED1_4_Pin SEGLED1_5_Pin
+                           SEGLED1_6_Pin SEGLED2_0_Pin SEGLED2_1_Pin SEGLED2_2_Pin */
   GPIO_InitStruct.Pin = SEGLED1_0_Pin|SEGLED1_1_Pin|SEGLED1_2_Pin|SEGLED2_3_Pin
-                          |SEGLED2_4_Pin|SEGLED2_5_Pin|SEGLED2_6_Pin|SEGLED1_3_Pin
-                          |SEGLED1_4_Pin|SEGLED1_5_Pin|SEGLED1_6_Pin|SEGLED2_0_Pin
-                          |SEGLED2_1_Pin|SEGLED2_2_Pin;
+                          |SEGLED2_4_Pin|SEGLED2_5_Pin|SEGLED2_6_Pin|EN1_Pin
+                          |EN2_Pin|SEGLED1_3_Pin|SEGLED1_4_Pin|SEGLED1_5_Pin
+                          |SEGLED1_6_Pin|SEGLED2_0_Pin|SEGLED2_1_Pin|SEGLED2_2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

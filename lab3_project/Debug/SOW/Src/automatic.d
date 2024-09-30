@@ -25,7 +25,8 @@ SOW/Src/automatic.o: E:/SOW/Src/automatic.c E:/SOW/Ins/automatic.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  E:/SOW/Ins/global.h E:/SOW/Ins/software_timer.h E:/SOW/Ins/automatic.h \
  E:/SOW/Ins/manual.h E:/SOW/Ins/Traffic_light.h E:/SOW/Ins/LED7_SEGMENT.h \
- E:/SOW/Ins/input_reading.h E:/SOW/Ins/input_processing.h
+ E:/SOW/Ins/input_reading.h E:/SOW/Ins/input_processing.h \
+ E:/SOW/Ins/enable.h
 
 E:/SOW/Ins/automatic.h:
 
@@ -94,3 +95,5 @@ E:/SOW/Ins/LED7_SEGMENT.h:
 E:/SOW/Ins/input_reading.h:
 
 E:/SOW/Ins/input_processing.h:
+
+E:/SOW/Ins/enable.h:

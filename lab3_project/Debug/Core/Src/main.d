@@ -26,9 +26,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  E:/SOW/Ins/global.h E:/SOW/Ins/software_timer.h E:/SOW/Ins/automatic.h \
  E:/SOW/Ins/global.h E:/SOW/Ins/manual.h E:/SOW/Ins/Traffic_light.h \
  E:/SOW/Ins/LED7_SEGMENT.h E:/SOW/Ins/input_reading.h \
- E:/SOW/Ins/input_processing.h E:/SOW/Ins/input_reading.h \
- E:/SOW/Ins/input_processing.h ../Core/Inc/ex4.h ../Core/Inc/main.h \
- ../Core/Inc/ex5.h
+ E:/SOW/Ins/input_processing.h E:/SOW/Ins/enable.h \
+ E:/SOW/Ins/input_reading.h E:/SOW/Ins/input_processing.h \
+ ../Core/Inc/ex4.h ../Core/Inc/main.h ../Core/Inc/ex5.h
 
 ../Core/Inc/main.h:
 
@@ -97,6 +97,8 @@ E:/SOW/Ins/LED7_SEGMENT.h:
 E:/SOW/Ins/input_reading.h:
 
 E:/SOW/Ins/input_processing.h:
+
+E:/SOW/Ins/enable.h:
 
 E:/SOW/Ins/input_reading.h:
 

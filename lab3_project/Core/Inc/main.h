@@ -90,6 +90,10 @@ void Error_Handler(void);
 #define SEGLED2_5_GPIO_Port GPIOB
 #define SEGLED2_6_Pin GPIO_PIN_13
 #define SEGLED2_6_GPIO_Port GPIOB
+#define EN1_Pin GPIO_PIN_14
+#define EN1_GPIO_Port GPIOB
+#define EN2_Pin GPIO_PIN_15
+#define EN2_GPIO_Port GPIOB
 #define RED_2_Pin GPIO_PIN_8
 #define RED_2_GPIO_Port GPIOA
 #define SEGLED1_3_Pin GPIO_PIN_3

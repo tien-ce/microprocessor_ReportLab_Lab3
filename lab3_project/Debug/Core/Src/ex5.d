@@ -25,7 +25,8 @@ Core/Src/ex5.o: ../Core/Src/ex5.c ../Core/Inc/ex5.h E:/SOW/Ins/global.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  E:/SOW/Ins/software_timer.h E:/SOW/Ins/automatic.h E:/SOW/Ins/global.h \
  E:/SOW/Ins/manual.h E:/SOW/Ins/Traffic_light.h E:/SOW/Ins/LED7_SEGMENT.h \
- E:/SOW/Ins/input_reading.h E:/SOW/Ins/input_processing.h
+ E:/SOW/Ins/input_reading.h E:/SOW/Ins/input_processing.h \
+ E:/SOW/Ins/enable.h
 
 ../Core/Inc/ex5.h:
 
@@ -96,3 +97,5 @@ E:/SOW/Ins/LED7_SEGMENT.h:
 E:/SOW/Ins/input_reading.h:
 
 E:/SOW/Ins/input_processing.h:
+
+E:/SOW/Ins/enable.h:
