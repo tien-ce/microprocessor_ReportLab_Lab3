@@ -10,6 +10,6 @@ Traffic_light.c:222:6:traffic_mannual_green_red	8	static
 Traffic_light.c:230:6:traffic_mannual_yellow_red	8	static
 Traffic_light.c:238:6:traffic_mannual_red_green	8	static
 Traffic_light.c:246:6:traffic_mannual_red_yellow	8	static
-Traffic_light.c:254:6:traffic_set_time_red	32	static
-Traffic_light.c:280:6:traffic_set_time_yellow	32	static
-Traffic_light.c:308:6:traffic_set_time_green	32	static
+Traffic_light.c:254:6:traffic_set_time_red	8	static
+Traffic_light.c:279:6:traffic_set_time_yellow	8	static
+Traffic_light.c:305:6:traffic_set_time_green	8	static

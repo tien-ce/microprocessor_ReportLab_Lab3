@@ -60,8 +60,65 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+GPIO_TypeDef* GPIO_enable[2] = {EN1_GPIO_Port,EN2_GPIO_Port};
+uint16_t GPIO_enable_Pin[2] = {EN1_Pin,EN2_Pin};
 GPIO_TypeDef* GPIOx[3] = {BUTTON_GPIO_Port,BUTTON1_GPIO_Port,BUTTON2_GPIO_Port};
 uint16_t GPIO_Pin[3] = {BUTTON_Pin,BUTTON1_Pin,BUTTON2_Pin};
+int buffer1[] = {0,1};
+int buffer2[] = {0,1};
+int buffer_slect_red[] = {0,1};
+int buffer_slect_yellow[] = {0,1};
+int buffer_slect_green[] = {0,1};
+int my_index = 1;
+void updateTime(){
+	if(timer1_flag[1] == 1){
+		setTimer1(1, 1000);
+		time_1 --;
+		time_2 --;
+	}
+}
+void update_buffer(){
+	buffer1[0] = ( time_1 - 1 )/ 10;
+	buffer1[1] =  (time_1 - 1)% 10;
+	buffer2[0] = (time_2-1) / 10;
+	buffer2[1] = (time_2 -1) % 10;
+	buffer_slect_red[0] = (time_red_select-1) / 10;
+	buffer_slect_red[1] = (time_red_select-1) % 10;
+	buffer_slect_yellow[0] = (time_yellow_select - 1) / 10;
+	buffer_slect_yellow[1] = (time_yellow_select - 1) % 10;
+	buffer_slect_green[0] = (time_green_select - 1) / 10;
+	buffer_slect_green[1] = (time_green_select - 1) % 10;
+}
+
+void update_Display(){
+	HAL_GPIO_WritePin(GPIO_enable[my_index], GPIO_enable_Pin[my_index],RESET);
+	HAL_GPIO_WritePin(GPIO_enable[1-my_index], GPIO_enable_Pin[1-my_index],SET);
+switch(status){
+
+case SET_TIME_RED:
+	DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED1_0_Pin, SEGLED1_1_Pin, SEGLED1_2_Pin,
+			SEGLED1_3_Pin, SEGLED1_4_Pin, SEGLED1_5_Pin, SEGLED1_6_Pin, buffer_slect_red[my_index]);
+	DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED2_0_Pin, SEGLED2_1_Pin, SEGLED2_2_Pin, SEGLED2_3_Pin, SEGLED2_4_Pin, SEGLED2_5_Pin, SEGLED2_6_Pin, 2);
+	break;
+case SET_TIME_YELLOW:
+	DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED1_0_Pin, SEGLED1_1_Pin, SEGLED1_2_Pin,
+			SEGLED1_3_Pin, SEGLED1_4_Pin, SEGLED1_5_Pin, SEGLED1_6_Pin, buffer_slect_yellow[my_index]);
+	DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED2_0_Pin, SEGLED2_1_Pin, SEGLED2_2_Pin, SEGLED2_3_Pin, SEGLED2_4_Pin, SEGLED2_5_Pin, SEGLED2_6_Pin, 3);
+	break;
+case SET_TIME_GREEN:
+	DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED1_0_Pin, SEGLED1_1_Pin, SEGLED1_2_Pin,
+			SEGLED1_3_Pin, SEGLED1_4_Pin, SEGLED1_5_Pin, SEGLED1_6_Pin, buffer_slect_green[my_index]);
+	DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED2_0_Pin, SEGLED2_1_Pin, SEGLED2_2_Pin, SEGLED2_3_Pin, SEGLED2_4_Pin, SEGLED2_5_Pin, SEGLED2_6_Pin, 4);
+	break;
+default :
+    DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED1_0_Pin, SEGLED1_1_Pin, SEGLED1_2_Pin,
+    		SEGLED1_3_Pin, SEGLED1_4_Pin, SEGLED1_5_Pin, SEGLED1_6_Pin, buffer1[my_index]);
+    DISPLAY_LED_7_SEGMENT(GPIOB, SEGLED2_0_Pin, SEGLED2_1_Pin, SEGLED2_2_Pin,
+    		SEGLED2_3_Pin, SEGLED2_4_Pin, SEGLED2_5_Pin, SEGLED2_6_Pin, buffer2[my_index]);
+    break;
+}
+
+}
 /* USER CODE END 0 */
 
 /**
@@ -97,14 +154,24 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
   ex4_init();
   ex5_init();
+  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin,RESET);
+  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin,SET);
+
+  setTimer1(3, 500);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_GPIO_WritePin(GPIOB, EN1_Pin, RESET);
-	  HAL_GPIO_WritePin(GPIOB, EN2_Pin, RESET);
+	  if(timer1_flag[3] == 1){
+		  setTimer1(3, 500);
+
+		  my_index = 1-my_index;
+	  }
+	  update_buffer();
+	  updateTime();
+	  update_Display();
 	  automatic_run();
 	  manual_run();
 	  traffic_double_display(GPIOA, RED_1_Pin, YELLOW_1_Pin, GREEN_1_Pin, GPIOA, RED_2_Pin, YELLOW_2_Pin, GREEN_2_Pin, status);
