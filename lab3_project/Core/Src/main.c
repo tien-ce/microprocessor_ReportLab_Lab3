@@ -157,7 +157,7 @@ int main(void)
   HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin,RESET);
   HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin,SET);
 
-  setTimer1(3, 500);
+  setTimer1(3, 100);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -165,8 +165,7 @@ int main(void)
   while (1)
   {
 	  if(timer1_flag[3] == 1){
-		  setTimer1(3, 500);
-
+		  setTimer1(3, 100);
 		  my_index = 1-my_index;
 	  }
 	  update_buffer();
