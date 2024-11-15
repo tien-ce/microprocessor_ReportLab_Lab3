@@ -1,5 +1,6 @@
 SOW/Src/manual.o: E:/SOW/Src/manual.c E:/SOW/Ins/manual.h \
- ../Core/Inc/main.h ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
+ E:/SOW/Ins/global.h ../Core/Inc/main.h \
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h \
@@ -23,12 +24,13 @@ SOW/Src/manual.o: E:/SOW/Src/manual.c E:/SOW/Ins/manual.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- E:/SOW/Ins/global.h E:/SOW/Ins/software_timer.h E:/SOW/Ins/automatic.h \
- E:/SOW/Ins/manual.h E:/SOW/Ins/Traffic_light.h E:/SOW/Ins/LED7_SEGMENT.h \
- E:/SOW/Ins/input_reading.h E:/SOW/Ins/input_processing.h \
- E:/SOW/Ins/enable.h
+ E:/SOW/Ins/software_timer.h E:/SOW/Ins/automatic.h E:/SOW/Ins/manual.h \
+ E:/SOW/Ins/Traffic_light.h E:/SOW/Ins/LED7_SEGMENT.h \
+ E:/SOW/Ins/input_reading.h E:/SOW/Ins/enable.h
 
 E:/SOW/Ins/manual.h:
+
+E:/SOW/Ins/global.h:
 
 ../Core/Inc/main.h:
 
@@ -80,8 +82,6 @@ E:/SOW/Ins/manual.h:
 
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 
-E:/SOW/Ins/global.h:
-
 E:/SOW/Ins/software_timer.h:
 
 E:/SOW/Ins/automatic.h:
@@ -93,7 +93,5 @@ E:/SOW/Ins/Traffic_light.h:
 E:/SOW/Ins/LED7_SEGMENT.h:
 
 E:/SOW/Ins/input_reading.h:
-
-E:/SOW/Ins/input_processing.h:
 
 E:/SOW/Ins/enable.h:
