@@ -24,9 +24,6 @@
 /* USER CODE BEGIN Includes */
 #include "global.h"
 #include "input_reading.h"
-#include <ex4.h>
-#include "ex5.h"
-#include "ex10.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -71,11 +68,8 @@ int buffer_slect_yellow[] = {0,1};
 int buffer_slect_green[] = {0,1};
 int my_index = 1;
 void updateTime(){
-	if(timer1_flag[1] == 1){
-		setTimer1(1, 1000);
 		time_1 --;
 		time_2 --;
-	}
 }
 
 void update_buffer(){
@@ -123,6 +117,21 @@ default :
 }
 
 }
+
+void led_toggle(){
+	HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+}
+
+void index_toggle(){
+	my_index = 1-my_index;
+}
+void always(){
+	  update_buffer();
+	  update_Display();
+	  automatic_run();
+	  manual_run();
+	  traffic_double_display(GPIOA, RED_1_Pin, YELLOW_1_Pin, GREEN_1_Pin, GPIOA, RED_2_Pin, YELLOW_2_Pin, GREEN_2_Pin, status);
+}
 /* USER CODE END 0 */
 
 /**
@@ -156,17 +165,25 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
-  ex4_init();
+  SCH_Add_Task(led_toggle, 1000, 1000);
+  SCH_Add_Task(index_toggle, 0, 500);
+  SCH_Add_Task(always, 0, 10);
+  SCH_Add_Task(updateTime, 1000, 1000);
+/*
+ *ex4_init();
   ex5_init();
   ex10_init();
+ */
+
   /* USER CODE END 2 */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  ex10_run();
-	  traffic_double_display(GPIOA, RED_1_Pin, YELLOW_1_Pin, GREEN_1_Pin, GPIOA, RED_2_Pin, YELLOW_2_Pin, GREEN_2_Pin, status);
-    /* USER CODE END WHILE */
+	  //ex10_run();
+	  //traffic_double_display(GPIOA, RED_1_Pin, YELLOW_1_Pin, GREEN_1_Pin, GPIOA, RED_2_Pin, YELLOW_2_Pin, GREEN_2_Pin, status);
+	  SCH_Dispatch_Task();
+	  /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
@@ -311,6 +328,7 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	timerRun();
 	getKeyInput(GPIOx, GPIO_Pin);
+	SCH_Update();
 }
 /* USER CODE END 4 */
 
